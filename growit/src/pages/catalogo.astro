@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { CatalogFilters } from '../components/products/CatalogFilters';
+import { CatalogSort } from '../components/products/CatalogSort';
+import { ProductGrid } from '../components/products/ProductGrid';
+import { mockProducts } from '../data/mockProducts';
+---
+
+<MainLayout title="Catálogo - Growit" currentPath="/catalogo">
+  <div class="bg-gray-50 min-h-screen py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          Catálogo de Productos
+        </h1>
+        <p class="text-lg text-gray-600">
+          Explora nuestra selección completa de kits y accesorios
+        </p>
+      </div>
+      
+      <!-- Filters and Sort Bar -->
+      <div class="mb-6 flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
+        <div class="w-full lg:w-auto">
+          <CatalogSort 
+            onSortChange={(sort) => console.log('Sort changed:', sort)}
+            client:load
+          />
+        </div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Sidebar Filters -->
+        <aside class="lg:col-span-1">
+          <CatalogFilters
+            onFilterChange={(filters) => console.log('Filters changed:', filters)}
+            client:load
+          />
+        </aside>
+        
+        <!-- Product Grid -->
+        <div class="lg:col-span-3">
+          <ProductGrid products={mockProducts} client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

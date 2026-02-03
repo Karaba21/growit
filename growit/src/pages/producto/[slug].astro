@@ -1,0 +1,162 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { Button } from '../../components/ui/Button';
+import { Badge } from '../../components/ui/Badge';
+import { mockProducts } from '../../data/mockProducts';
+
+// Generate static paths for all products
+export async function getStaticPaths() {
+  return mockProducts.map((product) => ({
+    params: { slug: product.handle },
+  }));
+}
+
+const { slug } = Astro.params;
+
+// Find product by slug
+const product = mockProducts.find((p) => p.handle === slug);
+
+// If product not found, return 404
+if (!product) {
+  return Astro.redirect('/404');
+}
+
+const price = parseFloat(product.priceRange.minVariantPrice);
+const compareAtPrice = product.variants[0]?.compareAtPrice
+  ? parseFloat(product.variants[0].compareAtPrice)
+  : null;
+---
+
+<MainLayout title={`${product.title} - Growit`} description={product.description}>
+  <div class="bg-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-gray-600">
+          <li><a href="/" class="hover:text-primary-600">Inicio</a></li>
+          <li>/</li>
+          <li><a href="/catalogo" class="hover:text-primary-600">Catálogo</a></li>
+          <li>/</li>
+          <li class="text-gray-900 font-medium">{product.title}</li>
+        </ol>
+      </nav>
+      
+      <!-- Product Details -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Image Gallery -->
+        <div>
+          <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
+            {product.featuredImage && (
+              <img
+                src={product.featuredImage.url}
+                alt={product.featuredImage.altText || product.title}
+                class="w-full h-full object-cover"
+              />
+            )}
+          </div>
+          
+          <!-- Thumbnail Gallery (placeholder for future) -->
+          <div class="grid grid-cols-4 gap-2">
+            {product.images.slice(0, 4).map((image) => (
+              <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-75 transition-opacity">
+                <img
+                  src={image.url}
+                  alt={image.altText || ''}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {product.title}
+          </h1>
+          
+          <!-- Badges -->
+          <div class="flex gap-2 mb-4">
+            {!product.availableForSale && (
+              <Badge variant="error" client:load>Agotado</Badge>
+            )}
+            {compareAtPrice && compareAtPrice > price && (
+              <Badge variant="warning" client:load>Oferta</Badge>
+            )}
+          </div>
+          
+          <!-- Price -->
+          <div class="mb-6">
+            <div class="flex items-baseline gap-3">
+              <span class="text-4xl font-bold text-gray-900">
+                ${price.toFixed(2)}
+              </span>
+              {compareAtPrice && compareAtPrice > price && (
+                <span class="text-xl text-gray-500 line-through">
+                  ${compareAtPrice.toFixed(2)}
+                </span>
+              )}
+            </div>
+          </div>
+          
+          <!-- Description -->
+          <div class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-900 mb-2">Descripción</h2>
+            <div class="text-gray-600 prose prose-sm" set:html={product.descriptionHtml} />
+          </div>
+          
+          <!-- Product Details -->
+          <div class="mb-8 space-y-2">
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 w-24">SKU:</span>
+              <span class="text-gray-900 font-medium">{product.variants[0]?.sku || 'N/A'}</span>
+            </div>
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 w-24">Categoría:</span>
+              <span class="text-gray-900 font-medium">{product.productType}</span>
+            </div>
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 w-24">Marca:</span>
+              <span class="text-gray-900 font-medium">{product.vendor}</span>
+            </div>
+          </div>
+          
+          <!-- Add to Cart -->
+          <div class="space-y-4">
+            <Button
+              size="lg"
+              disabled={!product.availableForSale}
+              className="w-full"
+              client:load
+            >
+              {product.availableForSale ? 'Agregar al carrito' : 'Agotado'}
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full"
+              client:load
+            >
+              Agregar a favoritos
+            </Button>
+          </div>
+          
+          <!-- Tags -->
+          {product.tags.length > 0 && (
+            <div class="mt-8">
+              <h3 class="text-sm font-medium text-gray-700 mb-2">Etiquetas:</h3>
+              <div class="flex flex-wrap gap-2">
+                {product.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

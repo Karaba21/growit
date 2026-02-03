@@ -1,0 +1,59 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const {
+  title = 'Growit - Cultiva tu propio alimento en casa',
+  description = 'Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.',
+  currentPath = '/',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen bg-white">
+    <div id="app" class="flex flex-col min-h-screen">
+      <!-- Header will be imported as React component -->
+      <div id="header-root"></div>
+      
+      <!-- Main Content -->
+      <main class="flex-grow">
+        <slot />
+      </main>
+      
+      <!-- Footer will be imported as React component -->
+      <div id="footer-root"></div>
+    </div>
+    
+    <script>
+      import { createRoot } from 'react-dom/client';
+      import { Header } from '../components/header/Header';
+      import { Footer } from '../components/footer/Footer';
+      import React from 'react';
+      
+      // Render Header
+      const headerRoot = document.getElementById('header-root');
+      if (headerRoot) {
+        createRoot(headerRoot).render(
+          React.createElement(Header, { currentPath: window.location.pathname })
+        );
+      }
+      
+      // Render Footer
+      const footerRoot = document.getElementById('footer-root');
+      if (footerRoot) {
+        createRoot(footerRoot).render(React.createElement(Footer));
+      }
+    </script>
+  </body>
+</html>
