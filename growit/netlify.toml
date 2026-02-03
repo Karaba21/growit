@@ -9,13 +9,11 @@
   # Node version to use
   NODE_VERSION = "18"
 
-# Redirect rules for SPA-like behavior (if needed)
+# 404 page redirect
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
-  conditions = {Role = ["admin"]}
+  to = "/404.html"
+  status = 404
 
 # Headers for security and performance
 [[headers]]
