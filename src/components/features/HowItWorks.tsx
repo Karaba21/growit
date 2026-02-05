@@ -9,11 +9,11 @@ export const HowItWorks: React.FC = () => {
 
                     {/* Image - Left Side */}
                     <div className="w-full lg:w-1/2">
-                        <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/5] lg:aspect-square">
+                        <div className="relative rounded-lg overflow-hidden shadow-xl">
                             <img
-                                src="/images/tower-detail.png"
+                                src="/fotomain.JPG"
                                 alt="Sistema Growit en detalle"
-                                className="w-full h-full object-cover"
+                                className="w-full h-auto"
                             />
                         </div>
                     </div>

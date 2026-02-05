@@ -19,9 +19,7 @@ export const FeaturesGrid: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* Feature 1 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
-                            <Plant size={32} weight="fill" />
-                        </div>
+                        <img src="/nontoxic.png" alt="Pesticide Free" />
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Libre de Pesticidas
                         </h3>
@@ -32,9 +30,7 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 2 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
-                            <HouseLine size={32} weight="fill" />
-                        </div>
+                        <img src="/espacio.png" alt="Pesticide Free" />
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Espacio reducido
                         </h3>
@@ -45,9 +41,7 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 3 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
-                            <Leaf size={32} weight="fill" />
-                        </div>
+                        <img src="/canasta.png" alt="Pesticide Free" />
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Cosechas frescas
                         </h3>
@@ -58,9 +52,7 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 4 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
-                            <Gear size={32} weight="fill" />
-                        </div>
+                        <img src="/rueda.png" alt="Pesticide Free" />
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Automático
                         </h3>
