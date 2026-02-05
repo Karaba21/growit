@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
     return (
-        <header className="bg-white shadow-sm sticky top-0 z-50">
+        <header className="bg-surface shadow-sm sticky top-0 z-50 border-b border-beige">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                     <Navigation currentPath={currentPath} />
 
                     {/* Actions */}
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 text-primary">
                         <SearchIcon />
                         <CartIcon itemCount={0} />
                     </div>

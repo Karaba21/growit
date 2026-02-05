@@ -34,33 +34,37 @@ export const FaqSection: React.FC = () => {
     };
 
     return (
-        <div className="mt-16 max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl text-center text-white mb-12 uppercase tracking-widest border-b border-white/20 pb-4">
-                Preguntas Frecuentes
-            </h2>
-            <div className="space-y-4">
-                {faqData.map((item) => (
-                    <div key={item.id} className="border border-white/20 rounded-lg overflow-hidden bg-primary/50 backdrop-blur-sm">
-                        <button
-                            onClick={() => toggle(item.id)}
-                            className="w-full flex justify-between items-center p-4 text-left hover:bg-white/5 transition-colors"
-                        >
-                            <span className="font-medium text-sm text-white flex items-center gap-3">
-                                <i className="ph ph-check-square text-accent"></i>
-                                {item.question}
-                            </span>
-                            <i className={`ph ph-caret-down text-white transition-transform duration-300 ${openId === item.id ? 'rotate-180' : ''}`}></i>
-                        </button>
-                        <div
-                            className={`transition-all duration-300 ease-in-out overflow-hidden ${openId === item.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-                        >
-                            <div className="p-4 pt-0 text-sm text-gray-300 font-light leading-relaxed">
-                                {item.answer}
+        <section className="py-16 bg-primary">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 className="font-display text-3xl text-center text-white mb-12 uppercase tracking-widest border-b border-white/20 pb-4">
+                        Preguntas Frecuentes
+                    </h2>
+                    <div className="space-y-4">
+                        {faqData.map((item) => (
+                            <div key={item.id} className="border border-white/20 rounded-lg overflow-hidden bg-primary-800/50 backdrop-blur-sm">
+                                <button
+                                    onClick={() => toggle(item.id)}
+                                    className="w-full flex justify-between items-center p-4 text-left hover:bg-white/5 transition-colors"
+                                >
+                                    <span className="font-body font-medium text-sm text-white flex items-center gap-3">
+                                        <i className="ph ph-check-square text-accent"></i>
+                                        {item.question}
+                                    </span>
+                                    <i className={`ph ph-caret-down text-white transition-transform duration-300 ${openId === item.id ? 'rotate-180' : ''}`}></i>
+                                </button>
+                                <div
+                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${openId === item.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                                >
+                                    <div className="p-4 pt-0 text-sm text-beige font-body font-light leading-relaxed">
+                                        {item.answer}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };

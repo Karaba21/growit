@@ -37,13 +37,13 @@ const steps: HowItWorksStep[] = [
 
 export const HowItWorks: React.FC = () => {
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-surface">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
                         ¿Cómo funciona?
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-text-main font-body max-w-2xl mx-auto">
                         5 pasos simples para comenzar tu cultivo en casa
                     </p>
                 </div>
@@ -51,7 +51,7 @@ export const HowItWorks: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Image */}
                     <div className="order-2 lg:order-1">
-                        <div className="bg-primary-100 rounded-lg aspect-square flex items-center justify-center">
+                        <div className="bg-primary-50 rounded-lg aspect-square flex items-center justify-center border border-primary-100">
                             <span className="text-6xl">🌿</span>
                         </div>
                     </div>
@@ -61,15 +61,15 @@ export const HowItWorks: React.FC = () => {
                         {steps.map((step) => (
                             <div key={step.id} className="flex gap-4">
                                 <div className="flex-shrink-0">
-                                    <div className="w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
+                                    <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold font-body">
                                         {step.stepNumber}
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                                    <h3 className="text-lg font-bold font-display text-primary mb-1">
                                         {step.title}
                                     </h3>
-                                    <p className="text-gray-600">
+                                    <p className="text-text-main font-body opacity-90">
                                         {step.description}
                                     </p>
                                 </div>
@@ -77,7 +77,7 @@ export const HowItWorks: React.FC = () => {
                         ))}
 
                         <div className="pt-4">
-                            <Button size="lg">
+                            <Button size="lg" className="bg-primary text-white hover:bg-opacity-90 font-display">
                                 Comenzar ahora
                             </Button>
                         </div>

@@ -20,13 +20,13 @@ export default function Home() {
 
       <HowItWorks />
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-beige">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
               Productos Destacados
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-text-main font-body max-w-2xl mx-auto">
               Descubre nuestros kits y accesorios más populares
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               href="/catalogo"
-              className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
+              className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-body font-medium hover:bg-opacity-90 transition-colors"
             >
               Ver todos los productos
             </Link>

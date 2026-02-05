@@ -31,13 +31,13 @@ const features: Feature[] = [
 
 export const FeaturesGrid: React.FC = () => {
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-beige">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
                         ¿Qué ofrece Growit?
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-text-main font-body max-w-2xl mx-auto">
                         Todo lo que necesitas para cultivar tu propio alimento en casa
                     </p>
                 </div>

@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-display: var(--font-playfair), serif;
+  --font-body: var(--font-lato), sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
+  --color-primary: #013D3B;
+  --color-accent: #D9704F;
+  --color-beige: #F4F1EA;
+  --color-surface: #FFFFFF;
+  --color-text-main: #333333;
+  --color-background: var(--color-beige);
+  --color-foreground: var(--color-text-main);
+
   --color-primary-50: #f0fdf4;
   --color-primary-100: #dcfce7;
   --color-primary-200: #bbf7d0;
@@ -23,15 +24,39 @@
   --color-primary-900: #14532d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 
+  Container config (approximate for v4 as 'container' key in config is different)
+  v4 doesn't support 'container: { center: true }' in @theme directly like v3 config.js.
+  For now, we can use utility utility classes or a component.
+  However, since user asked for it, let's just make sure we have the vars.
+  The user requested `container: { center: true, padding: '1rem' }` style.
+  In v4, we can override the .container utility or just rely on classes.
+  Let's add a utility layer override for container to match behavior if possible or just stick to basics.
+  Actually, let's keep it simple and just set the utility defaults if needed, 
+  but v4 is different. Let's just add the @utility if we really need to enforce it globally,
+  or rely on standard `container mx-auto px-4` usage.
+  Given the request, I will rely on standard classes for now or add a global rule.
+*/
+
+@layer components {
+  .container {
+    @apply mx-auto px-4;
   }
 }
 
+
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-beige);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
 }
