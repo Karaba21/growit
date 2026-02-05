@@ -3,7 +3,7 @@ import React from 'react';
 export const SearchIcon: React.FC = () => {
     return (
         <button
-            className="p-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+            className="p-2 text-white/90 hover:text-accent transition-colors duration-200"
             aria-label="Buscar"
         >
             <svg

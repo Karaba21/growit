@@ -1,51 +1,73 @@
 import React from 'react';
-import { FeatureCard } from './FeatureCard';
-import type { Feature } from '../../types/product';
-
-const features: Feature[] = [
-    {
-        id: '1',
-        icon: '🌱',
-        title: 'Fácil de usar',
-        description: 'Sistema intuitivo diseñado para principiantes. No necesitas experiencia previa.',
-    },
-    {
-        id: '2',
-        icon: '💧',
-        title: 'Riego automático',
-        description: 'Sensores inteligentes que riegan tus plantas cuando lo necesitan.',
-    },
-    {
-        id: '3',
-        icon: '📱',
-        title: 'App móvil',
-        description: 'Monitorea y controla tu cultivo desde tu smartphone.',
-    },
-    {
-        id: '4',
-        icon: '🌿',
-        title: '100% orgánico',
-        description: 'Semillas y nutrientes certificados orgánicos para cultivos saludables.',
-    },
-];
+import { Plant, HouseLine, Leaf, Gear } from '@phosphor-icons/react/dist/ssr';
 
 export const FeaturesGrid: React.FC = () => {
     return (
-        <section className="py-16 bg-beige">
+        <section className="py-20 bg-[#F4F1EA]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-                        ¿Qué ofrece Growit?
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-6">
+                        ¿Que Ofrece Growit?
                     </h2>
-                    <p className="text-lg text-text-main font-body max-w-2xl mx-auto">
-                        Todo lo que necesitas para cultivar tu propio alimento en casa
+                    <p className="text-gray-600 font-body max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                        Growit es la solución más completa de búsqueda de hogar, permitiéndonos ofrecerte seguros,
+                        <br className="hidden md:block" />
+                        renovaciones, mudanzas y soporte en cada tema. Te acompañamos en todo el proceso.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {features.map((feature) => (
-                        <FeatureCard key={feature.id} feature={feature} />
-                    ))}
+                    {/* Feature 1 */}
+                    <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                            <Plant size={32} weight="fill" />
+                        </div>
+                        <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
+                            Libre de Pesticidas
+                        </h3>
+                        <p className="text-sm text-gray-500 font-body leading-relaxed">
+                            Cultivo 100% natural, sin tóxicos ni pesticidas.
+                        </p>
+                    </div>
+
+                    {/* Feature 2 */}
+                    <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                            <HouseLine size={32} weight="fill" />
+                        </div>
+                        <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
+                            Espacio reducido
+                        </h3>
+                        <p className="text-sm text-gray-500 font-body leading-relaxed">
+                            Cultiva en menos de 1 metro cuadrado.
+                        </p>
+                    </div>
+
+                    {/* Feature 3 */}
+                    <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                            <Leaf size={32} weight="fill" />
+                        </div>
+                        <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
+                            Cosechas frescas
+                        </h3>
+                        <p className="text-sm text-gray-500 font-body leading-relaxed">
+                            Disfrutá de hojas, frutas y hierbas frescas todo el año.
+                        </p>
+                    </div>
+
+                    {/* Feature 4 */}
+                    <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                            <Gear size={32} weight="fill" />
+                        </div>
+                        <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
+                            Automático
+                        </h3>
+                        <p className="text-sm text-gray-500 font-body leading-relaxed">
+                            Riega tus plantas automáticamente gracias a su sistema hidropónico.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>

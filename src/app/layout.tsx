@@ -1,21 +1,7 @@
 import type { Metadata } from "next";
-import { Lato, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-playfair",
-  style: ["normal", "italic"],
-});
 
 export const metadata: Metadata = {
   title: "Growit - Cultiva tu propio alimento en casa",
@@ -30,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`min-h-screen bg-white ${lato.variable} ${playfair.variable} antialiased font-body`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-screen bg-white antialiased font-body">
         <div id="app" className="flex flex-col min-h-screen">
           <Header currentPath="/" />
           <main className="flex-grow">

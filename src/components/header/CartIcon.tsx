@@ -7,7 +7,7 @@ interface CartIconProps {
 export const CartIcon: React.FC<CartIconProps> = ({ itemCount = 0 }) => {
     return (
         <button
-            className="relative p-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+            className="relative p-2 text-white/90 hover:text-accent transition-colors duration-200"
             aria-label="Carrito de compras"
         >
             <svg

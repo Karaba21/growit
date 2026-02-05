@@ -7,8 +7,9 @@ interface NavigationProps {
 
 const navLinks = [
     { href: '/', label: 'Inicio' },
-    { href: '/catalogo', label: 'Catálogo' },
-    { href: '#contacto', label: 'Contacto' },
+    { href: '/catalogo', label: 'Cátalogo' },
+    { href: '/resenas', label: 'Reseñas' },
+    { href: '/pickup', label: 'Pickup' },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
@@ -25,8 +26,8 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => 
                             key={link.href}
                             href={link.href}
                             className={`text-sm font-medium transition-colors duration-200 ${isActive
-                                ? 'text-primary-600'
-                                : 'text-gray-700 hover:text-primary-600'
+                                ? 'text-accent'
+                                : 'text-white/90 hover:text-white'
                                 }`}
                         >
                             {link.label}
@@ -39,8 +40,8 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => 
                         key={link.href}
                         href={link.href}
                         className={`text-sm font-medium transition-colors duration-200 ${isActive
-                            ? 'text-primary-600'
-                            : 'text-gray-700 hover:text-primary-600'
+                            ? 'text-accent'
+                            : 'text-white/90 hover:text-white'
                             }`}
                     >
                         {link.label}

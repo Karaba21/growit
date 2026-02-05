@@ -1,85 +1,79 @@
 import React from 'react';
-import { Button } from '../ui/Button';
-import type { HowItWorksStep } from '../../types/product';
-
-const steps: HowItWorksStep[] = [
-    {
-        id: '1',
-        stepNumber: 1,
-        title: 'Elige tu kit',
-        description: 'Selecciona el kit que mejor se adapte a tu espacio y necesidades.',
-    },
-    {
-        id: '2',
-        stepNumber: 2,
-        title: 'Configura tu maceta',
-        description: 'Sigue las instrucciones simples para preparar tu sistema de cultivo.',
-    },
-    {
-        id: '3',
-        stepNumber: 3,
-        title: 'Planta tus semillas',
-        description: 'Coloca las semillas en el sustrato siguiendo nuestra guía.',
-    },
-    {
-        id: '4',
-        stepNumber: 4,
-        title: 'Monitorea con la app',
-        description: 'Recibe notificaciones y consejos personalizados en tu móvil.',
-    },
-    {
-        id: '5',
-        stepNumber: 5,
-        title: 'Cosecha y disfruta',
-        description: 'En pocas semanas, cosecha tus propios alimentos frescos y orgánicos.',
-    },
-];
+import Link from "next/link";
 
 export const HowItWorks: React.FC = () => {
     return (
-        <section className="py-16 bg-surface">
+        <section className="py-20 bg-[#F4F1EA]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-                        ¿Cómo funciona?
-                    </h2>
-                    <p className="text-lg text-text-main font-body max-w-2xl mx-auto">
-                        5 pasos simples para comenzar tu cultivo en casa
-                    </p>
-                </div>
+                <div className="flex flex-col lg:flex-row items-center gap-16">
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Image */}
-                    <div className="order-2 lg:order-1">
-                        <div className="bg-primary-50 rounded-lg aspect-square flex items-center justify-center border border-primary-100">
-                            <span className="text-6xl">🌿</span>
+                    {/* Image - Left Side */}
+                    <div className="w-full lg:w-1/2">
+                        <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/5] lg:aspect-square">
+                            <img
+                                src="/images/tower-detail.png"
+                                alt="Sistema Growit en detalle"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
 
-                    {/* Steps */}
-                    <div className="order-1 lg:order-2 space-y-6">
-                        {steps.map((step) => (
-                            <div key={step.id} className="flex gap-4">
-                                <div className="flex-shrink-0">
-                                    <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold font-body">
-                                        {step.stepNumber}
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold font-display text-primary mb-1">
-                                        {step.title}
-                                    </h3>
-                                    <p className="text-text-main font-body opacity-90">
-                                        {step.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+                    {/* Content - Right Side */}
+                    <div className="w-full lg:w-1/2">
+                        <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-12 leading-tight">
+                            <span className="font-bold">Así</span> de fácil <span className="font-bold">es</span> cultivar con <br />
+                            <span className="italic font-normal">Growit</span>
+                        </h2>
 
-                        <div className="pt-4">
-                            <Button size="lg" className="bg-primary text-white hover:bg-opacity-90 font-display">
-                                Comenzar ahora
-                            </Button>
+                        <div className="space-y-6">
+                            {/* Step 1 */}
+                            <div className="flex gap-4 items-start">
+                                <p className="text-sm font-bold text-gray-800 pt-1 min-w-[50px]">Paso 1:</p>
+                                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                                    Armá tu sistema en pocos minutos, ¡es muy sencillo!
+                                </p>
+                            </div>
+
+                            {/* Step 2 */}
+                            <div className="flex gap-4 items-start">
+                                <p className="text-sm font-bold text-gray-800 pt-1 min-w-[50px]">Paso 2:</p>
+                                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                                    Sembrá tus semillas, agua y luz.
+                                </p>
+                            </div>
+
+                            {/* Step 3 */}
+                            <div className="flex gap-4 items-start">
+                                <p className="text-sm font-bold text-gray-800 pt-1 min-w-[50px]">Paso 3:</p>
+                                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                                    Llená con agua y agregá los nutrientes.
+                                </p>
+                            </div>
+
+                            {/* Step 4 */}
+                            <div className="flex gap-4 items-start">
+                                <p className="text-sm font-bold text-gray-800 pt-1 min-w-[50px]">Paso 4:</p>
+                                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                                    Enchufá el sistema y olvidate de el.
+                                </p>
+                            </div>
+
+                            {/* Step 5 */}
+                            <div className="flex gap-4 items-start">
+                                <p className="text-sm font-bold text-gray-800 pt-1 min-w-[50px]">Paso 5:</p>
+                                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                                    Cosechá vegetales orgánicos y frescos. ¡A disfrutar!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="mt-10">
+                            <Link
+                                href="/catalogo"
+                                className="inline-block bg-[#D9704F] hover:bg-[#c56040] text-white font-body font-bold py-3 px-10 rounded-lg uppercase tracking-wider text-xs transition duration-300 shadow-md"
+                            >
+                                COMPRAR
+                            </Link>
                         </div>
                     </div>
                 </div>

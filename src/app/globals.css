@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-playfair), serif;
-  --font-body: var(--font-lato), sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
 
   --color-primary: #013D3B;
   --color-accent: #D9704F;
@@ -49,7 +49,7 @@
 body {
   background-color: var(--color-beige);
   color: var(--color-text-main);
-  font-family: var(--font-body);
+  font-family: "Lato", sans-serif;
 }
 
 h1,
@@ -58,5 +58,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
 }

@@ -2,11 +2,14 @@ import React from 'react';
 
 export const Logo: React.FC = () => {
     return (
-        <a href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">G</span>
+        <a href="/" className="flex items-center">
+            <div className="relative w-32 h-12">
+                <img
+                    src="/logo.png"
+                    alt="Growit Logo"
+                    className="object-contain w-full h-full object-left"
+                />
             </div>
-            <span className="text-xl font-bold text-gray-900">Growit</span>
         </a>
     );
 };
