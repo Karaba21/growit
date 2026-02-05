@@ -1,13 +1,5 @@
 import type { Product } from '../types/product';
 
-const getPlaceholderImage = (title: string) => ({
-    id: `gid://shopify/ProductImage/${Math.random().toString(36).substr(2, 9)}`,
-    url: '/placeholder.svg',
-    altText: title,
-    width: 600,
-    height: 600,
-});
-
 // Mock product data for development
 // Structure matches Shopify Storefront API for easy migration
 export const mockProducts: Product[] = [
@@ -25,7 +17,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '89.99',
         },
         images: [
-            getPlaceholderImage('Kit Inicial Growit'),
+            {
+                id: 'gid://shopify/ProductImage/1',
+                url: 'https://via.placeholder.com/600x600/22c55e/ffffff?text=Kit+Inicial',
+                altText: 'Kit Inicial Growit',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -39,7 +37,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: true,
-        featuredImage: getPlaceholderImage('Kit Inicial Growit'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/1',
+            url: 'https://via.placeholder.com/600x600/22c55e/ffffff?text=Kit+Inicial',
+            altText: 'Kit Inicial Growit',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-01-01T00:00:00Z',
         updatedAt: '2024-01-01T00:00:00Z',
     },
@@ -57,7 +61,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '129.99',
         },
         images: [
-            getPlaceholderImage('Maceta Inteligente Pro'),
+            {
+                id: 'gid://shopify/ProductImage/2',
+                url: 'https://via.placeholder.com/600x600/16a34a/ffffff?text=Maceta+Pro',
+                altText: 'Maceta Inteligente Pro',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -71,7 +81,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: true,
-        featuredImage: getPlaceholderImage('Maceta Inteligente Pro'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/2',
+            url: 'https://via.placeholder.com/600x600/16a34a/ffffff?text=Maceta+Pro',
+            altText: 'Maceta Inteligente Pro',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-01-15T00:00:00Z',
         updatedAt: '2024-01-15T00:00:00Z',
     },
@@ -89,7 +105,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '24.99',
         },
         images: [
-            getPlaceholderImage('Semillas Orgánicas Mix'),
+            {
+                id: 'gid://shopify/ProductImage/3',
+                url: 'https://via.placeholder.com/600x600/86efac/000000?text=Semillas+Mix',
+                altText: 'Semillas Orgánicas Mix',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -103,7 +125,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: true,
-        featuredImage: getPlaceholderImage('Semillas Orgánicas Mix'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/3',
+            url: 'https://via.placeholder.com/600x600/86efac/000000?text=Semillas+Mix',
+            altText: 'Semillas Orgánicas Mix',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-02-01T00:00:00Z',
         updatedAt: '2024-02-01T00:00:00Z',
     },
@@ -121,7 +149,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '34.99',
         },
         images: [
-            getPlaceholderImage('Nutrientes Premium'),
+            {
+                id: 'gid://shopify/ProductImage/4',
+                url: 'https://via.placeholder.com/600x600/4ade80/ffffff?text=Nutrientes',
+                altText: 'Nutrientes Premium',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -135,7 +169,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: false,
-        featuredImage: getPlaceholderImage('Nutrientes Premium'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/4',
+            url: 'https://via.placeholder.com/600x600/4ade80/ffffff?text=Nutrientes',
+            altText: 'Nutrientes Premium',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-02-10T00:00:00Z',
         updatedAt: '2024-02-10T00:00:00Z',
     },
@@ -153,7 +193,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '159.99',
         },
         images: [
-            getPlaceholderImage('Luz LED de Crecimiento'),
+            {
+                id: 'gid://shopify/ProductImage/5',
+                url: 'https://via.placeholder.com/600x600/15803d/ffffff?text=Luz+LED',
+                altText: 'Luz LED de Crecimiento',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -167,7 +213,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: true,
-        featuredImage: getPlaceholderImage('Luz LED de Crecimiento'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/5',
+            url: 'https://via.placeholder.com/600x600/15803d/ffffff?text=Luz+LED',
+            altText: 'Luz LED de Crecimiento',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-02-15T00:00:00Z',
         updatedAt: '2024-02-15T00:00:00Z',
     },
@@ -185,7 +237,13 @@ export const mockProducts: Product[] = [
             maxVariantPrice: '19.99',
         },
         images: [
-            getPlaceholderImage('Sustrato Orgánico Premium'),
+            {
+                id: 'gid://shopify/ProductImage/6',
+                url: 'https://via.placeholder.com/600x600/166534/ffffff?text=Sustrato',
+                altText: 'Sustrato Orgánico Premium',
+                width: 600,
+                height: 600,
+            },
         ],
         variants: [
             {
@@ -199,7 +257,13 @@ export const mockProducts: Product[] = [
             },
         ],
         availableForSale: true,
-        featuredImage: getPlaceholderImage('Sustrato Orgánico Premium'),
+        featuredImage: {
+            id: 'gid://shopify/ProductImage/6',
+            url: 'https://via.placeholder.com/600x600/166534/ffffff?text=Sustrato',
+            altText: 'Sustrato Orgánico Premium',
+            width: 600,
+            height: 600,
+        },
         createdAt: '2024-02-20T00:00:00Z',
         updatedAt: '2024-02-20T00:00:00Z',
     },

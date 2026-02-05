@@ -1,7 +1,4 @@
-"use client";
-
 import React, { useState } from 'react';
-import Link from 'next/link';
 
 interface Slide {
     id: string;
@@ -67,12 +64,12 @@ export const Slider: React.FC = () => {
                             <p className="text-xl md:text-2xl text-gray-700 mb-8">
                                 {slide.subtitle}
                             </p>
-                            <Link
+                            <a
                                 href="/catalogo"
                                 className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
                             >
                                 {slide.cta}
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 ))}

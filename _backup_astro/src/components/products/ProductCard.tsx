@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Badge } from '../ui/Badge';
 import type { Product } from '../../types/product';
 
@@ -14,7 +13,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         : null;
 
     return (
-        <Link
+        <a
             href={`/producto/${product.handle}`}
             className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden"
         >
@@ -61,6 +60,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     )}
                 </div>
             </div>
-        </Link>
+        </a>
     );
 };
