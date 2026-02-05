@@ -7,22 +7,26 @@ const faqData: FaqItem[] = [
     {
         id: '1',
         question: '¿Necesito tener experiencia previa para usar Growit?',
-        answer: 'No, nuestros sistemas están diseñados para principiantes. Incluimos una guía paso a paso y te brindamos soporte durante todo el proceso.'
+        answer: 'No! No hace falta experiencia previa.',
+        answer2: 'El sistema está pensado para que cualquier persona pueda cultivar en casa, incluso sin conocimientos de jardinería'
     },
     {
         id: '2',
         question: '¿Cuánto tiempo lleva armar el kit?',
-        answer: 'El armado es muy sencillo y no requiere herramientas. Generalmente toma entre 15 y 20 minutos tener tu torre lista para funcionar.'
+        answer: 'Menos de 30 minutos.',
+        answer2: 'Growit se arma sin herramientas y viene con instrucciones muy claras. En poco tiempo vas a tener tu huerta lista para empezar a sembrar.'
     },
     {
         id: '3',
         question: '¿Growit se puede usar en interiores?',
-        answer: '¡Sí! Tenemos modelos específicos con luces LED de cultivo incorporadas (modelos Indoor) perfectos para espacios sin luz natural directa.'
+        answer: 'Sí, se puede usar tanto en interiores como exteriores.',
+        answer2: 'Solo necesita una buena fuente de luz natural o, si querés, podés complementarlo con luces LED para cultivo. Es ideal para balcones, terrazas, cocinas o jardines.'
     },
     {
         id: '4',
         question: '¿Qué tipo de plantas puedo cultivar?',
-        answer: 'Puedes cultivar una gran variedad de vegetales de hoja (lechuga, espinaca, rúcula), hierbas aromáticas (albahaca, menta, cilantro) e incluso pequeños frutos como tomates cherry y frutillas.'
+        answer: 'Podés cultivar hojas, hierbas aromáticas, frutos pequeños y plantas medicinales.',
+        answer2: 'Por ejemplo: lechugas, rúcula, acelga, albahaca, orégano, perejil, tomates cherry, morrones, jalapeños, manzanilla, caléndula, cedrón, entre otros.'
     }
 ];
 
@@ -47,7 +51,7 @@ export const FaqSection: React.FC = () => {
                                     onClick={() => toggle(item.id)}
                                     className="w-full flex justify-between items-center p-4 text-left hover:bg-white/5 transition-colors"
                                 >
-                                    <span className="font-body font-medium text-sm text-white flex items-center gap-3">
+                                    <span className="font-body font-medium text-m text-white flex items-center gap-3">
                                         <i className="ph ph-check-square text-accent"></i>
                                         {item.question}
                                     </span>
@@ -56,8 +60,11 @@ export const FaqSection: React.FC = () => {
                                 <div
                                     className={`transition-all duration-300 ease-in-out overflow-hidden ${openId === item.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
                                 >
-                                    <div className="p-4 pt-0 text-sm text-beige font-body font-light leading-relaxed">
+                                    <div className="p-4 pt-0 text-m text-beige font-body font-bold leading-relaxed">
                                         {item.answer}
+                                    </div>
+                                    <div className="p-4 pt-0 text-m text-beige font-body font-light leading-relaxed">
+                                        {item.answer2}
                                     </div>
                                 </div>
                             </div>

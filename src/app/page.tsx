@@ -1,12 +1,14 @@
 "use client";
 
 import { Hero } from "../components/hero/Hero";
+import PaymentCarousel from "../components/PaymentCarousel";
 import { FeaturesGrid } from "../components/features/FeaturesGrid";
 import { HowItWorks } from "../components/features/HowItWorks";
 import { ProductGrid } from "../components/products/ProductGrid";
 import { ProductShowcase } from "../components/products/ProductShowcase";
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { FaqSection } from "../components/faq/FaqSection";
+import { PickupSection } from "../components/pickup/PickupSection";
 import { mockProducts } from "../data/mockProducts";
 import Link from "next/link";
 
@@ -17,6 +19,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <PaymentCarousel />
 
       <FeaturesGrid />
 
@@ -62,6 +65,8 @@ export default function Home() {
       </section>
 
       <ReviewsSection />
+
+      <PickupSection />
 
       <FaqSection />
     </>
