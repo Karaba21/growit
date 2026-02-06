@@ -41,6 +41,7 @@ export interface Product {
     featuredImage: ProductImage | null;
     createdAt: string;
     updatedAt: string;
+    variantId?: string; // ID of the first/default variant for cart operations
 }
 
 // Filter types

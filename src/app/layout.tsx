@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
+import { CartProvider } from "../contexts/CartContext";
+import { CartDrawer } from "../components/cart/CartDrawer";
 
 export const metadata: Metadata = {
   title: "Growit - Cultiva tu propio alimento en casa",
@@ -22,13 +24,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-white antialiased font-body">
-        <div id="app" className="flex flex-col min-h-screen">
-          <Header currentPath="/" />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <CartProvider>
+          <div id="app" className="flex flex-col min-h-screen">
+            <Header currentPath="/" />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

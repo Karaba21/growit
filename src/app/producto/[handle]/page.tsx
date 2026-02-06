@@ -3,11 +3,14 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '../../../components/ui/Button';
 import { Badge } from '../../../components/ui/Badge';
-import { mockProducts } from '../../../data/mockProducts';
+import { getProducts, getProduct } from '../../../lib/shopify';
+import type { Product } from '../../../types/product';
+import { AddToCartButton } from '../../../components/cart/AddToCartButton';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
-    return mockProducts.map((product) => ({
+    const products = await getProducts();
+    return products.map((product: any) => ({
         handle: product.handle,
     }));
 }
@@ -18,7 +21,7 @@ interface ProductPageProps {
 
 export default async function ProductPage({ params }: ProductPageProps) {
     const { handle } = await params;
-    const product = mockProducts.find((p) => p.handle === handle);
+    const product = (await getProduct(handle)) as Product | null;
 
     if (!product) {
         notFound();
@@ -110,58 +113,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             />
                         </div>
 
-                        {/* Product Details */}
-                        <div className="mb-8 space-y-2">
-                            <div className="flex items-center text-sm">
-                                <span className="text-gray-600 w-24">SKU:</span>
-                                <span className="text-gray-900 font-medium">{product.variants[0]?.sku || 'N/A'}</span>
-                            </div>
-                            <div className="flex items-center text-sm">
-                                <span className="text-gray-600 w-24">Categoría:</span>
-                                <span className="text-gray-900 font-medium">{product.productType}</span>
-                            </div>
-                            <div className="flex items-center text-sm">
-                                <span className="text-gray-600 w-24">Marca:</span>
-                                <span className="text-gray-900 font-medium">{product.vendor}</span>
-                            </div>
-                        </div>
-
                         {/* Add to Cart */}
                         <div className="space-y-4">
-                            {/* Note: Button might need 'use client' wrapper if we add onClick logic here without creating a separate Client Component */}
-                            {/* Client logic (e.g., adding to context) should move to a Client Component like <AddToCartButton />. 
-                   For migration, we'll keep it simple or wrap Button if needed. 
-                   Wait, Button is 'use client' ? No, Button.tsx didn't have 'use client'.
-                   If I add onClick, I need 'use client' in the PARENT (this page) or in the Button.
-                   I'll mark this page as 'use client' OR make a client component for the actions.
-                   Making the whole page client is easiest for migration unless I want strict SC behavior.
-                   Actually, let's keep it Server Component effectively and use a Client Component for the buttons.
-                   Wait, I don't want to overengineer. The user just wants it working. 
-                   If passing onClick e.g. console.log, I need client.
-                   The original code had `client:load`. 
-                   Let's make a specialized `ProductActions.tsx` if needed, OR just make this page `use client` if interactivity is high.
-                   But `generateStaticParams` works with Server Components.
-                   Let's make this page SERVER component, and inline the buttons as is. 
-                   Button component is standard. If I add onClick={() => {}} it fails on server.
-                   For now, no onClick handlers are defined in my code above, so it renders fine. 
-                   But I should probably add interactivity later. 
-                   For now, I'll just render the buttons.
-               */}
-                            <Button
-                                size="lg"
-                                disabled={!product.availableForSale}
-                                className="w-full"
-                            >
-                                {product.availableForSale ? 'Agregar al carrito' : 'Agotado'}
-                            </Button>
+                            <AddToCartButton
+                                product={product}
+                            />
 
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="w-full"
-                            >
-                                Agregar a favoritos
-                            </Button>
                         </div>
 
                         {/* Tags */}

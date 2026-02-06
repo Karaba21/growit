@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                     {/* Actions - Right */}
                     <div className="flex items-center justify-end w-[200px] space-x-4 text-white">
                         <SearchIcon />
-                        <CartIcon itemCount={0} />
+                        <CartIcon />
                     </div>
                 </div>
             </div>

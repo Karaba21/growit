@@ -1,4 +1,3 @@
-"use client";
 
 import { Hero } from "../components/hero/Hero";
 import PaymentCarousel from "../components/PaymentCarousel";
@@ -9,12 +8,13 @@ import { ProductShowcase } from "../components/products/ProductShowcase";
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { FaqSection } from "../components/faq/FaqSection";
 import { PickupSection } from "../components/pickup/PickupSection";
-import { mockProducts } from "../data/mockProducts";
+import { getProducts } from "../lib/shopify";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
   // Get first 4 products for featured section
-  const featuredProducts = mockProducts.slice(0, 4);
+  const products = await getProducts();
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <>
