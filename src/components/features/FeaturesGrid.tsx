@@ -19,7 +19,9 @@ export const FeaturesGrid: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* Feature 1 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <img src="/nontoxic.png" alt="Pesticide Free" />
+                        <div className="h-40 w-full flex items-center justify-center mb-6">
+                            <img src="/nontoxic.png" alt="Libre de Pesticidas" className="max-h-full w-auto object-contain" />
+                        </div>
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Libre de Pesticidas
                         </h3>
@@ -30,7 +32,9 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 2 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <img src="/espacio.png" alt="Pesticide Free" />
+                        <div className="h-40 w-full flex items-center justify-center mb-6">
+                            <img src="/espacio.png" alt="Espacio reducido" className="max-h-full w-auto object-contain" />
+                        </div>
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Espacio reducido
                         </h3>
@@ -41,7 +45,9 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 3 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <img src="/canasta.png" alt="Pesticide Free" />
+                        <div className="h-40 w-full flex items-center justify-center mb-6">
+                            <img src="/canasta.png" alt="Cosechas frescas" className="max-h-full w-auto object-contain" />
+                        </div>
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Cosechas frescas
                         </h3>
@@ -52,7 +58,9 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 4 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <img src="/rueda.png" alt="Pesticide Free" />
+                        <div className="h-40 w-full flex items-center justify-center mb-6">
+                            <img src="/rueda.png" alt="Automático" className="max-h-full w-auto object-contain" />
+                        </div>
                         <h3 className="text-lg font-display font-bold text-gray-900 mb-3">
                             Automático
                         </h3>

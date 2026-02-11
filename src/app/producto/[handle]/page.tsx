@@ -6,6 +6,7 @@ import { Badge } from '../../../components/ui/Badge';
 import { getProducts, getProduct } from '../../../lib/shopify';
 import type { Product } from '../../../types/product';
 import { AddToCartButton } from '../../../components/cart/AddToCartButton';
+import { ProductGallery } from '../../../components/products/ProductGallery';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -49,30 +50,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 {/* Product Details */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Image Gallery */}
-                    <div>
-                        <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-                            {product.featuredImage && (
-                                <img
-                                    src={product.featuredImage.url}
-                                    alt={product.featuredImage.altText || product.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            )}
-                        </div>
-
-                        {/* Thumbnail Gallery (placeholder) */}
-                        <div className="grid grid-cols-4 gap-2">
-                            {product.images?.slice(0, 4).map((image) => (
-                                <div key={image.url} className="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-75 transition-opacity">
-                                    <img
-                                        src={image.url}
-                                        alt={image.altText || ''}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <ProductGallery
+                        images={product.images}
+                        title={product.title}
+                        featuredImage={product.featuredImage}
+                    />
 
                     {/* Product Info */}
                     <div>

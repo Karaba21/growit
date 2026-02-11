@@ -7,7 +7,7 @@ import Link from 'next/link';
 export function CartDrawer() {
     const { items, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, getCheckoutUrl } = useCart();
 
-    if (!isCartOpen) return null;
+
 
     const handleCheckout = async () => {
         const checkoutUrl = await getCheckoutUrl();
@@ -19,15 +19,19 @@ export function CartDrawer() {
     const subtotal = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     return (
-        <>
+        <div className={`fixed inset-0 z-50 pointer-events-none`}>
             {/* Backdrop */}
             <div
-                className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+                className={`fixed inset-0 transition-opacity duration-300 ${isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    }`}
                 onClick={() => setIsCartOpen(false)}
             />
 
             {/* Drawer */}
-            <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 flex flex-col">
+            <div
+                className={`fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl transform transition-transform duration-300 ease-in-out pointer-events-auto flex flex-col ${isCartOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+            >
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b">
                     <h2 className="text-2xl font-bold text-gray-900">Carrito</h2>
@@ -154,6 +158,6 @@ export function CartDrawer() {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }

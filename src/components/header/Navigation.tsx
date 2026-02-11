@@ -8,8 +8,8 @@ interface NavigationProps {
 const navLinks = [
     { href: '/', label: 'Inicio' },
     { href: '/catalogo', label: 'Cátalogo' },
-    { href: '/resenas', label: 'Reseñas' },
-    { href: '/pickup', label: 'Pickup' },
+    { href: '/#resenas', label: 'Reseñas' },
+    { href: '/#pickup', label: 'Pickup' },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => {
@@ -25,7 +25,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => 
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-sm font-medium transition-colors duration-200 ${isActive
+                            className={`text-base font-medium transition-colors duration-200 ${isActive
                                 ? 'text-accent'
                                 : 'text-white/90 hover:text-white'
                                 }`}
@@ -39,7 +39,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPath = '/' }) => 
                     <a
                         key={link.href}
                         href={link.href}
-                        className={`text-sm font-medium transition-colors duration-200 ${isActive
+                        className={`text-base font-medium transition-colors duration-200 ${isActive
                             ? 'text-accent'
                             : 'text-white/90 hover:text-white'
                             }`}

@@ -42,6 +42,12 @@ export interface Product {
     createdAt: string;
     updatedAt: string;
     variantId?: string; // ID of the first/default variant for cart operations
+    plantsCount: number | null; // Quantity of plants metafield
+    collections: {
+        id: string;
+        title: string;
+        handle: string;
+    }[];
 }
 
 // Filter types
@@ -53,6 +59,7 @@ export interface FilterState {
     };
     productType: string[];
     tags: string[];
+    plantCounts: number[]; // Selected plant counts
 }
 
 // Sort options

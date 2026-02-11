@@ -8,12 +8,10 @@ interface CatalogSortProps {
 }
 
 const sortOptions: SortConfig[] = [
-    { value: 'title-asc', label: 'Nombre (A-Z)' },
-    { value: 'title-desc', label: 'Nombre (Z-A)' },
-    { value: 'price-asc', label: 'Precio (menor a mayor)' },
-    { value: 'price-desc', label: 'Precio (mayor a menor)' },
-    { value: 'created-desc', label: 'Más recientes' },
-    { value: 'created-asc', label: 'Más antiguos' },
+    { value: 'title-asc', label: 'Alfabéticamente, A-Z' },
+    { value: 'title-desc', label: 'Alfabéticamente, Z-A' },
+    { value: 'price-asc', label: 'Precio, menor a mayor' },
+    { value: 'price-desc', label: 'Precio, mayor a menor' },
 ];
 
 export const CatalogSort: React.FC<CatalogSortProps> = ({ onSortChange }) => {
