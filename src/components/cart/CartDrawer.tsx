@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useCart } from '../../contexts/CartContext';
+import { formatPrice } from '../../lib/utils';
 import Link from 'next/link';
 
 export function CartDrawer() {
@@ -115,7 +116,7 @@ export function CartDrawer() {
 
                                             {/* Price */}
                                             <p className="font-bold text-gray-900">
-                                                ${(item.price * item.quantity).toFixed(2)}
+                                                ${formatPrice(item.price * item.quantity)}
                                             </p>
                                         </div>
 
@@ -140,7 +141,7 @@ export function CartDrawer() {
                         <div className="flex justify-between text-lg">
                             <span className="font-semibold">Subtotal:</span>
                             <span className="font-bold">
-                                ${subtotal.toFixed(2)}
+                                ${formatPrice(subtotal)}
                             </span>
                         </div>
 

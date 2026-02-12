@@ -5,8 +5,10 @@ import { Button } from '../../../components/ui/Button';
 import { Badge } from '../../../components/ui/Badge';
 import { getProducts, getProduct } from '../../../lib/shopify';
 import type { Product } from '../../../types/product';
+import { formatPrice } from '../../../lib/utils';
 import { AddToCartButton } from '../../../components/cart/AddToCartButton';
 import { ProductGallery } from '../../../components/products/ProductGallery';
+import { ProductFAQ } from '../../../components/products/ProductFAQ';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -74,15 +76,35 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                         {/* Price */}
                         <div className="mb-6">
-                            <div className="flex items-baseline gap-3">
+                            <div className="flex items-baseline gap-3 mb-2">
                                 <span className="text-4xl font-bold text-gray-900">
-                                    ${price.toFixed(2)}
+                                    ${formatPrice(price)}
                                 </span>
                                 {compareAtPrice && compareAtPrice > price && (
                                     <span className="text-xl text-gray-500 line-through">
-                                        ${compareAtPrice.toFixed(2)}
+                                        ${formatPrice(compareAtPrice)}
                                     </span>
                                 )}
+                            </div>
+
+                            {/* Installments */}
+                            <div className="flex items-center gap-2 text-base text-gray-600">
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                    />
+                                </svg>
+                                <span>
+                                    Hasta <span className="font-semibold">12 cuotas</span> de ${formatPrice(price / 12)}
+                                </span>
                             </div>
                         </div>
 
@@ -101,7 +123,29 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 product={product}
                             />
 
+                            {/* Shipping Info */}
+                            <div className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                                <svg
+                                    className="w-6 h-6 flex-shrink-0 text-green-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                                <span className="text-sm md:text-base font-medium">
+                                    Envío rápido de 1 a 3 días hábiles.
+                                </span>
+                            </div>
                         </div>
+
+                        {/* FAQ Section */}
+                        <ProductFAQ faqs={product.faqs || []} />
 
                         {/* Tags */}
                         {product.tags.length > 0 && (

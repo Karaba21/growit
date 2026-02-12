@@ -108,6 +108,21 @@ export async function getProducts() {
             plantsCount: metafield(namespace: "custom", key: "cantidad_de_plantas") {
               value
             }
+            faqs: metafield(namespace: "custom", key: "preguntas_frecuentes") {
+              references(first: 10) {
+                edges {
+                  node {
+                    ... on Metaobject {
+                      id
+                      fields {
+                        key
+                        value
+                      }
+                    }
+                  }
+                }
+              }
+            }
             collections(first: 5) {
               edges {
                 node {
@@ -141,6 +156,20 @@ export async function getProducts() {
 // Helper to reshape Shopify GQL response to our Product type
 const reshapeProduct = (product: any) => {
   const firstVariant = product.variants.edges[0]?.node;
+
+  // Parse FAQ metaobjects
+  const faqs = product.faqs?.references?.edges?.map((edge: any) => {
+    const fields = edge.node.fields;
+    const questionField = fields.find((f: any) => f.key === 'pregunta');
+    const answerField = fields.find((f: any) => f.key === 'respuesta');
+
+    return {
+      id: edge.node.id,
+      question: questionField?.value || '',
+      answer: answerField?.value || '',
+    };
+  }) || [];
+
   return {
     ...product,
     priceRange: {
@@ -155,6 +184,7 @@ const reshapeProduct = (product: any) => {
     })),
     variantId: firstVariant?.id,
     plantsCount: product.plantsCount?.value ? parseInt(product.plantsCount.value) : null,
+    faqs,
     collections: product.collections?.edges.map((c: any) => c.node) || [],
   };
 };
@@ -223,6 +253,33 @@ export async function getProduct(handle: string) {
           altText
           width
           height
+        }
+        plantsCount: metafield(namespace: "custom", key: "cantidad_de_plantas") {
+          value
+        }
+        faqs: metafield(namespace: "custom", key: "preguntas_frecuentes") {
+          references(first: 10) {
+            edges {
+              node {
+                ... on Metaobject {
+                  id
+                  fields {
+                    key
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+        collections(first: 5) {
+          edges {
+            node {
+              id
+              title
+              handle
+            }
+          }
         }
       }
     }

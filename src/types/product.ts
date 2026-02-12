@@ -43,6 +43,7 @@ export interface Product {
     updatedAt: string;
     variantId?: string; // ID of the first/default variant for cart operations
     plantsCount: number | null; // Quantity of plants metafield
+    faqs?: FAQItem[]; // FAQ metafield (list of metaobjects)
     collections: {
         id: string;
         title: string;

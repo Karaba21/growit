@@ -27,7 +27,7 @@ export default async function Home() {
 
       <ProductShowcase
         title="GROW 28"
-        price="$12.400,00 UYU"
+        price="$12.400 UYU"
         image="/images/grow-28.png"
         imageAlt="Grow 28 Hydroponic System"
         subtitle="GROW HYDROPONIC"
@@ -35,7 +35,7 @@ export default async function Home() {
 
       <ProductShowcase
         title="GROW 28 INDOOR"
-        price="$14.400,00 UYU"
+        price="$14.400 UYU"
         image="/images/grow-28-indoor.png"
         imageAlt="Grow 28 Indoor System"
         subtitle="SMART INDOOR"
