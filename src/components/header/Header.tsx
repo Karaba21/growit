@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from './Logo';
 import { Navigation, navLinks } from './Navigation';
-import { SearchIcon } from './SearchIcon';
+
 import { CartIcon } from './CartIcon';
 
 export const Header: React.FC = () => {
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
 
                     {/* Actions - Right */}
                     <div className="flex items-center justify-end w-[200px] space-x-4 text-white">
-                        <SearchIcon />
+
                         <CartIcon />
 
                         {/* Mobile Menu Button */}
@@ -80,7 +80,7 @@ export const Header: React.FC = () => {
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
-                <div className="md:hidden fixed inset-0 top-20 bg-primary z-40 overflow-y-auto w-full h-[calc(100vh-5rem)] border-t border-white/10">
+                <div className="md:hidden fixed top-20 left-0 w-full bg-primary z-40 overflow-y-auto max-h-[calc(100vh-5rem)] border-t border-white/10 shadow-xl">
                     <div className="flex flex-col px-4 py-8 space-y-6">
                         {navLinks.map((link) => {
                             const isActive = link.href === '/'

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from "next/link";
-import { Wrench, Plant, Drop, Plug, Leaf } from '@phosphor-icons/react/dist/ssr';
+import { Wrench, Plant, Drop, Plug } from '@phosphor-icons/react/dist/ssr';
 import { motion } from 'framer-motion';
 
 export const HowItWorks: React.FC = () => {
@@ -10,27 +10,22 @@ export const HowItWorks: React.FC = () => {
         {
             icon: Wrench,
             title: "Paso 1",
-            description: "Armá tu sistema en pocos minutos, ¡es muy sencillo!"
+            description: "Armá la torre en minutos, es muy sencillo!"
         },
         {
             icon: Plant,
             title: "Paso 2",
-            description: "Sembrá tus semillas, agua y luz."
+            description: "Germiná tus semillas fácilmente"
         },
         {
             icon: Drop,
             title: "Paso 3",
-            description: "Llená con agua y agregá los nutrientes."
+            description: "Trasplantá y agregá agua con nutriente, rellená cada tanto"
         },
         {
             icon: Plug,
             title: "Paso 4",
-            description: "Enchufá el sistema y olvidate de él."
-        },
-        {
-            icon: Leaf,
-            title: "Paso 5",
-            description: "Cosechá vegetales orgánicos y frescos. ¡A disfrutar!"
+            description: "Cosechá y disfrutá tus propios vegetales"
         }
     ];
 
@@ -60,7 +55,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-center gap-8"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
