@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 
+import { ScrollToTop } from "../components/common/ScrollToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,9 +26,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-white antialiased font-body">
+        <ScrollToTop />
         <CartProvider>
           <div id="app" className="flex flex-col min-h-screen">
-            <Header currentPath="/" />
+            <Header />
             <main className="flex-grow">
               {children}
             </main>

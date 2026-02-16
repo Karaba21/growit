@@ -34,7 +34,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     };
 
     return (
-        <section className={`py-20 ${bgColor}`}>
+        <section className={`py-12 ${bgColor}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}>
 

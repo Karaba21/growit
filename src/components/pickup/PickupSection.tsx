@@ -51,11 +51,10 @@ export const PickupSection = () => {
                             <div>
                                 <h4 className="font-bold text-gray-900 mb-1 font-display">Email</h4>
                                 <a
-                                    href="mailto:cockpituy@gmail.com"
+                                    href="mailto:growit.uruguay@gmail.com"
                                     className="text-gray-600 text-lg hover:text-primary transition-all duration-300 font-body"
                                 >
-                                    cockpituy@gmail.com
-                                </a>
+                                    growit.uruguay@gmail.com                                </a>
                             </div>
                         </div>
                     </div>

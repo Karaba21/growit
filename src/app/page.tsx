@@ -4,6 +4,7 @@ import PaymentCarousel from "../components/PaymentCarousel";
 import { FeaturesGrid } from "../components/features/FeaturesGrid";
 import { HowItWorks } from "../components/features/HowItWorks";
 import { ProductGrid } from "../components/products/ProductGrid";
+import { WhyChooseGrowit } from "../components/features/WhyChooseGrowit";
 import { ProductShowcase } from "../components/products/ProductShowcase";
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { FaqSection } from "../components/faq/FaqSection";
@@ -25,6 +26,8 @@ export default async function Home() {
 
       <HowItWorks />
 
+      <WhyChooseGrowit />
+
       <ProductShowcase
         title="GROW 28"
         price="$12.400 UYU"
@@ -43,7 +46,7 @@ export default async function Home() {
         bgColor="bg-white"
       />
 
-      <section className="py-20 bg-surface">
+      <section className="py-12 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-medium text-primary mb-4 uppercase tracking-widest">
