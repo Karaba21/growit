@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 
 import { ScrollToTop } from "../components/common/ScrollToTop";
+import { WhatsAppButton } from "../components/common/WhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -27,6 +28,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white antialiased font-body">
         <ScrollToTop />
+        <WhatsAppButton />
         <CartProvider>
           <div id="app" className="flex flex-col min-h-screen">
             <Header />

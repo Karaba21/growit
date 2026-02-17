@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { CatalogFilters } from '../../components/products/CatalogFilters';
 import { CatalogSort } from '../../components/products/CatalogSort';
 import { ProductGrid } from '../../components/products/ProductGrid';
@@ -98,37 +99,47 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
         <div className="bg-gray-50 min-h-screen py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Page Header */}
-                <div className="mb-12 text-center">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <div className="mb-6 text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                         Catálogo de Productos
                     </h1>
-                    <p className="text-lg text-gray-600 mb-8">
+                    <p className="text-lg text-gray-600 mb-4">
                         Explora nuestra selección completa de kits y accesorios
                     </p>
 
-                    {/* Category Buttons */}
-                    <div className="flex flex-wrap justify-center gap-4">
+                    {/* Category Selector - Single Item with Arrows */}
+                    <div className="flex items-center justify-center gap-2">
                         <button
-                            onClick={() => setCategory(null)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${category === null
-                                ? 'bg-gray-900 text-white'
-                                : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900'
-                                }`}
+                            onClick={() => {
+                                const allCategories = [{ id: null, label: 'Todos' }, ...categories];
+                                const currentIndex = allCategories.findIndex(c => c.id === category);
+                                const prevIndex = (currentIndex - 1 + allCategories.length) % allCategories.length;
+                                setCategory(allCategories[prevIndex].id);
+                            }}
+                            className="p-1 text-gray-400 hover:text-gray-900 transition-colors"
+                            aria-label="Categoría anterior"
                         >
-                            Todos
+                            <CaretLeft size={20} />
                         </button>
-                        {categories.map((cat) => (
-                            <button
-                                key={cat.id}
-                                onClick={() => setCategory(category === cat.id ? null : cat.id)}
-                                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${category === cat.id
-                                    ? 'bg-gray-900 text-white'
-                                    : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900'
-                                    }`}
-                            >
-                                {cat.label}
-                            </button>
-                        ))}
+
+                        <div className="min-w-[100px] text-center">
+                            <span className="text-base font-display font-bold text-gray-900 uppercase tracking-wider">
+                                {category ? categories.find(c => c.id === category)?.label : 'Todos'}
+                            </span>
+                        </div>
+
+                        <button
+                            onClick={() => {
+                                const allCategories = [{ id: null, label: 'Todos' }, ...categories];
+                                const currentIndex = allCategories.findIndex(c => c.id === category);
+                                const nextIndex = (currentIndex + 1) % allCategories.length;
+                                setCategory(allCategories[nextIndex].id);
+                            }}
+                            className="p-1 text-gray-400 hover:text-gray-900 transition-colors"
+                            aria-label="Siguiente categoría"
+                        >
+                            <CaretRight size={20} />
+                        </button>
                     </div>
                 </div>
 
