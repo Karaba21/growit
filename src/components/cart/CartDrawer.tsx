@@ -34,7 +34,7 @@ export function CartDrawer() {
                     }`}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b">
+                <div className="flex items-center justify-between p-6">
                     <h2 className="text-2xl font-bold text-gray-900">Carrito</h2>
                     <button
                         onClick={() => setIsCartOpen(false)}
@@ -65,7 +65,7 @@ export function CartDrawer() {
                     ) : (
                         <div className="space-y-4">
                             {items.map((item) => (
-                                <div key={item.id} className="flex gap-4 pb-4 border-b">
+                                <div key={item.id} className="flex gap-4 pb-4">
                                     {/* Product Image */}
                                     <Link
                                         href={`/producto/${item.handle}`}

@@ -17,6 +17,9 @@ export default async function Home() {
   const products = await getProducts();
   const featuredProducts = products.slice(0, 4);
 
+  const indoorProduct = products.find((p) => p.title.toLowerCase().includes("indoor") && p.title.toLowerCase().includes("grow 28"));
+  const outdoorProduct = products.find((p) => p.title.toLowerCase().includes("outdoor") && p.title.toLowerCase().includes("grow 28"));
+
   return (
     <>
       <Hero />
@@ -29,21 +32,25 @@ export default async function Home() {
       <WhyChooseGrowit />
 
       <ProductShowcase
-        title="GROW 28"
-        price="$12.400 UYU"
-        image="/images/grow-28.png"
-        imageAlt="Grow 28 Hydroponic System"
-        subtitle="GROW HYDROPONIC"
+        title={indoorProduct?.title || "GROW 28 INDOOR"}
+        price={indoorProduct ? `$${parseInt(indoorProduct.priceRange.minVariantPrice).toLocaleString("es-UY")} UYU` : "$14.400 UYU"}
+        image={indoorProduct?.featuredImage?.url || "/images/grow-28-indoor.png"}
+        imageAlt={indoorProduct?.featuredImage?.altText || "Grow 28 Indoor System"}
+        subtitle="SMART INDOOR"
+        variantId={indoorProduct?.variantId}
+        product={indoorProduct}
       />
 
       <ProductShowcase
-        title="GROW 28 INDOOR"
-        price="$14.400 UYU"
-        image="/images/grow-28-indoor.png"
-        imageAlt="Grow 28 Indoor System"
-        subtitle="SMART INDOOR"
+        title={outdoorProduct?.title || "GROW 28 OUTDOOR"}
+        price={outdoorProduct ? `$${parseInt(outdoorProduct.priceRange.minVariantPrice).toLocaleString("es-UY")} UYU` : "$12.400 UYU"}
+        image={outdoorProduct?.featuredImage?.url || "/images/grow-28.png"}
+        imageAlt={outdoorProduct?.featuredImage?.altText || "Grow 28 Outdoor System"}
+        subtitle="OUTDOOR HYDROPONIC"
         reverse={true}
         bgColor="bg-white"
+        variantId={outdoorProduct?.variantId}
+        product={outdoorProduct}
       />
 
       <section className="py-12 bg-surface">

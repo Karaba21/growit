@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="bg-white py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumb */}
-                <nav className="mb-8">
+                <nav className="hidden md:block mb-8">
                     <ol className="flex items-center space-x-2 text-sm text-gray-600">
                         <li><Link href="/" className="hover:text-primary-600">Inicio</Link></li>
                         <li>/</li>
@@ -49,8 +49,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </ol>
                 </nav>
 
+                <h1 className="md:hidden text-3xl font-bold text-gray-900 mb-6">
+                    {product.title}
+                </h1>
+
                 {/* Product Details */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
                     {/* Image Gallery */}
                     <ProductGallery
                         images={product.images}
@@ -60,19 +64,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                     {/* Product Info */}
                     <div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            {product.title}
-                        </h1>
-
                         {/* Badges */}
-                        <div className="flex gap-2 mb-4">
-                            {!product.availableForSale && (
-                                <Badge variant="error">Agotado</Badge>
-                            )}
-                            {compareAtPrice && compareAtPrice > price && (
-                                <Badge variant="warning">Oferta</Badge>
-                            )}
-                        </div>
+                        {/* Badges */}
+                        {(!product.availableForSale || (compareAtPrice && compareAtPrice > price)) && (
+                            <div className="flex gap-2 mb-4">
+                                {!product.availableForSale && (
+                                    <Badge variant="error">Agotado</Badge>
+                                )}
+                                {compareAtPrice && compareAtPrice > price && (
+                                    <Badge variant="warning">Oferta</Badge>
+                                )}
+                            </div>
+                        )}
 
                         {/* Price */}
                         <div className="mb-6">
