@@ -64,7 +64,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                     {/* Product Info */}
                     <div>
-                        {/* Badges */}
+                        <h1 className="hidden md:block text-4xl font-bold text-gray-900 mb-2 font-display">
+                            {product.title}
+                        </h1>
                         {/* Badges */}
                         {(!product.availableForSale || (compareAtPrice && compareAtPrice > price)) && (
                             <div className="flex gap-2 mb-4">
