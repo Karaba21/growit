@@ -6,7 +6,7 @@ export const WhatsAppButton = () => {
             href="https://wa.me/59893474177" // Placeholder number, user should update or provide
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-xl hover:bg-[#20bd5a] transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
+            className="whatsapp-button fixed bottom-8 right-8 z-[100] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-xl hover:bg-[#20bd5a] transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
             aria-label="Contactar por WhatsApp"
         >
             <svg

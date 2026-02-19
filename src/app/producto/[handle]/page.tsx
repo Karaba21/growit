@@ -9,6 +9,10 @@ import { formatPrice } from '../../../lib/utils';
 import { AddToCartButton } from '../../../components/cart/AddToCartButton';
 import { ProductGallery } from '../../../components/products/ProductGallery';
 import { ProductFAQ } from '../../../components/products/ProductFAQ';
+import { ProductReviews } from '../../../components/products/ProductReviews';
+import { PeopleWatching } from '../../../components/products/PeopleWatching';
+import { ShippingTimeline } from '../../../components/products/ShippingTimeline';
+import { StickyProductBar } from '../../../components/products/StickyProductBar';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -53,6 +57,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     {product.title}
                 </h1>
 
+                <div className="md:hidden">
+                    <ProductReviews />
+                </div>
+
                 {/* Product Details */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
                     {/* Image Gallery */}
@@ -67,6 +75,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <h1 className="hidden md:block text-4xl font-bold text-gray-900 mb-2 font-display">
                             {product.title}
                         </h1>
+                        <div className="hidden md:block">
+                            <ProductReviews />
+                        </div>
                         {/* Badges */}
                         {(!product.availableForSale || (compareAtPrice && compareAtPrice > price)) && (
                             <div className="flex gap-2 mb-4">
@@ -93,25 +104,49 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             </div>
 
                             {/* Installments */}
-                            <div className="flex items-center gap-2 text-base text-gray-600">
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                                    />
-                                </svg>
-                                <span>
-                                    Hasta <span className="font-semibold">12 cuotas</span> de ${formatPrice(price / 12)}
-                                </span>
+                            <div className="flex items-center gap-3 text-[#2F4F4F] mb-4">
+                                <div className="p-1.5 rounded-full border border-[#2F4F4F] flex items-center justify-center">
+                                    <svg
+                                        className="w-4 h-4 text-[#2F4F4F]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] font-bold uppercase tracking-wider opacity-80 leading-none mb-0.5">Financiación</span>
+                                    <div className="font-semibold text-lg leading-none">
+                                        Hasta <span className="font-extrabold">12 cuotas</span> de <span suppressHydrationWarning>${formatPrice(price / 12)}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+
+
+                        {/* Add to Cart */}
+                        <div className="space-y-4">
+                            <PeopleWatching />
+                            <div id="main-add-to-cart">
+                                <AddToCartButton
+                                    product={product}
+                                />
+                            </div>
+
+                            <ShippingTimeline />
+
+
+                        </div>
+
+                        {/* FAQ Section */}
+                        <ProductFAQ faqs={product.faqs || []} />
 
                         {/* Description */}
                         <div className="mb-8">
@@ -121,36 +156,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
                         </div>
-
-                        {/* Add to Cart */}
-                        <div className="space-y-4">
-                            <AddToCartButton
-                                product={product}
-                            />
-
-                            {/* Shipping Info */}
-                            <div className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                                <svg
-                                    className="w-6 h-6 flex-shrink-0 text-green-600"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                    />
-                                </svg>
-                                <span className="text-sm md:text-base font-medium">
-                                    Envío rápido de 1 a 3 días hábiles.
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* FAQ Section */}
-                        <ProductFAQ faqs={product.faqs || []} />
 
                         {/* Tags */}
                         {product.tags.length > 0 && (
@@ -168,6 +173,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </div>
                 </div>
             </div>
+            <StickyProductBar product={product} />
         </div>
     );
 }

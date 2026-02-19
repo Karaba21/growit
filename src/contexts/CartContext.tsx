@@ -6,7 +6,7 @@ import { Product } from '@/types/product';
 
 interface CartContextType {
     items: CartItem[];
-    addToCart: (product: Product) => void;
+    addToCart: (product: Product, quantity?: number) => void;
     removeFromCart: (productId: string) => void;
     updateQuantity: (productId: string, quantity: number) => void;
     cartCount: number;
@@ -47,7 +47,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     }, [shopifyCartId]);
 
-    const addToCart = async (product: Product) => {
+    const addToCart = async (product: Product, quantity: number = 1) => {
         if (!product.variantId) {
             console.error('Product missing variantId');
             return;
@@ -58,7 +58,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             const existing = prev.find((item) => item.id === product.id);
             if (existing) {
                 return prev.map((item) =>
-                    item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
                 );
             }
             return [...prev, {
@@ -72,7 +72,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     altText: img.altText || product.title,
                 })),
                 variantId: product.variantId!, // Already validated above
-                quantity: 1,
+                quantity: quantity,
             }];
         });
         setIsCartOpen(true);
@@ -87,7 +87,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     body: JSON.stringify({
                         lines: [{
                             merchandiseId: product.variantId,
-                            quantity: 1,
+                            quantity: quantity,
                         }]
                     }),
                 });
@@ -104,7 +104,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     body: JSON.stringify({
                         cartId: shopifyCartId,
                         merchandiseId: product.variantId,
-                        quantity: 1,
+                        quantity: quantity,
                     }),
                 });
             }
