@@ -152,7 +152,7 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
                             availablePlantCounts={availablePlantCounts}
                         />
                         <div className="flex items-center gap-4">
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-500 font-accent">
                                 {filteredProducts.length} {filteredProducts.length === 1 ? 'producto' : 'productos'}
                             </span>
                             <CatalogSort onSortChange={setSort} />

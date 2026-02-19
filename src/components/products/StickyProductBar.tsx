@@ -72,7 +72,7 @@ export function StickyProductBar({ product }: StickyProductBarProps) {
                     <div className="flex flex-col min-w-0">
                         <h3 className="text-sm font-semibold text-gray-900 truncate pr-2">{product.title}</h3>
                         <div className="flex items-center gap-2">
-                            <span className="text-base font-bold text-[#2F4F4F]">
+                            <span className="text-base font-bold text-[#2F4F4F] font-accent">
                                 ${formatPrice(price)}
                             </span>
                             {compareAtPrice && compareAtPrice > price && (
@@ -105,7 +105,7 @@ export function StickyProductBar({ product }: StickyProductBarProps) {
                     <button
                         onClick={handleAddToCart}
                         disabled={!product.availableForSale || isAdding}
-                        className="whitespace-nowrap bg-[#2F4F4F] hover:bg-[#254040] text-white px-6 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="whitespace-nowrap bg-[#2F4F4F] hover:bg-[#254040] text-white px-6 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-accent"
                     >
                         {isAdding ? 'Agregando...' : 'AGREGAR AL CARRITO'}
                     </button>

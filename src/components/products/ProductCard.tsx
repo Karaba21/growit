@@ -3,6 +3,7 @@ import { formatPrice } from '../../lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Badge } from '../ui/Badge';
+import { AddToCartButton } from '../cart/AddToCartButton';
 import type { Product } from '../../types/product';
 
 interface ProductCardProps {
@@ -16,12 +17,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         : null;
 
     return (
-        <Link
-            href={`/producto/${product.handle}`}
-            className="group block bg-surface rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-transparent hover:border-primary-100"
-        >
+        <div className="group block bg-surface rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-transparent hover:border-primary-100 flex flex-col h-full">
             {/* Image */}
-            <div className="relative aspect-square bg-beige overflow-hidden">
+            <Link href={`/producto/${product.handle}`} className="relative block aspect-square bg-beige overflow-hidden">
                 {product.featuredImage && (
                     <Image
                         src={product.featuredImage.url}
@@ -41,26 +39,24 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         <Badge variant="warning" className="font-body">Oferta</Badge>
                     )}
                 </div>
-            </div>
+            </Link>
 
             {/* Content */}
-            <div className="p-4">
-                <h3 className="text-lg font-display font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    {product.title}
-                </h3>
-
-                <p className="text-sm text-text-main font-body mb-3 line-clamp-2">
-                    {product.description}
-                </p>
+            <div className="p-4 flex flex-col flex-grow">
+                <Link href={`/producto/${product.handle}`}>
+                    <h3 className="text-lg font-display font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                        {product.title}
+                    </h3>
+                </Link>
 
                 {/* Price */}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 mb-4">
                     <div className="flex items-baseline gap-2">
-                        <span className="text-xl font-body font-bold text-primary">
+                        <span className="text-xl font-accent font-bold text-primary">
                             ${formatPrice(price)}
                         </span>
                         {compareAtPrice && compareAtPrice > price && (
-                            <span className="text-sm font-body text-text-main opacity-60 line-through">
+                            <span className="text-sm font-accent text-text-main opacity-60 line-through">
                                 ${formatPrice(compareAtPrice)}
                             </span>
                         )}
@@ -81,12 +77,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                                 d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
                             />
                         </svg>
-                        <span className="font-body">
+                        <span className="font-accent">
                             Hasta <span className="font-semibold">12 cuotas</span> de ${formatPrice(price / 12)}
                         </span>
                     </div>
                 </div>
+
+                {/* Add to Cart Button */}
+                <div className="mt-auto">
+                    <AddToCartButton product={product} className="w-full" showQuantitySelector={false} />
+                </div>
             </div>
-        </Link>
+        </div>
     );
 };

@@ -7,9 +7,10 @@ import { Product } from '../../types/product';
 interface AddToCartButtonProps {
     product: Product;
     className?: string;
+    showQuantitySelector?: boolean;
 }
 
-export function AddToCartButton({ product, className = '' }: AddToCartButtonProps) {
+export function AddToCartButton({ product, className = '', showQuantitySelector = true }: AddToCartButtonProps) {
     const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1);
     const [isAdding, setIsAdding] = useState(false);
@@ -41,28 +42,30 @@ export function AddToCartButton({ product, className = '' }: AddToCartButtonProp
     return (
         <div className={`flex gap-3 ${className}`}>
             {/* Quantity Selector */}
-            <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg w-32 px-3">
-                <button
-                    onClick={decreaseQuantity}
-                    className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
-                    disabled={quantity <= 1}
-                >
-                    &minus;
-                </button>
-                <span className="text-gray-900 font-medium text-lg">{quantity}</span>
-                <button
-                    onClick={increaseQuantity}
-                    className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
-                >
-                    +
-                </button>
-            </div>
+            {showQuantitySelector && (
+                <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg w-32 px-3">
+                    <button
+                        onClick={decreaseQuantity}
+                        className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
+                        disabled={quantity <= 1}
+                    >
+                        &minus;
+                    </button>
+                    <span className="text-gray-900 font-medium text-lg font-accent">{quantity}</span>
+                    <button
+                        onClick={increaseQuantity}
+                        className="text-gray-500 hover:text-gray-700 p-2 focus:outline-none"
+                    >
+                        +
+                    </button>
+                </div>
+            )}
 
             {/* Add to Cart Button */}
             <button
                 onClick={handleAddToCart}
                 disabled={!product.availableForSale || isAdding}
-                className="flex-1 py-4 px-6 bg-[#2F4F4F] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-4 px-6 bg-[#2F4F4F] text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isAdding ? 'AGREGANDO...' : product.availableForSale ? 'AGREGAR AL CARRITO' : 'AGOTADO'}
             </button>

@@ -73,6 +73,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 })),
                 variantId: product.variantId!, // Already validated above
                 quantity: quantity,
+                collections: product.collections,
             }];
         });
         setIsCartOpen(true);
@@ -190,6 +191,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 })),
                 variantId: product.variantId!, // Already validated above
                 quantity: 1,
+                collections: product.collections,
             });
         }
 

@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                         {/* Price */}
                         <div className="mb-6">
-                            <div className="flex items-baseline gap-3 mb-2">
+                            <div className="flex items-baseline gap-3 mb-2 font-accent">
                                 <span className="text-4xl font-bold text-gray-900">
                                     ${formatPrice(price)}
                                 </span>
@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             </div>
 
                             {/* Installments */}
-                            <div className="flex items-center gap-3 text-[#2F4F4F] mb-4">
+                            <div className="flex items-center gap-3 text-[#2F4F4F] mb-4 font-accent">
                                 <div className="p-1.5 rounded-full border border-[#2F4F4F] flex items-center justify-center">
                                     <svg
                                         className="w-4 h-4 text-[#2F4F4F]"
@@ -123,7 +123,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 <div className="flex flex-col">
                                     <span className="text-[10px] font-bold uppercase tracking-wider opacity-80 leading-none mb-0.5">Financiación</span>
                                     <div className="font-semibold text-lg leading-none">
-                                        Hasta <span className="font-extrabold">12 cuotas</span> de <span suppressHydrationWarning>${formatPrice(price / 12)}</span>
+                                        HASTA <span className="font-extrabold">12 CUOTAS</span> DE <span suppressHydrationWarning>${formatPrice(price / 12)}</span>
                                     </div>
                                 </div>
                             </div>

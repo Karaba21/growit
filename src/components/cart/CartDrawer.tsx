@@ -86,23 +86,42 @@ export function CartDrawer() {
                     </div>
 
                     {/* Free Shipping Progress */}
+                    {/* Free Shipping Progress */}
                     <div className="p-4 bg-white">
-                        <p className="text-center text-sm font-bold text-gray-900 mb-2">Tenes envío GRATIS!!</p>
-                        <div className="relative h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                            <div className="absolute top-0 left-0 h-full w-full bg-[#3C5946] opacity-90"
-                                style={{
-                                    backgroundImage: 'linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)',
-                                    backgroundSize: '1rem 1rem'
-                                }}>
-                            </div>
-                        </div>
-                        <div className="flex justify-end mt-1">
-                            <div className="bg-white rounded-full p-1 border border-gray-200 -mt-4 z-10">
-                                <svg className="w-4 h-4 text-[#3C5946]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-                                </svg>
-                            </div>
-                        </div>
+                        {(() => {
+                            const hasQualifyingItem = items.some(item =>
+                                item.collections?.some(c =>
+                                    ['indoor', 'outdoor'].includes(c.handle.toLowerCase()) ||
+                                    c.title.toLowerCase().includes('indoor') ||
+                                    c.title.toLowerCase().includes('outdoor')
+                                )
+                            );
+
+                            return (
+                                <>
+                                    <p className="text-center text-sm font-bold text-gray-900 mb-2">
+                                        {hasQualifyingItem ? '¡Tenés envío GRATIS!!' : '¡Envío GRATIS llevando una hidroponía!'}
+                                    </p>
+                                    <div className="relative mt-2 mb-4">
+                                        <div className="relative h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                            <div
+                                                className="absolute top-0 left-0 h-full bg-[#3C5946] opacity-90 transition-all duration-500 ease-out"
+                                                style={{
+                                                    width: hasQualifyingItem ? '100%' : '0%',
+                                                    backgroundImage: 'linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)',
+                                                    backgroundSize: '1rem 1rem'
+                                                }}
+                                            />
+                                        </div>
+                                        <div className={`absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-1.5 border border-gray-200 z-10 transition-colors duration-300 ${hasQualifyingItem ? 'text-[#3C5946]' : 'text-gray-300'}`}>
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        })()}
                     </div>
                 </div>
 
@@ -156,7 +175,7 @@ export function CartDrawer() {
                                             >
                                                 -
                                             </button>
-                                            <span className="px-2 py-1 text-sm text-gray-900 min-w-[2rem] text-center">{item.quantity}</span>
+                                            <span className="px-2 py-1 text-sm text-gray-900 min-w-[2rem] text-center font-accent">{item.quantity}</span>
                                             <button
                                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                                 className="px-2 py-1 text-gray-600 hover:bg-gray-50"
@@ -167,15 +186,15 @@ export function CartDrawer() {
 
                                         <div className="text-right">
                                             {item.compareAtPrice && item.compareAtPrice > item.price && (
-                                                <div className="text-xs text-gray-400 line-through">
+                                                <div className="text-xs text-gray-400 line-through font-accent">
                                                     ${formatPrice(item.compareAtPrice * item.quantity)}
                                                 </div>
                                             )}
-                                            <div className="font-bold text-gray-900">
+                                            <div className="font-bold text-gray-900 font-accent">
                                                 ${formatPrice(item.price * item.quantity)}
                                             </div>
                                             {item.compareAtPrice && item.compareAtPrice > item.price && (
-                                                <div className="text-[10px] font-bold text-green-600">
+                                                <div className="text-[10px] font-bold text-green-600 font-accent">
                                                     (Descuento de ${formatPrice((item.compareAtPrice - item.price) * item.quantity)})
                                                 </div>
                                             )}
@@ -189,37 +208,26 @@ export function CartDrawer() {
 
                 {/* Footer Section */}
                 <div className="border-t border-gray-100 p-4 bg-white">
-                    {/* Coupon Input */}
-                    <div className="flex gap-2 mb-4">
-                        <input
-                            type="text"
-                            placeholder="Insertar cupón"
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2C4F38]"
-                        />
-                        <button className="px-4 py-2 bg-[#2C4F38] text-white text-sm font-semibold rounded hover:bg-[#1e3626] transition-colors">
-                            Canjear
-                        </button>
-                    </div>
 
                     <div className="space-y-2 mb-4">
                         {totalDiscount > 0 && (
                             <div className="flex justify-between text-sm">
                                 <span className="font-semibold text-[#2C4F38]">Descuento</span>
-                                <span className="font-semibold text-[#2C4F38]">-${formatPrice(totalDiscount)}</span>
+                                <span className="font-semibold text-[#2C4F38] font-accent">-${formatPrice(totalDiscount)}</span>
                             </div>
                         )}
                         <div className="flex justify-between text-lg font-bold text-gray-900">
                             <span>Subtotal</span>
-                            <span>${formatPrice(subtotal)}</span>
+                            <span className="font-accent">${formatPrice(subtotal)}</span>
                         </div>
                     </div>
 
                     <button
                         onClick={handleCheckout}
                         disabled={items.length === 0}
-                        className="w-full py-3 bg-[#2C4F38] text-white font-bold rounded hover:bg-[#1e3626] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-4"
+                        className="w-full py-3 bg-primary text-white font-bold rounded hover:bg-[#1e3626] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-4 font-accent"
                     >
-                        Pagar pedido
+                        PAGAR PEDIDO
                     </button>
 
                     {/* Payment Icons Placeholder */}

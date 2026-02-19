@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Playfair Display", serif;
+  --font-display: "Noto Serif", serif;
   --font-body: "Lato", sans-serif;
+  --font-accent: "Montserrat", sans-serif;
 
   --color-primary: #013D3B;
   --color-accent: #D9704F;
@@ -11,6 +12,8 @@
   --color-text-main: #333333;
   --color-background: var(--color-beige);
   --color-foreground: var(--color-text-main);
+
+  --font-accent: "Montserrat", sans-serif;
 
   --color-primary-50: #f0fdf4;
   --color-primary-100: #dcfce7;
@@ -35,6 +38,15 @@
 
 @utility animate-scroll-infinite {
   animation: scroll 50s linear infinite;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* 
@@ -75,8 +87,45 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Noto Serif", serif;
   font-weight: 700;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
+
+.tinos-regular {
+  font-family: "Tinos", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tinos-bold {
+  font-family: "Tinos", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.tinos-regular-italic {
+  font-family: "Tinos", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.tinos-bold-italic {
+  font-family: "Tinos", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.noto-serif {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font-accent {
+  font-family: "Montserrat", sans-serif;
 }
 
 body.sticky-bar-visible .whatsapp-button {

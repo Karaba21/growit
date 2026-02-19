@@ -59,4 +59,9 @@ export interface CartItem {
     }[];
     variantId: string;
     quantity: number;
+    collections?: {
+        id: string;
+        title: string;
+        handle: string;
+    }[];
 }
