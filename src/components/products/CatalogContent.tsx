@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { CatalogFilters } from '../../components/products/CatalogFilters';
 import { CatalogSort } from '../../components/products/CatalogSort';
+import { MobileFilterDrawer } from '../../components/products/MobileFilterDrawer';
 import { ProductGrid } from '../../components/products/ProductGrid';
 import type { FilterState, SortOption, Product } from '../../types/product';
 
@@ -20,8 +22,16 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
         plantCounts: [],
     });
 
+    const searchParams = useSearchParams();
+    const initialCategory = searchParams.get('category');
+
     const [sort, setSort] = useState<SortOption>('title-asc');
-    const [category, setCategory] = useState<string | null>(null);
+    const [category, setCategory] = useState<string | null>(initialCategory);
+
+    useEffect(() => {
+        const urlCategory = searchParams.get('category');
+        setCategory(urlCategory);
+    }, [searchParams]);
 
     const availablePlantCounts = useMemo(() => {
         const counts = new Set<number>();
@@ -145,7 +155,18 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
 
                 {/* Filters and Sort Bar */}
                 <div className="mb-8">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    {/* Mobile Filters and Sort */}
+                    <MobileFilterDrawer
+                        filters={filters}
+                        onFilterChange={setFilters}
+                        availablePlantCounts={availablePlantCounts}
+                        sort={sort}
+                        onSortChange={setSort}
+                        productsCount={filteredProducts.length}
+                    />
+
+                    {/* Desktop Filters and Sort */}
+                    <div className="hidden md:flex flex-row justify-between items-center gap-4">
                         <CatalogFilters
                             filters={filters}
                             onFilterChange={setFilters}

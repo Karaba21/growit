@@ -128,81 +128,91 @@ export function CartDrawer() {
                 {/* Cart Items */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-6">
                     {items.length === 0 ? (
-                        <div className="text-center py-12">
-                            <p className="text-gray-500 mb-4">Tu carrito está vacío</p>
+                        <div className="text-center py-12 px-4 flex flex-col items-center">
+                            <p className="text-2xl font-serif text-gray-700 mb-8">Tu carrito está vacío</p>
                             <button
                                 onClick={() => setIsCartOpen(false)}
-                                className="text-[#D9704F] hover:text-[#c56040] font-semibold"
+                                className="w-full py-3 bg-primary text-white font-bold rounded hover:bg-[#1e3626] transition-colors font-accent"
                             >
-                                Continuar comprando
+                                CONTINUAR COMPRANDO
                             </button>
                         </div>
                     ) : (
-                        items.map((item) => (
-                            <div key={item.id} className="flex gap-4">
-                                {/* Product Image */}
-                                <div className="w-24 h-24 flex-shrink-0 bg-gray-50 rounded-md overflow-hidden relative">
-                                    <img
-                                        src={item.images[0]?.url}
-                                        alt={item.images[0]?.altText || item.title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-
-                                {/* Product Details */}
-                                <div className="flex-1 flex flex-col justify-between">
-                                    <div className="flex justify-between items-start">
-                                        <div>
-                                            <h3 className="text-sm font-medium text-gray-900 leading-snug">{item.title}</h3>
-                                            {/* Info variant if available, purely cosmetic for now if data missing */}
-                                            {/* <p className="text-xs text-gray-500 mt-1">Variant Name</p> */}
-                                        </div>
-                                        <button
-                                            onClick={() => removeFromCart(item.id)}
-                                            className="text-gray-400 hover:text-red-500 p-1"
-                                        >
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                            </svg>
-                                        </button>
+                        <>
+                            {items.map((item) => (
+                                <div key={item.id} className="flex gap-4">
+                                    {/* Product Image */}
+                                    <div className="w-24 h-24 flex-shrink-0 bg-gray-50 rounded-md overflow-hidden relative">
+                                        <img
+                                            src={item.images[0]?.url}
+                                            alt={item.images[0]?.altText || item.title}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
 
-                                    <div className="flex justify-between items-end mt-2">
-                                        <div className="flex items-center border border-gray-300 rounded overflow-hidden">
-                                            <button
-                                                onClick={() => updateQuantity(item.id, Math.max(0, item.quantity - 1))}
-                                                className="px-2 py-1 text-gray-600 hover:bg-gray-50"
-                                            >
-                                                -
-                                            </button>
-                                            <span className="px-2 py-1 text-sm text-gray-900 min-w-[2rem] text-center font-accent">{item.quantity}</span>
-                                            <button
-                                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                className="px-2 py-1 text-gray-600 hover:bg-gray-50"
-                                            >
-                                                +
-                                            </button>
-                                        </div>
-
-                                        <div className="text-right">
-                                            {item.compareAtPrice && item.compareAtPrice > item.price && (
-                                                <div className="text-xs text-gray-400 line-through font-accent">
-                                                    ${formatPrice(item.compareAtPrice * item.quantity)}
-                                                </div>
-                                            )}
-                                            <div className="font-bold text-gray-900 font-accent">
-                                                ${formatPrice(item.price * item.quantity)}
+                                    {/* Product Details */}
+                                    <div className="flex-1 flex flex-col justify-between">
+                                        <div className="flex justify-between items-start">
+                                            <div>
+                                                <h3 className="text-base font-bold font-serif text-[#2C3E50] leading-snug">{item.title}</h3>
+                                                {/* Info variant if available, purely cosmetic for now if data missing */}
+                                                {/* <p className="text-xs text-gray-500 mt-1">Variant Name</p> */}
                                             </div>
-                                            {item.compareAtPrice && item.compareAtPrice > item.price && (
-                                                <div className="text-[10px] font-bold text-green-600 font-accent">
-                                                    (Descuento de ${formatPrice((item.compareAtPrice - item.price) * item.quantity)})
+                                            <button
+                                                onClick={() => removeFromCart(item.id)}
+                                                className="text-gray-400 hover:text-red-500 p-1"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <div className="flex justify-between items-end mt-2">
+                                            <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+                                                <button
+                                                    onClick={() => updateQuantity(item.id, Math.max(0, item.quantity - 1))}
+                                                    className="px-2 py-1 text-gray-600 hover:bg-gray-50"
+                                                >
+                                                    -
+                                                </button>
+                                                <span className="px-2 py-1 text-sm text-gray-900 min-w-[2rem] text-center font-accent">{item.quantity}</span>
+                                                <button
+                                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                    className="px-2 py-1 text-gray-600 hover:bg-gray-50"
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
+
+                                            <div className="text-right">
+                                                {item.compareAtPrice && item.compareAtPrice > item.price && (
+                                                    <div className="text-xs text-gray-400 line-through font-accent">
+                                                        ${formatPrice(item.compareAtPrice * item.quantity)}
+                                                    </div>
+                                                )}
+                                                <div className="text-lg font-extrabold text-[#0f172a] font-accent">
+                                                    ${formatPrice(item.price * item.quantity)}
                                                 </div>
-                                            )}
+                                                {item.compareAtPrice && item.compareAtPrice > item.price && (
+                                                    <div className="text-[10px] font-bold text-green-600 font-accent">
+                                                        (Descuento de ${formatPrice((item.compareAtPrice - item.price) * item.quantity)})
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))
+                            ))}
+                        </>
+                    )}
+                    {items.length > 0 && (
+                        <button
+                            onClick={() => setIsCartOpen(false)}
+                            className="w-full py-3 bg-white text-[#2C4F38] border-2 border-[#2C4F38] font-bold rounded hover:bg-gray-50 transition-colors font-accent mt-4"
+                        >
+                            SEGUIR COMPRANDO
+                        </button>
                     )}
                 </div>
 

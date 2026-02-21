@@ -10,6 +10,7 @@ import { CartIcon } from './CartIcon';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [expandedLink, setExpandedLink] = React.useState<string | null>(null);
     const pathname = usePathname();
 
     // Lock body scroll when menu is open
@@ -26,6 +27,7 @@ export const Header: React.FC = () => {
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         setIsMenuOpen(false);
+        setExpandedLink(null);
 
         if (href.startsWith('/#')) {
             const targetId = href.replace('/#', '');
@@ -89,16 +91,46 @@ export const Header: React.FC = () => {
                                     ? false
                                     : pathname.startsWith(link.href);
 
+                            const isExpanded = expandedLink === link.href;
+
                             return (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={(e) => handleLinkClick(e, link.href)}
-                                    className={`text-2xl font-medium text-center py-2 transition-colors ${isActive ? 'text-accent' : 'text-white'
-                                        }`}
-                                >
-                                    {link.label}
-                                </Link>
+                                <div key={link.href} className="flex flex-col items-center w-full">
+                                    <Link
+                                        href={link.subLinks ? '#' : link.href}
+                                        onClick={(e) => {
+                                            if (link.subLinks) {
+                                                e.preventDefault();
+                                                setExpandedLink(isExpanded ? null : link.href);
+                                            } else {
+                                                handleLinkClick(e, link.href);
+                                            }
+                                        }}
+                                        className={`text-2xl font-medium text-center py-2 transition-colors flex items-center justify-center gap-2 ${isActive ? 'text-accent' : 'text-white'
+                                            }`}
+                                    >
+                                        {link.label}
+                                        {link.subLinks && (
+                                            <svg xmlns="http://www.w3.org/2000/svg" className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        )}
+                                    </Link>
+
+                                    {link.subLinks && isExpanded && (
+                                        <div className="flex flex-col space-y-4 mt-4 items-center w-full">
+                                            {link.subLinks.map(subLink => (
+                                                <Link
+                                                    key={subLink.href}
+                                                    href={subLink.href}
+                                                    onClick={(e) => handleLinkClick(e, subLink.href)}
+                                                    className="text-2xl font-medium text-white/90 hover:text-accent transition-colors block w-full text-center"
+                                                >
+                                                    {subLink.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             );
                         })}
                     </div>

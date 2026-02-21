@@ -132,3 +132,8 @@ body.sticky-bar-visible .whatsapp-button {
   bottom: 85px !important;
   transition: bottom 0.3s ease-in-out;
 }
+
+body.filter-drawer-open .whatsapp-button {
+  bottom: 115px !important;
+  transition: bottom 0.3s ease-in-out;
+}

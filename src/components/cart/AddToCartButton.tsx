@@ -65,7 +65,7 @@ export function AddToCartButton({ product, className = '', showQuantitySelector 
             <button
                 onClick={handleAddToCart}
                 disabled={!product.availableForSale || isAdding}
-                className="flex-1 py-4 px-6 bg-[#2F4F4F] text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-2.5 px-3 md:py-3 md:px-4 bg-[#2F4F4F] text-white font-accent font-bold text-[11px] sm:text-xs md:text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isAdding ? 'AGREGANDO...' : product.availableForSale ? 'AGREGAR AL CARRITO' : 'AGOTADO'}
             </button>
