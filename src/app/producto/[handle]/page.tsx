@@ -14,6 +14,8 @@ import { ProductReviews } from '../../../components/products/ProductReviews';
 import { PeopleWatching } from '../../../components/products/PeopleWatching';
 import { ShippingTimeline } from '../../../components/products/ShippingTimeline';
 import { StickyProductBar } from '../../../components/products/StickyProductBar';
+import { ProductMiniReviews } from '../../../components/products/ProductMiniReviews';
+import { ProductDescription } from '../../../components/products/ProductDescription';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -78,7 +80,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         : null;
 
     return (
-        <div className="bg-white py-8">
+        <div className="bg-white pt-4 pb-8 md:py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumb */}
                 <nav className="hidden md:block mb-8">
@@ -91,7 +93,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </ol>
                 </nav>
 
-                <h1 className="md:hidden text-3xl font-bold text-gray-900 mb-6">
+                <h1 className="md:hidden text-3xl font-bold text-gray-900 mb-1">
                     {product.title}
                 </h1>
 
@@ -110,7 +112,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                     {/* Product Info */}
                     <div>
-                        <h1 className="hidden md:block text-4xl font-bold text-gray-900 mb-2 font-display">
+                        <h1 className="hidden md:block text-4xl font-bold text-gray-900 mb-0 font-display">
                             {product.title}
                         </h1>
                         <div className="hidden md:block">
@@ -180,35 +182,35 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                             <ShippingTimeline />
 
+                            <ProductMiniReviews />
+
 
                         </div>
 
                         {/* FAQ Section */}
                         <ProductFAQ faqs={product.faqs || []} />
 
-                        {/* Description */}
-                        <div className="mb-8">
-                            <h2 className="text-lg font-semibold text-gray-900 mb-2">Descripción</h2>
-                            <div
-                                className="text-gray-600 prose prose-sm"
-                                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                            />
-                        </div>
-
-                        {/* Tags */}
-                        {product.tags.length > 0 && (
-                            <div className="mt-8">
-                                <h3 className="text-sm font-medium text-gray-700 mb-2">Etiquetas:</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {product.tags.map((tag) => (
-                                        <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                        {/* Description and Tags are moved outside of this div */}
                     </div>
+                </div>
+
+                {/* Description - Full Width */}
+                <div className="mt-16 max-w-4xl mx-auto">
+                    <ProductDescription html={product.descriptionHtml} />
+
+                    {/* Tags */}
+                    {product.tags.length > 0 && (
+                        <div className="mt-8 pt-8 border-t border-gray-100 text-center">
+                            <h3 className="text-sm font-medium text-gray-700 mb-4">Etiquetas:</h3>
+                            <div className="flex flex-wrap justify-center gap-2">
+                                {product.tags.map((tag) => (
+                                    <span key={tag} className="px-3 py-1 bg-gray-50 border border-gray-100 text-gray-600 text-sm rounded-full transition-colors hover:bg-gray-100">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
             <StickyProductBar product={product} />

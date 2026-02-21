@@ -1,81 +1,154 @@
-import React from 'react';
-import { Quotes, Star } from '@phosphor-icons/react/dist/ssr';
+'use client';
 
-const reviews = [
-    {
-        id: 1,
-        quote: "Growbit le ha devuelto la vida a mi habitación... súper fácil de usar y muy limpio.",
-        author: "María Fernández",
-        role: "Influencer",
-        avatar: "/images/avatars/avatar-maria.png"
-    },
-    {
-        id: 2,
-        quote: "El sistema es perfecto para el apartamento, no ocupa espacio y siempre tengo mis hierbas frescas.",
-        author: "Carlos Ruiz",
-        role: "Arquitecto",
-        avatar: "/images/avatars/avatar-carlos.png"
-    },
-    {
-        id: 3,
-        quote: "Nunca había tenido éxito con mis plantas de interior hasta que probé Growit. Altamente recomendado.",
-        author: "Sofía Méndez",
-        role: "Diseñadora",
-        avatar: "/images/avatars/avatar-sofia.png"
-    }
-];
+import React, { useRef, useState, useCallback } from 'react';
+import { Quotes, Star, StarHalf, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { reviews } from '../../lib/reviews';
 
 export const ReviewsSection: React.FC = () => {
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const firstChild = container.firstElementChild as HTMLElement;
+            if (firstChild) {
+                // width + gap (24px for gap-6)
+                const scrollAmount = firstChild.offsetWidth + 24;
+                container.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+            }
+        }
+    };
+
+    const handleScroll = useCallback(() => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const scrollPosition = container.scrollLeft;
+            const firstChild = container.firstElementChild as HTMLElement;
+            if (firstChild) {
+                const itemWidth = firstChild.offsetWidth;
+                const gap = 24;
+                const snapWidth = itemWidth + gap;
+                const newIndex = Math.round(scrollPosition / snapWidth);
+                setActiveIndex(newIndex);
+            }
+        }
+    }, []);
+
     return (
-        <section id="resenas" className="scroll-mt-24 py-12 bg-[#F9F7F2]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="resenas" className="py-12 bg-white">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-12 relative">
+
+                {/* Navigation Buttons */}
+                <button
+                    onClick={() => scroll('left')}
+                    className="hidden sm:flex absolute left-0 top-[55%] -translate-y-1/2 z-10 w-10 h-10 items-center justify-center text-gray-400 hover:text-gray-800 transition-colors"
+                    aria-label="Ver reseñas anteriores"
+                >
+                    <CaretLeft size={28} weight="bold" />
+                </button>
+
+                <button
+                    onClick={() => scroll('right')}
+                    className="hidden sm:flex absolute right-0 top-[55%] -translate-y-1/2 z-10 w-10 h-10 items-center justify-center text-gray-400 hover:text-gray-800 transition-colors"
+                    aria-label="Ver reseñas siguientes"
+                >
+                    <CaretRight size={28} weight="bold" />
+                </button>
+
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-6">
-                        Reseñas de Clientes
+                    <h2 className="text-3xl md:text-5xl font-display font-medium text-primary mb-4 uppercase tracking-widest">
+                        +1000 cultivadores
                     </h2>
-                    <p className="text-gray-600 font-body max-w-2xl mx-auto">
-                        Lo que dicen quienes ya están cultivando con Growit
-                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Carousel Container */}
+                <div
+                    ref={scrollContainerRef}
+                    onScroll={handleScroll}
+                    className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar scroll-smooth"
+                >
                     {reviews.map((review) => (
-                        <div key={review.id} className="bg-white p-8 rounded-xl shadow-sm relative flex flex-col items-center text-center">
-                            <div className="w-12 h-12 bg-[#D9704F] rounded-full flex items-center justify-center text-white mb-6 absolute -top-6">
-                                <Quotes size={24} weight="fill" />
+                        <div
+                            key={review.id}
+                            className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-none snap-start bg-[#F9F9F9] rounded-2xl flex flex-col items-center pb-8 border border-gray-100 shadow-sm"
+                        >
+
+                            {/* Image Header with Quote Icon */}
+                            <div className="relative w-full h-80 mb-8">
+                                <img
+                                    src={review.image}
+                                    alt={review.title || review.quote}
+                                    className="w-full h-full object-cover rounded-t-2xl"
+                                />
+                                <div className="absolute -bottom-5 right-6 w-11 h-11 bg-[#b7e360] text-white rounded-full flex items-center justify-center shadow-sm border-2 border-white">
+                                    <Quotes size={22} weight="fill" />
+                                </div>
                             </div>
 
-                            <div className="flex gap-1 text-yellow-400 mb-6 mt-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} size={16} weight="fill" />
+                            {/* Stars */}
+                            <div className="flex gap-1 text-[#FFD700] mb-3">
+                                {[...Array(Math.floor(review.rating))].map((_, i) => (
+                                    <Star key={i} size={18} weight="fill" />
                                 ))}
+                                {review.rating % 1 !== 0 && (
+                                    <StarHalf size={18} weight="fill" />
+                                )}
                             </div>
 
-                            <p className="text-gray-600 font-body italic mb-8 leading-relaxed">
-                                "{review.quote}"
+                            {/* Title */}
+                            {review.title && (
+                                <h4 className="font-serif text-lg text-gray-900 mb-3 tracking-wide">
+                                    {review.title}
+                                </h4>
+                            )}
+
+                            {/* Quote */}
+                            <p className="text-gray-700 font-body text-center px-6 mb-8 text-sm leading-relaxed">
+                                {review.quote}
                             </p>
 
-                            <div className="flex items-center gap-4 mt-auto">
-                                <div className="w-12 h-12 rounded-full overflow-hidden">
-                                    <img
-                                        src={review.avatar}
-                                        alt={review.author}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <div className="text-left">
-                                    <h4 className="font-bold font-display text-gray-900 text-sm">
-                                        {review.author}
-                                    </h4>
-                                    <p className="text-xs text-gray-500 font-body uppercase tracking-wider">
-                                        {review.role}
-                                    </p>
-                                </div>
+                            {/* Author */}
+                            <div className="flex items-center gap-3 mt-auto">
+                                <img
+                                    src={review.avatar}
+                                    alt={review.author}
+                                    className="w-8 h-8 rounded-full object-cover shadow-sm"
+                                />
+                                <span className="font-bold text-gray-900 text-sm italic">
+                                    {review.author}
+                                </span>
                             </div>
                         </div>
                     ))}
                 </div>
+
+                {/* Dots indicator */}
+                <div className="flex justify-center gap-2 mt-2">
+                    {/* On Desktop/Tablet: Show 3 dots assuming ~3 items per slide block */}
+                    <div className="hidden sm:flex justify-center gap-2">
+                        {[0, 1, 2].map((i) => (
+                            <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${Math.floor(activeIndex / 3) === i ? 'bg-gray-800' : 'bg-gray-300'}`}></div>
+                        ))}
+                    </div>
+                    {/* On Mobile: Show 1 dot per review */}
+                    <div className="flex sm:hidden justify-center gap-2">
+                        {reviews.map((_, i) => (
+                            <div key={i} className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${activeIndex === i ? 'bg-gray-800' : 'bg-gray-300'}`}></div>
+                        ))}
+                    </div>
+                </div>
             </div>
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}} />
         </section>
     );
 };

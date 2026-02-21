@@ -240,13 +240,12 @@ export function CartDrawer() {
                         PAGAR PEDIDO
                     </button>
 
-                    {/* Payment Icons Placeholder */}
-                    <div className="flex justify-center gap-2">
-                        {/* Simple SVG/CSS representations for payment icons */}
-                        <div className="h-6 w-10 bg-blue-600 rounded flex items-center justify-center text-[8px] text-white font-bold">AMEX</div>
-                        <div className="h-6 w-10 bg-blue-400 rounded flex items-center justify-center text-[8px] text-white font-bold">DINERS</div>
-                        <div className="h-6 w-10 bg-red-500 rounded flex items-center justify-center text-[8px] text-white font-bold">MASTER</div>
-                        <div className="h-6 w-10 bg-blue-800 rounded flex items-center justify-center text-[8px] text-white font-bold">VISA</div>
+                    {/* Payment Icons */}
+                    <div className="flex justify-center items-center gap-4">
+                        <img src="/masterr.webp" alt="Mastercard" className="h-6 w-auto object-contain" />
+                        <img src="/VISA-Logo.png" alt="Visa" className="h-6 w-auto object-contain" />
+                        <img src="/mercadopagoo.png" alt="Mercado Pago" className="h-6 w-auto object-contain" />
+                        <img src="/abitab-removebg-preview.png" alt="Abitab" className="h-6 w-auto object-contain" />
                     </div>
                 </div>
             </div>

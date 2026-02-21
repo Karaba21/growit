@@ -31,27 +31,7 @@ export default async function Home() {
 
       <WhyChooseGrowit />
 
-      <ProductShowcase
-        title={indoorProduct?.title || "GROW 28 INDOOR"}
-        price={indoorProduct ? `$${parseInt(indoorProduct.priceRange.minVariantPrice).toLocaleString("es-UY")} UYU` : "$14.400 UYU"}
-        image={indoorProduct?.featuredImage?.url || "/images/grow-28-indoor.png"}
-        imageAlt={indoorProduct?.featuredImage?.altText || "Grow 28 Indoor System"}
-        subtitle="SMART INDOOR"
-        variantId={indoorProduct?.variantId}
-        product={indoorProduct}
-      />
-
-      <ProductShowcase
-        title={outdoorProduct?.title || "GROW 28 OUTDOOR"}
-        price={outdoorProduct ? `$${parseInt(outdoorProduct.priceRange.minVariantPrice).toLocaleString("es-UY")} UYU` : "$12.400 UYU"}
-        image={outdoorProduct?.featuredImage?.url || "/images/grow-28.png"}
-        imageAlt={outdoorProduct?.featuredImage?.altText || "Grow 28 Outdoor System"}
-        subtitle="OUTDOOR HYDROPONIC"
-        reverse={true}
-        bgColor="bg-white"
-        variantId={outdoorProduct?.variantId}
-        product={outdoorProduct}
-      />
+      <ReviewsSection />
 
       <section className="py-12 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +54,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <ReviewsSection />
+
 
       <PickupSection />
 
