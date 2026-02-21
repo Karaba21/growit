@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import { Button } from '../../../components/ui/Button';
 import { Badge } from '../../../components/ui/Badge';
 import { getProducts, getProduct } from '../../../lib/shopify';
@@ -24,6 +25,43 @@ export async function generateStaticParams() {
 
 interface ProductPageProps {
     params: Promise<{ handle: string }>;
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+    const { handle } = await params;
+    const product = (await getProduct(handle)) as Product | null;
+
+    if (!product) {
+        return {
+            title: 'Producto no encontrado',
+            description: 'El producto que buscas no existe.',
+        };
+    }
+
+    const price = product.priceRange?.minVariantPrice
+        ? `$${formatPrice(parseFloat(product.priceRange.minVariantPrice))} UYU`
+        : '';
+
+    const description = product.description?.slice(0, 160) || `Comprá ${product.title} ${price ? `por ${price}` : ''} en Growit. Sistema inteligente de cultivo.`;
+
+    const images = product.featuredImage ? [{ url: product.featuredImage.url }] : [];
+
+    return {
+        title: product.title,
+        description,
+        openGraph: {
+            title: product.title,
+            description,
+            images,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: product.title,
+            description,
+            images: product.featuredImage ? [product.featuredImage.url] : [],
+        },
+    };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

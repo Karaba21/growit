@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import type { ProductImage } from '../../types/product';
 
 interface ProductGalleryProps {
@@ -20,11 +21,14 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
     if (!images || images.length === 0) {
         if (featuredImage) {
             return (
-                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4">
-                    <img
+                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
+                    <Image
                         src={featuredImage.url}
                         alt={featuredImage.altText || title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
                     />
                 </div>
             );
@@ -46,10 +50,13 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
             {/* Desktop View (Hidden on Mobile) */}
             <div className="hidden md:block">
                 <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4 relative group">
-                    <img
+                    <Image
                         src={selectedImage}
                         alt={title}
-                        className="w-full h-full object-contain"
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
                     />
 
                     {images.length > 1 && (
@@ -95,11 +102,15 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
                             type="button"
                             aria-label={`Ver imagen ${index + 1}`}
                         >
-                            <img
-                                src={image.url}
-                                alt={image.altText || `Imagen ${index + 1} de ${title}`}
-                                className="w-full h-full object-cover"
-                            />
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={image.url}
+                                    alt={image.altText || `Imagen ${index + 1} de ${title}`}
+                                    fill
+                                    className="object-cover"
+                                    sizes="120px"
+                                />
+                            </div>
                         </button>
                     ))}
                 </div>
@@ -114,11 +125,13 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
                         onScroll={handleScroll}
                     >
                         {images.map((image, index) => (
-                            <div key={image.id || image.url || index} className="flex-shrink-0 w-full h-full snap-center">
-                                <img
+                            <div key={image.id || image.url || index} className="flex-shrink-0 w-full h-full snap-center relative">
+                                <Image
                                     src={image.url}
                                     alt={image.altText || `Imagen ${index + 1} de ${title}`}
-                                    className="w-full h-full object-contain"
+                                    fill
+                                    className="object-contain"
+                                    sizes="100vw"
                                 />
                             </div>
                         ))}

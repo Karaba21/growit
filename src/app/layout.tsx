@@ -6,8 +6,37 @@ import { CartProvider } from "../contexts/CartContext";
 import { CartDrawer } from "../components/cart/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "Growit - Cultiva tu propio alimento en casa",
-  description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://growituruguay.com'),
+  title: {
+    default: "Growit - Cultiva tu propio alimento en casa",
+    template: "%s | Growit",
+  },
+  description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico. Descubre una nueva forma de cultivar con Growit.",
+  keywords: ["Cultivo", "Growit", "Orgánico", "Hidroponía", "Indoor", "Outdoor", "Plantas", "Hogar", "Sistema inteligente"],
+  openGraph: {
+    title: "Growit - Cultiva tu propio alimento en casa",
+    description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",
+    url: "/",
+    siteName: "Growit",
+    locale: "es_UY",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Growit - Cultiva tu propio alimento en casa",
+    description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",
+  },
+  icons: {
+    icon: [
+      { url: '/favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon_io/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/favicon_io/favicon.ico',
+    apple: [
+      { url: '/favicon_io/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/favicon_io/site.webmanifest',
 };
 
 

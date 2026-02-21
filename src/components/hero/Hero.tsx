@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
@@ -56,10 +57,13 @@ export const Hero = () => {
                     transition={{ duration: 1 }}
                     className="absolute inset-0 z-0"
                 >
-                    <img
+                    <Image
                         src={slides[currentSlide].image}
                         alt="Hero Background"
-                        className="w-full h-full object-cover opacity-80"
+                        fill
+                        priority
+                        className="object-cover opacity-80"
+                        sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-black/40" />
                 </motion.div>

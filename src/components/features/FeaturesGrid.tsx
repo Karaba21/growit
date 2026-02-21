@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Plant, HouseLine, Leaf, Gear } from '@phosphor-icons/react/dist/ssr';
 
 export const FeaturesGrid: React.FC = () => {
@@ -17,8 +18,8 @@ export const FeaturesGrid: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* Feature 1 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="h-40 w-full flex items-center justify-center mb-6">
-                            <img src="/nontoxic.png" alt="Libre de Pesticidas" className="max-h-full w-auto object-contain" />
+                        <div className="h-40 w-full relative flex items-center justify-center mb-6">
+                            <Image src="/nontoxic.png" alt="Libre de Pesticidas" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
                         </div>
                         <h3 className="text-xl font-display font-bold text-gray-900 mb-3">
                             Libre de Pesticidas
@@ -30,8 +31,8 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 2 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="h-40 w-full flex items-center justify-center mb-6">
-                            <img src="/espacio.png" alt="Espacio reducido" className="max-h-full w-auto object-contain" />
+                        <div className="h-40 w-full relative flex items-center justify-center mb-6">
+                            <Image src="/espacio.png" alt="Espacio reducido" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
                         </div>
                         <h3 className="text-xl font-display font-bold text-gray-900 mb-3">
                             Espacio reducido
@@ -43,8 +44,8 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 3 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="h-40 w-full flex items-center justify-center mb-6">
-                            <img src="/canasta.png" alt="Cosechas frescas" className="max-h-full w-auto object-contain" />
+                        <div className="h-40 w-full relative flex items-center justify-center mb-6">
+                            <Image src="/canasta.png" alt="Cosechas frescas" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
                         </div>
                         <h3 className="text-xl font-display font-bold text-gray-900 mb-3">
                             Cosechas frescas
@@ -56,8 +57,8 @@ export const FeaturesGrid: React.FC = () => {
 
                     {/* Feature 4 */}
                     <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-                        <div className="h-40 w-full flex items-center justify-center mb-6">
-                            <img src="/rueda.png" alt="Automático" className="max-h-full w-auto object-contain" />
+                        <div className="h-40 w-full relative flex items-center justify-center mb-6">
+                            <Image src="/rueda.png" alt="Automático" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
                         </div>
                         <h3 className="text-xl font-display font-bold text-gray-900 mb-3">
                             Automático
