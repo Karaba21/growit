@@ -17,7 +17,7 @@ async function shopifyFetch<T>({
         'X-Shopify-Storefront-Access-Token': storefrontAccessToken!,
       },
       body: JSON.stringify({ query, variables }),
-      cache: 'force-cache', // Allow static generation with revalidation
+      next: { revalidate: 60 }, // Revalidate every 60 seconds to avoid stale stock data
     });
 
     const body = await result.json();
