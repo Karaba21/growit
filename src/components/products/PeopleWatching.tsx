@@ -25,7 +25,7 @@ export function PeopleWatching() {
     return (
         <div className="flex items-center justify-center bg-[#2F4F4F] text-white px-6 py-3 rounded-lg w-fit transition-all duration-300 shadow-md mx-auto">
             <span className="text-sm tracking-wide">
-                <span className="font-bold text-lg mr-1">{viewerCount}</span> personas están viendo este producto
+                <span className="font-bold text-lg mr-1 text-[#4ade80]">{viewerCount}</span> personas están viendo este producto
             </span>
         </div>
     );

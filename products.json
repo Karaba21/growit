@@ -1,0 +1,42 @@
+[
+  {
+    "handle": "grow-20",
+    "title": "Grow 20 outdoor"
+  },
+  {
+    "handle": "grow-20-indoor",
+    "title": "Grow 20 Indoor"
+  },
+  {
+    "handle": "nutrientes",
+    "title": "Nutrientes"
+  },
+  {
+    "handle": "grow-36-outdoor",
+    "title": "Grow 36 Outdoor"
+  },
+  {
+    "handle": "algodon-germinador",
+    "title": "Algodón germinador"
+  },
+  {
+    "handle": "medidor-de-ph",
+    "title": "Medidor de PH"
+  },
+  {
+    "handle": "grow-28-outdoor",
+    "title": "GROW 28 Outdoor"
+  },
+  {
+    "handle": "grow-28-indoor",
+    "title": "GROW 28 Indoor"
+  },
+  {
+    "handle": "grow-36-indoor",
+    "title": "GROW 36 Indoor"
+  },
+  {
+    "handle": "medidor-de-ce-y-temperatura",
+    "title": "Medidor de CE y Temperatura"
+  }
+]

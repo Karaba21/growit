@@ -81,7 +81,7 @@ export const HowItWorks: React.FC = () => {
                 <div className="mt-16 text-center">
                     <Link
                         href="/catalogo"
-                        className="inline-block bg-accent hover:bg-[#c56040] text-white font-body font-bold py-4 px-12 rounded-full uppercase tracking-wider text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="inline-block py-4 px-12 bg-[#2F4F4F] text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         EMPEZÁ AHORA
                     </Link>

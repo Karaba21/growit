@@ -31,7 +31,7 @@ export function ShippingTimeline() {
             const m = date.toLocaleString('default', { month: 'short' });
             // Uppercase first letter of month for consistency with image
             const mCap = m.charAt(0).toUpperCase() + m.slice(1);
-            return `${d}. ${mCap}`;
+            return `${d} ${mCap}`;
         };
 
         return {
@@ -75,24 +75,24 @@ export function ShippingTimeline() {
             const day = d.getDate();
             const month = d.toLocaleString('es-ES', { month: 'short' });
             const monthCap = month.charAt(0).toUpperCase() + month.slice(1);
-            return `${day}. ${monthCap}`; // "19. Feb" style
+            return `${day} ${monthCap}`; // "19. Feb" style
         };
 
         return [
             {
                 date: format(today),
-                status: "Huerta Confirmada",
+                status: "Lo pedís",
                 icon: ShoppingCart,
             },
             {
                 date: `${format(start)} - ${format(end)}`,
-                status: "Huerta en Camino",
+                status: "Lo preparamos",
                 icon: Truck,
             },
             {
                 date: `${format(deliverstart)} - ${format(getFutureDate(8))}`,
                 // Adding a range for delivery to match visual style of "Range"
-                status: "Entregada 🤝", // Added handshake emoji from image
+                status: "Te llega 🤝", // Added handshake emoji from image
                 icon: Gift,
             }
         ];
@@ -110,12 +110,12 @@ export function ShippingTimeline() {
 
                 {timelineData.map((step, index) => (
                     <div key={index} className="flex flex-col items-center relative z-10 w-1/3">
-                        <div className="w-12 h-12 rounded-full bg-[#1B4B43] flex items-center justify-center text-white mb-3 shadow-sm border-4 border-white">
+                        <div className="w-12 h-12 rounded-full bg-[#1B4B43] flex items-center justify-center text-white mb-3 shadow-sm">
                             <step.icon size={24} weight="regular" />
                         </div>
                         <div className="text-center">
-                            <p className="font-bold text-gray-900 text-sm md:text-base mb-1">{step.date}</p>
-                            <p className="text-xs md:text-sm text-gray-600 font-medium leading-tight">{step.status}</p>
+                            <p className="font-bold text-gray-900 text-base md:text-lg mb-1">{step.date}</p>
+                            <p className="text-sm md:text-base text-gray-600 font-medium leading-tight">{step.status}</p>
                         </div>
                     </div>
                 ))}

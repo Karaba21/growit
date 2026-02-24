@@ -87,7 +87,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                             <button
                                 onClick={handleBuyNow}
                                 disabled={!variantId}
-                                className="w-full py-3 px-6 bg-[#D9704F] text-white font-body text-xs font-bold uppercase tracking-wider hover:bg-[#c56040] transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full py-3 px-6 bg-[#2F4F4F] text-white font-accent text-xs font-bold uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 COMPRAR AHORA
                             </button>

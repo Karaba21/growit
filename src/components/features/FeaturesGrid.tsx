@@ -10,6 +10,7 @@ export const FeaturesGrid: React.FC = () => {
                     <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-6">
                         ¿Que Ofrece Growit?
                     </h2>
+                    <div className="w-24 h-1 bg-accent mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-600 font-body max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
                         Growit es la solución más completa de cultivo hidropónico, permitiéndonos ofrecerte sistemas de cultivo, nutrientes, semillas y soporte en cada tema. Te acompañamos en todo el proceso.
                     </p>

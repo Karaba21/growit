@@ -15,7 +15,7 @@ export const Badge: React.FC<BadgeProps> = ({
 
     const variantStyles = {
         success: 'bg-primary-100 text-primary-900',
-        warning: 'bg-accent/10 text-accent',
+        warning: 'bg-[#b7e360] text-[#013D3B] font-bold shadow-sm px-3 py-1 uppercase',
         error: 'bg-red-100 text-red-800',
         info: 'bg-blue-100 text-blue-800',
         neutral: 'bg-beige text-text-main',

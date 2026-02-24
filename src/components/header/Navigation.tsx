@@ -10,6 +10,7 @@ export const navLinks = [
         href: '/catalogo',
         label: 'Catálogo',
         subLinks: [
+            { href: '/catalogo', label: 'Todos' },
             { href: '/catalogo?category=indoor', label: 'Indoor' },
             { href: '/catalogo?category=outdoor', label: 'Outdoor' },
             { href: '/catalogo?category=insumos', label: 'Insumos' }

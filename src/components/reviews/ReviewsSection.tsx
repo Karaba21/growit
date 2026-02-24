@@ -36,7 +36,7 @@ export const ReviewsSection: React.FC = () => {
     }, []);
 
     return (
-        <section id="resenas" className="py-12 bg-white">
+        <section id="resenas" className="pt-6 bg-white">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-12 relative">
 
                 {/* Navigation Buttons */}
@@ -57,9 +57,10 @@ export const ReviewsSection: React.FC = () => {
                 </button>
 
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-display font-medium text-primary mb-4 uppercase tracking-widest">
+                    <h2 className="text-3xl md:text-5xl font-display font-medium text-primary mb-6 uppercase tracking-widest">
                         +1000 cultivadores
                     </h2>
+                    <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
                 </div>
 
                 {/* Carousel Container */}

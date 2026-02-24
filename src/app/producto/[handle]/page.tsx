@@ -16,6 +16,7 @@ import { ShippingTimeline } from '../../../components/products/ShippingTimeline'
 import { StickyProductBar } from '../../../components/products/StickyProductBar';
 import { ProductMiniReviews } from '../../../components/products/ProductMiniReviews';
 import { ProductDescription } from '../../../components/products/ProductDescription';
+import { ProductSizePicker } from '../../../components/products/ProductSizePicker';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -169,7 +170,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             </div>
                         </div>
 
-
+                        <ProductSizePicker currentHandle={product.handle} />
 
                         {/* Add to Cart */}
                         <div className="space-y-4">
