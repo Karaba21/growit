@@ -2,6 +2,7 @@
 import { Hero } from "../components/hero/Hero";
 import PaymentCarousel from "../components/PaymentCarousel";
 import { ImageComparison } from "../components/features/ImageComparison";
+import { Process } from "../components/features/Process";
 import { FeaturesGrid } from "../components/features/FeaturesGrid";
 import { HowItWorks } from "../components/features/HowItWorks";
 import { ProductGrid } from "../components/products/ProductGrid";
@@ -33,6 +34,8 @@ export default async function Home() {
       <WhyChooseGrowit />
 
       <ImageComparison />
+
+      <Process />
 
       <ReviewsSection />
 
