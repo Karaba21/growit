@@ -11,6 +11,7 @@ import { ProductShowcase } from "../components/products/ProductShowcase";
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { FaqSection } from "../components/faq/FaqSection";
 import { PickupSection } from "../components/pickup/PickupSection";
+import { ProductSelection } from "../components/products/ProductSelection";
 import { getProducts } from "../lib/shopify";
 import Link from "next/link";
 
@@ -36,6 +37,8 @@ export default async function Home() {
       <ImageComparison />
 
       <Process />
+
+      <ProductSelection />
 
       <ReviewsSection />
 
