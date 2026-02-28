@@ -1,6 +1,7 @@
 
 import { Hero } from "../components/hero/Hero";
 import PaymentCarousel from "../components/PaymentCarousel";
+import { StartGrowing } from "../components/features/StartGrowing";
 import { ImageComparison } from "../components/features/ImageComparison";
 import { Process } from "../components/features/Process";
 import { FeaturesGrid } from "../components/features/FeaturesGrid";
@@ -41,6 +42,8 @@ export default async function Home() {
       <ProductSelection />
 
       <ReviewsSection />
+
+      <StartGrowing />
 
       <section className="pt-12 pb-8 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
