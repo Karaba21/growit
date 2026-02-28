@@ -41,7 +41,7 @@ export const FaqSection: React.FC = () => {
         <section className="py-16 bg-primary">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="font-display text-3xl text-center text-white mb-12 uppercase tracking-widest border-b border-white/20 pb-4">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-white mb-12 uppercase tracking-wide border-b border-white/20 pb-4">
                         Preguntas Frecuentes
                     </h2>
                     <div className="space-y-4">

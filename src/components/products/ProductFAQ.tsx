@@ -49,7 +49,7 @@ export function ProductFAQ({ faqs }: ProductFAQProps) {
 
             {/* FAQ Accordion */}
             <div className="mb-6 mt-2 text-center">
-                <h2 className="text-2xl font-bold text-gray-900 font-playfair">¿Tenes preguntas?</h2>
+                <h2 className="text-2xl md:text-4xl font-display font-bold text-primary uppercase tracking-wide">¿Tenes preguntas?</h2>
             </div>
             <div className="space-y-3">
                 {faqs.map((faq, index) => (

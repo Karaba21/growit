@@ -31,10 +31,10 @@ const products = [
 
 export function ProductSelection() {
     return (
-        <section className="py-16 md:py-24 bg-white">
+        <section className="pt-8 pb-8 md:pt-12 md:pb-8 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-display font-medium text-primary uppercase tracking-widest">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary uppercase tracking-wide">
                         ¡Elegí cómo querés alimentarte!
                     </h2>
                 </div>

@@ -11,7 +11,7 @@ export function ProductDescription({ html }: ProductDescriptionProps) {
 
     return (
         <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 font-playfair mb-6">Descripción</h2>
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-6 uppercase tracking-wide">Descripción</h2>
             <div
                 className={`text-gray-600 prose prose-lg mx-auto text-left overflow-hidden transition-all duration-300 relative ${isExpanded ? '' : 'max-h-[300px]'}`}
             >

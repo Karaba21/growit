@@ -7,10 +7,9 @@ export const PickupSection = () => {
         <section id="pickup" className="scroll-mt-24 py-8 bg-[#F9F7F2] border-t border-[#E5E7EB]">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-6xl md:text-6xl tracking-tighter mb-6 text-primary font-display">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary mb-6 uppercase tracking-wide">
                         Pickup
                     </h2>
-                    <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">

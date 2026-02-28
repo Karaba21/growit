@@ -44,18 +44,16 @@ export const HowItWorks: React.FC = () => {
     };
 
     return (
-        <section className="py-10 bg-[#F4F1EA]">
+        <section className="pt-4 pb-4 md:pt-4 md:pb-4 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-6 leading-tight">
-                        <span className="font-bold">Así</span> de fácil <span className="font-bold">es</span> cultivar con{" "}
-                        <span className="italic font-normal">Growit</span>
+                <div className="text-center mb-8">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-2 md:mb-4 leading-tight uppercase tracking-wide">
+                        Así de fácil es cultivar con Growit
                     </h2>
-                    <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
                 </div>
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-center gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -64,24 +62,24 @@ export const HowItWorks: React.FC = () => {
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            className="flex flex-col items-center text-center group"
+                            className="flex flex-col items-center text-center group p-2 md:p-6"
                             variants={itemVariants}
                         >
-                            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors duration-300">
-                                <step.icon size={32} weight="duotone" className="text-primary group-hover:text-accent transition-colors duration-300" />
+                            <div className="mb-3 md:mb-6 p-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                                <step.icon size={48} weight="duotone" className="text-primary group-hover:text-accent transition-colors duration-300" />
                             </div>
-                            <h3 className="text-lg font-bold text-primary mb-2">{step.title}</h3>
-                            <p className="text-gray-600 font-body text-sm leading-relaxed max-w-[200px]">
+                            <h3 className="text-xl font-display font-bold text-primary mb-2 md:mb-3">{step.title}</h3>
+                            <p className="text-gray-600 font-body leading-relaxed max-w-[250px]">
                                 {step.description}
                             </p>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-4 md:mt-8 text-center">
                     <Link
                         href="/catalogo"
-                        className="inline-block py-4 px-12 bg-[#2F4F4F] text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
+                        className="inline-block py-4 px-12 bg-primary text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         EMPEZÁ AHORA
                     </Link>

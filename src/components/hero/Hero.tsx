@@ -91,7 +91,7 @@ export const Hero = () => {
                 >
                     <Link
                         href="/catalogo"
-                        className="inline-block py-3 px-8 bg-[#2F4F4F] text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
+                        className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         Ver Productos
                     </Link>

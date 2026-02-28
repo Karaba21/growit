@@ -45,13 +45,12 @@ export default async function Home() {
 
       <StartGrowing />
 
-      <section className="pt-12 pb-8 bg-surface">
+      <section className="pt-8 pb-8 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-primary mb-6 uppercase tracking-widest">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-6 uppercase tracking-wide">
               Lo más vendido
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
           </div>
 
           <ProductGrid products={featuredProducts} />
@@ -59,7 +58,7 @@ export default async function Home() {
           <div className="text-center mt-12">
             <Link
               href="/catalogo"
-              className="inline-block py-3 px-8 bg-[#2F4F4F] text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
+              className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
             >
               Ver todos
             </Link>

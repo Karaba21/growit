@@ -36,7 +36,7 @@ export const ReviewsSection: React.FC = () => {
     }, []);
 
     return (
-        <section id="resenas" className="pt-6 bg-white">
+        <section id="resenas" className="pt-2 md:pt-4 bg-white">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-12 relative">
 
                 {/* Navigation Buttons */}
@@ -56,11 +56,10 @@ export const ReviewsSection: React.FC = () => {
                     <CaretRight size={28} weight="bold" />
                 </button>
 
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-display font-medium text-primary mb-6 uppercase tracking-widest">
+                <div className="text-center mb-8">
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-2 md:mb-4 uppercase tracking-wide">
                         +1000 cultivadores
                     </h2>
-                    <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
                 </div>
 
                 {/* Carousel Container */}

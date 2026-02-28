@@ -73,7 +73,7 @@ export function Process() {
     const step = steps[activeStep];
 
     return (
-        <section className="py-12 md:py-20 bg-white">
+        <section className="pt-4 pb-8 md:pt-8 md:pb-12 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ── MOBILE: title centered + tabs below ── */}
@@ -145,7 +145,7 @@ export function Process() {
                         </p>
                         <a
                             href="/catalogo"
-                            className="inline-block py-4 px-8 bg-primary hover:bg-[#012e2c] text-white font-accent font-bold text-sm rounded-lg transition-colors shadow-sm"
+                            className="inline-block py-4 px-8 bg-primary hover:bg-[#012e2c] text-white font-accent font-bold text-sm uppercase tracking-wider rounded-lg transition-colors shadow-sm"
                         >
                             {step.cta}
                         </a>

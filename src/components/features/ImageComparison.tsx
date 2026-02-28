@@ -51,13 +51,13 @@ export function ImageComparison() {
     };
 
     return (
-        <section className="py-16 md:py-24 bg-white md:bg-surface border-y border-surface">
+        <section className="pt-16 pb-8 md:pt-24 md:pb-8 bg-white md:bg-surface border-y border-surface">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
                     {/* Text Section (Left Column) */}
                     <div className="text-center md:text-center order-2 md:order-1 flex flex-col items-center justify-center">
-                        <h2 className="text-3xl md:text-5xl font-display text-primary mb-6 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6 leading-tight tracking-wide">
                             NO necesitás saber de plantas
                         </h2>
                         <p className="text-body text-base md:text-lg mb-8 max-w-md mx-auto">
@@ -65,9 +65,9 @@ export function ImageComparison() {
                         </p>
                         <a
                             href="#how-it-works"
-                            className="inline-block py-4 px-8 bg-[#2b4c46] hover:bg-[#1a332e] text-white font-bold rounded-lg transition-colors shadow-sm"
+                            className="inline-block py-4 px-8 bg-primary hover:bg-[#1a332e] text-white font-bold rounded-lg transition-colors uppercase tracking-wider shadow-sm"
                         >
-                            Ver cómo se mantiene sola
+                            Mira cómo se mantiene sola
                         </a>
                     </div>
 

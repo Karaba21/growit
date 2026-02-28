@@ -69,7 +69,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
                     {/* Content Side */}
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-4xl md:text-5xl font-display font-medium text-primary mb-2">
+                        <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-2 uppercase tracking-wide">
                             {title}
                         </h2>
                         <p className="text-lg text-gray-500 font-body mb-8">
