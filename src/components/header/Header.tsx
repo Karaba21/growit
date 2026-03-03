@@ -35,7 +35,17 @@ export const Header: React.FC = () => {
 
             if (pathname === '/' && elem) {
                 e.preventDefault();
-                elem.scrollIntoView({ behavior: 'smooth' });
+
+                // Account for the sticky header height (80px)
+                const headerOffset = 80;
+                const elementPosition = elem.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
                 window.history.pushState({}, '', href);
             }
         }

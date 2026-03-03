@@ -46,7 +46,7 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
     const filteredProducts = useMemo(() => {
         let result = [...initialProducts];
 
-        // Filter by category (Indoor, Outdoor, Insumos)
+        // Filter by category (Interior, Exterior, Insumos)
         if (category) {
             result = result.filter((p) => {
                 const cat = category.toLowerCase();
@@ -100,8 +100,8 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
     }, [filters, sort, category, initialProducts]);
 
     const categories = [
-        { id: 'indoor', label: 'Indoor' },
-        { id: 'outdoor', label: 'Outdoor' },
+        { id: 'indoor', label: 'Interior' },
+        { id: 'outdoor', label: 'Exterior' },
         { id: 'insumos', label: 'Insumos' },
     ];
 

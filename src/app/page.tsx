@@ -4,7 +4,9 @@ import PaymentCarousel from "../components/PaymentCarousel";
 import { StartGrowing } from "../components/features/StartGrowing";
 import { ImageComparison } from "../components/features/ImageComparison";
 import { Process } from "../components/features/Process";
+import { Benefits } from "../components/features/Benefits";
 import { FeaturesGrid } from "../components/features/FeaturesGrid";
+import { Harvest } from "../components/features/Harvest";
 import { HowItWorks } from "../components/features/HowItWorks";
 import { ProductGrid } from "../components/products/ProductGrid";
 import { WhyChooseGrowit } from "../components/features/WhyChooseGrowit";
@@ -39,11 +41,15 @@ export default async function Home() {
 
       <Process />
 
+      <Harvest />
+
       <ProductSelection />
 
       <ReviewsSection />
 
       <StartGrowing />
+
+      <Benefits />
 
       <section className="pt-8 pb-8 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Growit",
   },
   description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico. Descubre una nueva forma de cultivar con Growit.",
-  keywords: ["Cultivo", "Growit", "Orgánico", "Hidroponía", "Indoor", "Outdoor", "Plantas", "Hogar", "Sistema inteligente"],
+  keywords: ["Cultivo", "Growit", "Orgánico", "Hidroponía", "Interior", "Exterior", "Plantas", "Hogar", "Sistema inteligente"],
   openGraph: {
     title: "Growit - Cultiva tu propio alimento en casa",
     description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",

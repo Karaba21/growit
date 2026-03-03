@@ -11,8 +11,8 @@ export const navLinks = [
         label: 'Catálogo',
         subLinks: [
             { href: '/catalogo', label: 'Todos' },
-            { href: '/catalogo?category=indoor', label: 'Indoor' },
-            { href: '/catalogo?category=outdoor', label: 'Outdoor' },
+            { href: '/catalogo?category=indoor', label: 'Interior' },
+            { href: '/catalogo?category=outdoor', label: 'Exterior' },
             { href: '/catalogo?category=insumos', label: 'Insumos' }
         ]
     },
@@ -32,7 +32,17 @@ export const Navigation: React.FC = () => {
 
             if (pathname === '/' && elem) {
                 e.preventDefault();
-                elem.scrollIntoView({ behavior: 'smooth' });
+
+                // Account for the sticky header height (80px)
+                const headerOffset = 80;
+                const elementPosition = elem.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
                 // Update URL without full reload
                 window.history.pushState({}, '', href);
             }

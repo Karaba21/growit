@@ -93,7 +93,7 @@ export const Hero = () => {
                         href="/catalogo"
                         className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
-                        Ver Productos
+                        Ver Huertas
                     </Link>
                 </motion.div>
             </div>
