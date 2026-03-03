@@ -44,9 +44,28 @@ export const Header: React.FC = () => {
     return (
         <header className="bg-primary shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20">
-                    {/* Logo - Left */}
-                    <div className="flex-shrink-0 flex items-center justify-start w-[200px]">
+                <div className="flex items-center justify-between h-20 relative">
+                    {/* Mobile Menu Button - Left */}
+                    <div className="md:hidden flex items-center justify-start w-[80px]">
+                        <button
+                            className="p-2 -ml-2 text-white hover:text-accent transition-colors"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            aria-label="Menu"
+                        >
+                            {isMenuOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Logo - Centered on Mobile, Left on Desktop */}
+                    <div className="flex-shrink-0 flex items-center justify-center md:justify-start w-auto md:w-[200px] absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
                         <Logo />
                     </div>
 
@@ -56,26 +75,8 @@ export const Header: React.FC = () => {
                     </div>
 
                     {/* Actions - Right */}
-                    <div className="flex items-center justify-end w-[200px] space-x-4 text-white">
-
+                    <div className="flex items-center justify-end w-[80px] md:w-[200px] space-x-4 text-white ml-auto md:ml-0">
                         <CartIcon />
-
-                        {/* Mobile Menu Button */}
-                        <button
-                            className="md:hidden p-2 -mr-2 text-white hover:text-accent transition-colors"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            aria-label="Menu"
-                        >
-                            {isMenuOpen ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            )}
-                        </button>
                     </div>
                 </div>
             </div>
@@ -105,8 +106,7 @@ export const Header: React.FC = () => {
                                                 handleLinkClick(e, link.href);
                                             }
                                         }}
-                                        className={`text-2xl font-medium text-center py-2 transition-colors flex items-center justify-center gap-2 ${isActive ? 'text-accent' : 'text-white'
-                                            }`}
+                                        className={`text-2xl font-medium text-center py-2 transition-colors flex items-center justify-center gap-2 text-white`}
                                     >
                                         {link.label}
                                         {link.subLinks && (

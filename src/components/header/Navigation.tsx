@@ -54,10 +54,7 @@ export const Navigation: React.FC = () => {
                         <Link
                             href={link.href}
                             onClick={(e) => handleScroll(e, link.href)}
-                            className={`text-base font-medium transition-colors duration-200 py-2 ${isActive
-                                ? 'text-accent'
-                                : 'text-white/90 hover:text-white'
-                                }`}
+                            className="text-base font-medium transition-colors duration-200 py-2 text-white/90 hover:text-white"
                         >
                             {link.label}
                             {link.subLinks && (

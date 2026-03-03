@@ -13,7 +13,7 @@ export const CartIcon: React.FC = () => {
             aria-label="Carrito de compras"
         >
             <svg
-                className="w-5 h-5"
+                className="w-7 h-7 md:w-5 md:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
