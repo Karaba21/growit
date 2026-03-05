@@ -3,9 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Logo } from './Logo';
 import { Navigation, navLinks } from './Navigation';
-
 import { CartIcon } from './CartIcon';
 
 export const Header: React.FC = () => {
@@ -26,16 +26,13 @@ export const Header: React.FC = () => {
     }, [isMenuOpen]);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        setIsMenuOpen(false);
-        setExpandedLink(null);
-
+        // If it's a hash link on the CURRENT page, we smoothly scroll to it.
         if (href.startsWith('/#')) {
             const targetId = href.replace('/#', '');
             const elem = document.getElementById(targetId);
 
             if (pathname === '/' && elem) {
-                e.preventDefault();
-
+                // We use Next.js link behavior but also scroll
                 // Account for the sticky header height (80px)
                 const headerOffset = 80;
                 const elementPosition = elem.getBoundingClientRect().top;
@@ -45,10 +42,15 @@ export const Header: React.FC = () => {
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
-
-                window.history.pushState({}, '', href);
             }
         }
+
+        // Close menu immediately for ALL links
+        // We delay slightly to allow Next.js linker to pickup before component unmounts
+        setTimeout(() => {
+            setIsMenuOpen(false);
+            setExpandedLink(null);
+        }, 150);
     };
 
     return (
@@ -92,60 +94,95 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Mobile Menu Overlay */}
-            {isMenuOpen && (
-                <div className="md:hidden fixed top-20 left-0 w-full bg-primary z-40 overflow-y-auto max-h-[calc(100vh-5rem)] border-t border-white/10 shadow-xl">
-                    <div className="flex flex-col px-4 py-8 space-y-6">
-                        {navLinks.map((link) => {
-                            const isActive = link.href === '/'
-                                ? pathname === '/'
-                                : link.href.startsWith('/#')
-                                    ? false
-                                    : pathname.startsWith(link.href);
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="md:hidden fixed top-20 left-0 w-full bg-primary z-40 overflow-y-auto max-h-[calc(100vh-5rem)] border-t border-white/10 shadow-2xl rounded-b-2xl"
+                    >
+                        <div className="flex flex-col px-6 py-6 space-y-2 pb-8">
+                            {navLinks.map((link, i) => {
+                                const isActive = link.href === '/'
+                                    ? pathname === '/'
+                                    : link.href.startsWith('/#')
+                                        ? false
+                                        : pathname.startsWith(link.href);
 
-                            const isExpanded = expandedLink === link.href;
+                                const isExpanded = expandedLink === link.href;
 
-                            return (
-                                <div key={link.href} className="flex flex-col items-center w-full">
-                                    <Link
-                                        href={link.subLinks ? '#' : link.href}
-                                        onClick={(e) => {
-                                            if (link.subLinks) {
-                                                e.preventDefault();
-                                                setExpandedLink(isExpanded ? null : link.href);
-                                            } else {
-                                                handleLinkClick(e, link.href);
-                                            }
-                                        }}
-                                        className={`text-2xl font-medium text-center py-2 transition-colors flex items-center justify-center gap-2 text-white`}
+                                return (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: i * 0.1, duration: 0.3 }}
+                                        className="flex flex-col w-full border-b border-white/10 last:border-none py-4"
                                     >
-                                        {link.label}
-                                        {link.subLinks && (
-                                            <svg xmlns="http://www.w3.org/2000/svg" className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                        )}
-                                    </Link>
-
-                                    {link.subLinks && isExpanded && (
-                                        <div className="flex flex-col space-y-4 mt-4 items-center w-full">
-                                            {link.subLinks.map(subLink => (
-                                                <Link
-                                                    key={subLink.href}
-                                                    href={subLink.href}
-                                                    onClick={(e) => handleLinkClick(e, subLink.href)}
-                                                    className="text-2xl font-medium text-white/90 hover:text-accent transition-colors block w-full text-center"
+                                        <Link
+                                            href={link.href}
+                                            onClick={(e) => {
+                                                if (link.subLinks) {
+                                                    e.preventDefault();
+                                                    setExpandedLink(isExpanded ? null : link.href);
+                                                } else {
+                                                    setIsMenuOpen(false);
+                                                }
+                                            }}
+                                            className={`text-3xl font-display flex items-center justify-between w-full text-left transition-colors ${isActive ? 'text-white' : 'text-white/80'} hover:text-white`}
+                                        >
+                                            <span>{link.label}</span>
+                                            {link.subLinks && (
+                                                <motion.svg
+                                                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className="w-6 h-6 text-white/60"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
                                                 >
-                                                    {subLink.label}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            )}
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                </motion.svg>
+                                            )}
+                                        </Link>
+
+                                        <AnimatePresence>
+                                            {link.subLinks && isExpanded && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="flex flex-col space-y-4 overflow-hidden mt-4 pl-4"
+                                                >
+                                                    {link.subLinks.map((subLink, subIndex) => (
+                                                        <motion.div
+                                                            key={subLink.href}
+                                                            initial={{ opacity: 0, x: -10 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            transition={{ delay: subIndex * 0.05 + 0.1 }}
+                                                        >
+                                                            <Link
+                                                                href={subLink.href}
+                                                                onClick={() => setIsMenuOpen(false)}
+                                                                className={`text-xl font-body text-white/70 hover:text-white transition-colors block w-full`}
+                                                            >
+                                                                {subLink.label}
+                                                            </Link>
+                                                        </motion.div>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 };

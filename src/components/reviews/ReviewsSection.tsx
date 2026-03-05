@@ -36,7 +36,7 @@ export const ReviewsSection: React.FC = () => {
     }, []);
 
     return (
-        <section id="resenas" className="pt-2 md:pt-4 bg-white">
+        <section id="resenas" className="pt-12 md:pt-16 bg-white scroll-mt-28">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-12 relative">
 
                 {/* Navigation Buttons */}
