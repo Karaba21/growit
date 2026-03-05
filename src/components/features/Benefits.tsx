@@ -30,9 +30,9 @@ const CircleProgress = ({ percentage }: { percentage: number }) => {
 
 export const Benefits = () => {
     return (
-        <section className="py-12 bg-white flex flex-col items-center">
+        <section className="pt-12 pb-6 bg-white flex flex-col items-center">
             <div className="w-full max-w-3xl px-4 sm:px-6">
-                <h2 className="text-[1.75rem] md:text-4xl text-center font-display text-text-main mb-8 leading-tight">
+                <h2 className="text-[1.75rem] md:text-4xl text-center font-display text-primary font-bold mb-8 leading-tight uppercase tracking-wide">
                     Esta huerta es para vos si querés...
                 </h2>
 
@@ -87,7 +87,7 @@ export const Benefits = () => {
                 <div className="mt-4 text-center">
                     <Link
                         href="/catalogo"
-                        className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#1a2f2f] transition-colors rounded shadow-sm"
+                        className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         ¡Ver cuál elegir!
                     </Link>

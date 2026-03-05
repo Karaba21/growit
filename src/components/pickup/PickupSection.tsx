@@ -4,7 +4,7 @@ import { MapPin, Phone, Envelope } from '@phosphor-icons/react/dist/ssr';
 
 export const PickupSection = () => {
     return (
-        <section id="pickup" className="scroll-mt-24 py-8 bg-[#F9F7F2] border-t border-[#E5E7EB]">
+        <section id="pickup" className="scroll-mt-24 py-8 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary mb-6 uppercase tracking-wide">

@@ -38,32 +38,40 @@ export const FaqSection: React.FC = () => {
     };
 
     return (
-        <section className="py-16 bg-primary">
+        <section className="pt-8 pb-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-white mb-12 uppercase tracking-wide border-b border-white/20 pb-4">
-                        Preguntas Frecuentes
+                    <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary mb-12 uppercase tracking-wide">
+                        ¿Tenés preguntas?
                     </h2>
                     <div className="space-y-4">
                         {faqData.map((item) => (
-                            <div key={item.id} className="border border-white/20 rounded-lg overflow-hidden bg-primary-800/50 backdrop-blur-sm">
+                            <div key={item.id} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
                                 <button
                                     onClick={() => toggle(item.id)}
-                                    className="w-full flex justify-between items-center p-4 text-left hover:bg-white/5 transition-colors"
+                                    className="w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors"
                                 >
-                                    <span className="font-body font-medium text-m text-white flex items-center gap-3">
-                                        <i className="ph ph-check-square text-accent"></i>
+                                    <span className="font-body font-bold text-lg text-primary">
                                         {item.question}
                                     </span>
-                                    <i className={`ph ph-caret-down text-white transition-transform duration-300 ${openId === item.id ? 'rotate-180' : ''}`}></i>
+                                    <span className="ml-4 flex-shrink-0">
+                                        <svg
+                                            className={`w-6 h-6 text-primary transition-transform duration-300 ${openId === item.id ? 'rotate-180' : ''}`}
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
                                 </button>
                                 <div
-                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${openId === item.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${openId === item.id ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                                 >
-                                    <div className="p-4 pt-0 text-m text-beige font-body font-bold leading-relaxed">
+                                    <div className="p-5 pt-0 text-base text-gray-800 font-body leading-relaxed">
                                         {item.answer}
                                     </div>
-                                    <div className="p-4 pt-0 text-m text-beige font-body font-light leading-relaxed">
+                                    <div className="p-5 pt-0 text-base text-gray-800 font-body leading-relaxed">
                                         {item.answer2}
                                     </div>
                                 </div>
