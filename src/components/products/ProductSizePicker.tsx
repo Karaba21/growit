@@ -55,8 +55,8 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
                                 min-w-[4rem] text-center px-5 py-2.5 rounded-full border transition-colors
                                 font-sans text-[15px] font-semibold leading-none flex items-center justify-center
                                 ${isActive
-                                    ? 'bg-[#151515] text-white border-[#151515]'
-                                    : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-[#151515]'
+                                    ? 'bg-primary text-white border-primary'
+                                    : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-primary'
                                 }
                             `}
                         >
@@ -65,6 +65,50 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
                     );
                 })}
             </div>
+
+            {currentSize && (
+                <>
+                    <div className="flex items-center justify-center gap-3 mt-8 mb-4">
+                        <div className="h-[1px] w-6 bg-gray-300"></div>
+                        <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-gray-900 font-accent">
+                            Colección
+                        </h3>
+                        <div className="h-[1px] w-6 bg-gray-300"></div>
+                    </div>
+                    <div className="flex justify-center gap-2 md:gap-3">
+                        {INDOOR_PRODUCTS.find(p => p.size === currentSize) && (
+                            <Link
+                                href={`/producto/${INDOOR_PRODUCTS.find(p => p.size === currentSize)!.handle}`}
+                                className={`
+                                    min-w-[6rem] text-center px-6 py-2.5 rounded-full border transition-colors
+                                    font-sans text-[15px] font-semibold leading-none flex items-center justify-center
+                                    ${type === 'Interior'
+                                        ? 'bg-primary text-white border-primary'
+                                        : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-[#151515]'
+                                    }
+                                `}
+                            >
+                                Interior
+                            </Link>
+                        )}
+                        {OUTDOOR_PRODUCTS.find(p => p.size === currentSize) && (
+                            <Link
+                                href={`/producto/${OUTDOOR_PRODUCTS.find(p => p.size === currentSize)!.handle}`}
+                                className={`
+                                    min-w-[6rem] text-center px-6 py-2.5 rounded-full border transition-colors
+                                    font-sans text-[15px] font-semibold leading-none flex items-center justify-center
+                                    ${type === 'Exterior'
+                                        ? 'bg-primary text-white border-primary'
+                                        : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-[#151515]'
+                                    }
+                                `}
+                            >
+                                Exterior
+                            </Link>
+                        )}
+                    </div>
+                </>
+            )}
 
             {/* Banner de Regalo Sorpresa - Solo para Interior/Exterior */}
             {(type === 'Interior' || type === 'Exterior') && (
