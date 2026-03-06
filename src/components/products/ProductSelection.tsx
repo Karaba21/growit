@@ -31,9 +31,9 @@ const products = [
 
 export function ProductSelection() {
     return (
-        <section className="pt-8 pb-8 md:pt-12 md:pb-8 bg-white">
+        <section className="pt-2 pb-8 md:pt-4 md:pb-8 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
+                <div className="text-center mb-4 md:mb-6">
                     <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary uppercase tracking-wide">
                         ¡Elegí cómo querés alimentarte!
                     </h2>

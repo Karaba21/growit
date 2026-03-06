@@ -82,12 +82,12 @@ export function Harvest() {
     const activeCategory = categories[activeTab];
 
     return (
-        <section className="pt-2 pb-12 md:pt-4 md:pb-20 bg-white">
+        <section className="pt-2 pb-4 md:pt-4 md:pb-8 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header and Tabs */}
                 <div className="flex flex-col gap-4 mb-10 md:mb-14">
-                    <h2 className="text-3xl md:text-5xl font-display uppercase tracking-wide text-gray-900">
-                        ¿QUÉ TE GUSTARÍA <span className="text-primary font-bold">COSECHAR?</span>
+                    <h2 className="text-3xl md:text-5xl font-display uppercase tracking-wide text-primary">
+                        ¿QUÉ TE GUSTARÍA <span className="font-bold">COSECHAR?</span>
                     </h2>
                     <p className="text-sm md:text-lg font-accent uppercase tracking-wider text-gray-800">
                         TU HUERTA, TU MENÚ..

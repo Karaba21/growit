@@ -51,7 +51,7 @@ export function ImageComparison() {
     };
 
     return (
-        <section className="pt-16 pb-8 md:pt-24 md:pb-8 bg-white md:bg-surface border-y border-surface">
+        <section className="pt-4 pb-8 md:pt-4 md:pb-8 bg-white md:bg-surface border-y border-surface">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
