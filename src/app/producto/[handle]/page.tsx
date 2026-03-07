@@ -19,6 +19,7 @@ import { ProductDescription } from '../../../components/products/ProductDescript
 import { ProductSizePicker } from '../../../components/products/ProductSizePicker';
 import { ImageComparison } from '@/components/features/ImageComparison';
 import { Process } from '@/components/features/Process';
+import { KitIncludes } from '@/components/features/KitIncludes';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -216,6 +217,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     )}
                 </div>
                 <ImageComparison />
+
+                <KitIncludes />
 
                 <Process />
             </div>

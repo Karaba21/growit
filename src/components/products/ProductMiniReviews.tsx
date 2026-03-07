@@ -32,56 +32,57 @@ export const ProductMiniReviews: React.FC = () => {
     };
 
     return (
-        <div className="mt-4 pb-4 border-b border-gray-100 relative group">
+        <div className="mt-4 pt-5 pb-2 border-t border-gray-100">
+            <div className="relative">
+                {/* Navigation Buttons */}
+                <button
+                    onClick={() => scroll('left')}
+                    className="flex absolute left-0 top-[calc(50%-12px)] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
+                    aria-label="Anterior reseña"
+                >
+                    <CaretLeft size={16} weight="bold" />
+                </button>
+                <button
+                    onClick={() => scroll('right')}
+                    className="flex absolute right-0 top-[calc(50%-12px)] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
+                    aria-label="Siguiente reseña"
+                >
+                    <CaretRight size={16} weight="bold" />
+                </button>
 
-            {/* Navigation Buttons */}
-            <button
-                onClick={() => scroll('left')}
-                className="flex absolute left-0 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
-                aria-label="Anterior reseña"
-            >
-                <CaretLeft size={16} weight="bold" />
-            </button>
-            <button
-                onClick={() => scroll('right')}
-                className="flex absolute right-0 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
-                aria-label="Siguiente reseña"
-            >
-                <CaretRight size={16} weight="bold" />
-            </button>
-
-            <div
-                ref={scrollContainerRef}
-                onScroll={handleScroll}
-                className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-2 hide-scrollbar scroll-smooth"
-            >
-                {reviews.map((review) => (
-                    <div key={review.id} className="w-full px-10 shrink-0 flex-none snap-center flex flex-row items-center gap-3 text-left border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                        <img
-                            src={review.image || review.avatar}
-                            alt={review.author}
-                            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shrink-0"
-                        />
-                        <div className="flex flex-col pt-1 flex-1 min-w-0 pr-2">
-                            <p className="text-[14px] sm:text-[15px] text-gray-900 font-bold mb-1 leading-snug whitespace-normal break-words">
-                                {review.quote}
-                            </p>
-                            <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-sm italic text-gray-500 whitespace-nowrap">
-                                    {review.author}
-                                </span>
-                                <div className="flex text-[#FFD700] whitespace-nowrap">
-                                    {[...Array(Math.floor(review.rating))].map((_, i) => (
-                                        <Star key={i} size={14} weight="fill" />
-                                    ))}
-                                    {review.rating % 1 !== 0 && (
-                                        <StarHalf size={14} weight="fill" />
-                                    )}
+                <div
+                    ref={scrollContainerRef}
+                    onScroll={handleScroll}
+                    className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-2 hide-scrollbar scroll-smooth"
+                >
+                    {reviews.map((review) => (
+                        <div key={review.id} className="w-full px-10 shrink-0 flex-none snap-center flex flex-row items-center gap-3 text-left border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                            <img
+                                src={review.image || review.avatar}
+                                alt={review.author}
+                                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shrink-0"
+                            />
+                            <div className="flex flex-col pt-1 flex-1 min-w-0 pr-2">
+                                <p className="text-[14px] sm:text-[15px] text-gray-900 font-bold mb-1 leading-snug whitespace-normal break-words">
+                                    {review.quote}
+                                </p>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <span className="text-sm italic text-gray-500 whitespace-nowrap">
+                                        {review.author}
+                                    </span>
+                                    <div className="flex text-[#FFD700] whitespace-nowrap">
+                                        {[...Array(Math.floor(review.rating))].map((_, i) => (
+                                            <Star key={i} size={14} weight="fill" />
+                                        ))}
+                                        {review.rating % 1 !== 0 && (
+                                            <StarHalf size={14} weight="fill" />
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
 
             {/* Dots indicator */}

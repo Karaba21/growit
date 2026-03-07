@@ -11,6 +11,7 @@ import { HowItWorks } from "../components/features/HowItWorks";
 import { ProductGrid } from "../components/products/ProductGrid";
 import { WhyChooseGrowit } from "../components/features/WhyChooseGrowit";
 import { ProductShowcase } from "../components/products/ProductShowcase";
+import { KitIncludes } from "../components/features/KitIncludes";
 import { ReviewsSection } from "../components/reviews/ReviewsSection";
 import { FaqSection } from "../components/faq/FaqSection";
 import { PickupSection } from "../components/pickup/PickupSection";
@@ -42,6 +43,8 @@ export default async function Home() {
       <Process />
 
       <Harvest />
+
+      <KitIncludes />
 
       <ProductSelection />
 
