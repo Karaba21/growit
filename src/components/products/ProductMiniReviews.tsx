@@ -34,17 +34,17 @@ export const ProductMiniReviews: React.FC = () => {
     return (
         <div className="mt-4 pb-4 border-b border-gray-100 relative group">
 
-            {/* Navigation Buttons for Desktop */}
+            {/* Navigation Buttons */}
             <button
                 onClick={() => scroll('left')}
-                className="hidden sm:flex absolute -left-4 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors opacity-0 group-hover:opacity-100"
+                className="flex absolute left-0 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
                 aria-label="Anterior reseña"
             >
                 <CaretLeft size={16} weight="bold" />
             </button>
             <button
                 onClick={() => scroll('right')}
-                className="hidden sm:flex absolute -right-4 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors opacity-0 group-hover:opacity-100"
+                className="flex absolute right-0 top-[45%] -translate-y-1/2 z-10 w-8 h-8 items-center justify-center bg-white border border-gray-200 shadow-sm rounded-full text-gray-500 hover:text-gray-900 transition-colors"
                 aria-label="Siguiente reseña"
             >
                 <CaretRight size={16} weight="bold" />
@@ -56,7 +56,7 @@ export const ProductMiniReviews: React.FC = () => {
                 className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-2 hide-scrollbar scroll-smooth"
             >
                 {reviews.map((review) => (
-                    <div key={review.id} className="w-[85vw] sm:w-[350px] shrink-0 flex-none snap-center flex flex-row items-center gap-4 text-left border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                    <div key={review.id} className="w-full px-10 shrink-0 flex-none snap-center flex flex-row items-center gap-3 text-left border-b border-gray-100 pb-4 last:border-0 last:pb-0">
                         <img
                             src={review.image || review.avatar}
                             alt={review.author}
