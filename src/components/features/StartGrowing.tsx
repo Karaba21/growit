@@ -7,7 +7,7 @@ export const StartGrowing = () => {
         <section className="pt-16 pb-4 md:pt-24 md:pb-8 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl md:text-4xl font-display font-bold text-center text-primary mb-12 md:mb-16 uppercase tracking-wide">
-                    Todo para empezar a cultivar
+                    Todo para Hidroponia
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
@@ -15,7 +15,7 @@ export const StartGrowing = () => {
                     <Link href="/catalogo" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]">
                         <div className="relative w-full aspect-[4/3] mb-12 flex items-center justify-center">
                             <Image
-                                src="/plantita.png"
+                                src="/todopara1.jpeg"
                                 alt="Modelos de huertas"
                                 fill
                                 className="object-contain scale-110"
@@ -31,7 +31,7 @@ export const StartGrowing = () => {
                     <Link href="/catalogo?category=insumos" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]">
                         <div className="relative w-full aspect-[4/3] mb-12 flex items-center justify-center">
                             <Image
-                                src="/paquete.png"
+                                src="/todopara2.jpeg"
                                 alt="Insumos para Hidroponia"
                                 fill
                                 className="object-contain scale-125"
@@ -39,7 +39,7 @@ export const StartGrowing = () => {
                             />
                         </div>
                         <div className="flex items-center gap-3 text-primary font-display text-lg md:text-xl transition-colors">
-                            Insumos para Hidroponia <span className="text-xl transition-transform group-hover:translate-x-1 text-gray-400 font-sans font-light">&rarr;</span>
+                            Insumos <span className="text-xl transition-transform group-hover:translate-x-1 text-gray-400 font-sans font-light">&rarr;</span>
                         </div>
                     </Link>
                 </div>

@@ -6,7 +6,7 @@ import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
 export const KitIncludes: React.FC = () => {
     return (
-        <section className="py-12 md:py-16 bg-white overflow-hidden">
+        <section className="py-2 md:py-16 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10 md:mb-16">
                     <h2 className="text-3xl md:text-4xl font-display text-gray-900 mb-4 uppercase tracking-wide">
@@ -26,7 +26,7 @@ export const KitIncludes: React.FC = () => {
                                 <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Huerta Grow It</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
-                                De <span className="font-bold">20 - 28 - 36 cavidades</span>, con tiras LED si es de interior.
+                                Elegi tu tamaño ideal 20 - 28 - 36 plantas, de interior o exterior
                             </p>
                         </div>
 
@@ -36,14 +36,14 @@ export const KitIncludes: React.FC = () => {
                                 <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Pack anual de insumos</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
-                                Nutrientes <span className="font-bold">A + B para 1 año +</span> jeringa de dosificación. (Te olvidás de comprar por 12 meses)
+                                Nutrientes A + B + dosificador
                             </p>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <CheckCircle size={24} className="text-[#2F4F4F]" weight="regular" />
-                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Kit Automatización</h3>
+                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Kit automático</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
                                 <span className="font-bold">Bomba + timer digital</span> → se riega sola.
@@ -82,17 +82,17 @@ export const KitIncludes: React.FC = () => {
                                 <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Kit germinador</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
-                                Semillas + Bandeja de germinación
+                                Semillas, algodones, y bandeja germinadora
                             </p>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <CheckCircle size={24} className="text-[#2F4F4F]" weight="regular" />
-                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Curso Grow It</h3>
+                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Curso Growit</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
-                                Manual, <span className="font-bold">Curso online gratis</span> + Acceso a nuestra <span className="font-bold">comunidad Grow It</span>
+                                Manual de uso y armado, curso como cultivar de 0 sin experiencia previa
                             </p>
                         </div>
                     </div>

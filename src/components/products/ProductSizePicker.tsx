@@ -37,38 +37,9 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
 
     return (
         <div className="mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="h-[1px] w-6 bg-gray-300"></div>
-                <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-gray-900 font-accent">
-                    Cantidad de Plantas
-                </h3>
-                <div className="h-[1px] w-6 bg-gray-300"></div>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-                {options.map((option) => {
-                    const isActive = option.handle === currentHandle;
-                    return (
-                        <Link
-                            key={option.handle}
-                            href={`/producto/${option.handle}`}
-                            className={`
-                                min-w-[4rem] text-center px-5 py-2.5 rounded-full border transition-colors
-                                font-sans text-[15px] font-semibold leading-none flex items-center justify-center
-                                ${isActive
-                                    ? 'bg-primary text-white border-primary'
-                                    : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-primary'
-                                }
-                            `}
-                        >
-                            {option.size}
-                        </Link>
-                    );
-                })}
-            </div>
-
             {currentSize && (
                 <>
-                    <div className="flex items-center justify-center gap-3 mt-8 mb-4">
+                    <div className="flex items-center justify-center gap-3 mb-4">
                         <div className="h-[1px] w-6 bg-gray-300"></div>
                         <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-gray-900 font-accent">
                             Colección
@@ -107,8 +78,43 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
                             </Link>
                         )}
                     </div>
+                    <div className="mt-4 mb-1 text-center">
+                        <span className="text-[10px] md:text-[12px] font-accent font-bold uppercase tracking-[0.15em] text-[#013D3B]/80">
+                            {type === 'Exterior' && 'IDEAL CON 6 HORAS DE SOL DIARIAS'}
+                            {type === 'Interior' && 'USO EN INTERIOR O BALCÓN TECHADO'}
+                        </span>
+                    </div>
                 </>
             )}
+
+            <div className="flex items-center justify-center gap-3 mt-8 mb-4">
+                <div className="h-[1px] w-6 bg-gray-300"></div>
+                <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-gray-900 font-accent">
+                    Cantidad de Plantas
+                </h3>
+                <div className="h-[1px] w-6 bg-gray-300"></div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                {options.map((option) => {
+                    const isActive = option.handle === currentHandle;
+                    return (
+                        <Link
+                            key={option.handle}
+                            href={`/producto/${option.handle}`}
+                            className={`
+                                min-w-[4rem] text-center px-5 py-2.5 rounded-full border transition-colors
+                                font-sans text-[15px] font-semibold leading-none flex items-center justify-center
+                                ${isActive
+                                    ? 'bg-primary text-white border-primary'
+                                    : 'bg-white text-[#111111] border-[#D1D5DB] hover:border-primary'
+                                }
+                            `}
+                        >
+                            {option.size}
+                        </Link>
+                    );
+                })}
+            </div>
 
             {/* Banner de Regalo Sorpresa - Solo para Interior/Exterior */}
             {(type === 'Interior' || type === 'Exterior') && (

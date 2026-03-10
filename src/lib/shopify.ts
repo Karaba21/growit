@@ -41,7 +41,7 @@ async function shopifyFetch<T>({
 export async function getProducts() {
   const query = `
     query Products {
-      products(first: 20) {
+      products(first: 100) {
         edges {
           node {
             id

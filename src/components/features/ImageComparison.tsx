@@ -64,10 +64,10 @@ export function ImageComparison() {
                             La huerta se mantiene <strong>sola.</strong> El riego y la luz son automaticos. Vos solo cosechás cuando vas a cocinar!
                         </p>
                         <a
-                            href="#how-it-works"
+                            href="/catalogo?category=huertas"
                             className="inline-block py-4 px-8 bg-primary hover:bg-[#1a332e] text-white font-bold rounded-lg transition-colors uppercase tracking-wider shadow-sm"
                         >
-                            Mira cómo se mantiene sola
+                            Empeza de 0 hoy
                         </a>
                     </div>
 

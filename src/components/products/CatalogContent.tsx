@@ -46,13 +46,15 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
     const filteredProducts = useMemo(() => {
         let result = [...initialProducts];
 
-        // Filter by category (Interior, Exterior, Insumos)
+        // Filter by category (Interior, Exterior, Insumos, Huertas)
         if (category) {
             result = result.filter((p) => {
                 const cat = category.toLowerCase();
                 return p.collections?.some(c =>
                     c.handle.toLowerCase() === cat ||
-                    c.title.toLowerCase().includes(cat)
+                    c.handle.toLowerCase().includes(cat) ||
+                    c.title.toLowerCase().includes(cat) ||
+                    cat.includes(c.handle.toLowerCase())
                 );
             });
         }
@@ -103,6 +105,7 @@ export default function CatalogContent({ initialProducts }: CatalogContentProps)
         { id: 'indoor', label: 'Interior' },
         { id: 'outdoor', label: 'Exterior' },
         { id: 'insumos', label: 'Insumos' },
+        { id: 'huertas', label: 'Huertas' },
     ];
 
     return (

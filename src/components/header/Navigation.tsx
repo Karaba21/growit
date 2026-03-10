@@ -11,6 +11,7 @@ export const navLinks = [
         label: 'Catálogo',
         subLinks: [
             { href: '/catalogo', label: 'Todos' },
+            { href: '/catalogo?category=huertas', label: 'Huertas' },
             { href: '/catalogo?category=indoor', label: 'Interior' },
             { href: '/catalogo?category=outdoor', label: 'Exterior' },
             { href: '/catalogo?category=insumos', label: 'Insumos' }
