@@ -13,7 +13,7 @@ export const KitIncludes: React.FC = () => {
                         ¡Viene asi de completa!
                     </h2>
                     <p className="text-base md:text-lg text-gray-800 font-body max-w-3xl mx-auto font-medium">
-                        Con cualquier huerta Grow It que elijas, ya viene TODO incluido para empezar.
+                        Con cualquier huerta Growit que elijas, ya viene TODO incluido para empezar.
                     </p>
                 </div>
 
@@ -23,7 +23,7 @@ export const KitIncludes: React.FC = () => {
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <CheckCircle size={24} className="text-[#2F4F4F]" weight="regular" />
-                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Huerta Grow It</h3>
+                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Huerta Growit</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
                                 Elegi tu tamaño ideal 20 - 28 - 36 plantas, de interior o exterior
@@ -56,7 +56,7 @@ export const KitIncludes: React.FC = () => {
                         {/* We use unoptimized to ensure the image loads exactly as it is without optimization issues, and mix-blend-multiply to remove white backgrounds if any */}
                         <Image
                             src="/kit.jpg"
-                            alt="Kit Completo Grow It"
+                            alt="Kit Completo Growit"
                             width={600}
                             height={800}
                             className="object-contain max-h-[450px] md:max-h-[550px] lg:max-h-[650px] w-auto mix-blend-multiply"

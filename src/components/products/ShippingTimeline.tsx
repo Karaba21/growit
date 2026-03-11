@@ -39,7 +39,7 @@ export function ShippingTimeline() {
     }, []);
 
     return (
-        <div className="w-full py-6">
+        <div className="w-full py-2">
             <div className="flex items-start justify-between relative px-2">
                 {/* Connecting Line - Absolute absolute behind */}
                 <div

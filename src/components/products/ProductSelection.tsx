@@ -4,11 +4,11 @@ import { Users, House, Buildings, Plant, ArrowRight } from "@phosphor-icons/reac
 
 const products = [
     {
-        title: "Grow It 36 Plantas",
+        title: "Growit 36 Plantas",
         subtitle: "Maximo Cultivo",
         image: "/mujer1.webp",
         imagePosition: "object-[center_5%]", // Lowers the image to avoid text covering the face
-        link: "/catalogo", // Adjust link if needed
+        link: "/catalogo?category=huertas", // Adjust link if needed
         features: [
             { icon: Users, label: "3-4 personas" },
             { icon: House, label: "Hogar" },
@@ -16,11 +16,11 @@ const products = [
         ],
     },
     {
-        title: "Grow It 20 Plantas",
+        title: "Growit 20 Plantas",
         subtitle: "El más Elegido",
         image: "/mujer2.webp",
         imagePosition: "object-[center_5%]", // Lowers the image relative to center
-        link: "/catalogo", // Adjust link if needed
+        link: "/catalogo?category=huertas", // Adjust link if needed
         features: [
             { icon: Users, label: "1-2 personas" },
             { icon: Buildings, label: "Departamento" },

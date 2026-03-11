@@ -20,6 +20,7 @@ import { ProductSizePicker } from '../../../components/products/ProductSizePicke
 import { ImageComparison } from '@/components/features/ImageComparison';
 import { Process } from '@/components/features/Process';
 import { KitIncludes } from '@/components/features/KitIncludes';
+import { Safebuy } from '@/components/products/Safebuy';
 
 // Generate static params for all products (optional but good for SSG)
 export async function generateStaticParams() {
@@ -167,7 +168,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 <div className="flex flex-col">
                                     <span className="text-[10px] font-bold uppercase tracking-wider opacity-80 leading-none mb-0.5">Financiación</span>
                                     <div className="font-semibold text-lg leading-none">
-                                        HASTA <span className="font-extrabold">12 CUOTAS</span> DE <span suppressHydrationWarning>${formatPrice(price / 12)}</span>
+                                        HASTA <span className="font-extrabold">12 CUOTAS SIN RECARGO</span> DE <span suppressHydrationWarning>${formatPrice(price / 12)}</span>
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +185,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 />
                             </div>
 
+                            <Safebuy />
+
                             <ShippingTimeline />
 
                             <ProductMiniReviews />
@@ -191,15 +194,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                         </div>
 
-                        {/* FAQ Section */}
-                        <ProductFAQ faqs={product.faqs || []} />
 
                         {/* Description and Tags are moved outside of this div */}
                     </div>
                 </div>
 
                 {/* Description - Full Width */}
-                <div className="mt-16 max-w-4xl mx-auto">
+                <div className="mt-6 max-w-4xl mx-auto">
                     <ProductDescription html={product.descriptionHtml} />
 
                     {/* Tags */}
@@ -222,6 +223,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <ImageComparison />
 
                 <Process />
+                {/* FAQ Section */}
+                <ProductFAQ faqs={product.faqs || []} />
+
             </div>
             <StickyProductBar product={product} />
         </div>

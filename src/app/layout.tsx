@@ -4,6 +4,7 @@ import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
 import { CartProvider } from "../contexts/CartContext";
 import { CartDrawer } from "../components/cart/CartDrawer";
+import { AnnouncementBanner } from "../components/header/AnnouncementBanner";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://growituruguay.com'),
@@ -60,6 +61,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <CartProvider>
           <div id="app" className="flex flex-col min-h-screen">
+            <AnnouncementBanner />
             <Header />
             <main className="flex-grow">
               {children}

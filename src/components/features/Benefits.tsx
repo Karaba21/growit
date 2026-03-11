@@ -86,7 +86,7 @@ export const Benefits = () => {
 
                 <div className="mt-4 text-center">
                     <Link
-                        href="/catalogo"
+                        href="/catalogo?category=huertas"
                         className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         ¡Ver cuál elegir!

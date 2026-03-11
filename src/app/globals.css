@@ -37,7 +37,7 @@
 }
 
 @utility animate-scroll-infinite {
-  animation: scroll 50s linear infinite;
+  animation: scroll 60s linear infinite;
 }
 
 /* Process tab sliding pill — spring/bounce effect */

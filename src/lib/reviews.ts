@@ -15,7 +15,7 @@ export const reviews: Review[] = [
         avatar: "https://ui-avatars.com/api/?name=Romina+Vega&background=D9704F&color=fff",
         rating: 5,
         title: "MI HUERTA!",
-        quote: "Encantada con Grow It! Cosechando rúculas, lechuga crespa y achicoria. Mucho sabor 😍",
+        quote: "Encantada con Growit! Cosechando rúculas, lechuga crespa y achicoria. Mucho sabor 😍",
         image: "/review1.png"
     },
     {
