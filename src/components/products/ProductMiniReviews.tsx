@@ -58,7 +58,7 @@ export const ProductMiniReviews: React.FC = () => {
                     {reviews.map((review) => (
                         <div key={review.id} className="w-full px-10 shrink-0 flex-none snap-center flex flex-row items-center gap-3 text-left border-b border-gray-100 pb-4 last:border-0 last:pb-0">
                             <img
-                                src={review.image || review.avatar}
+                                src={review.avatar}
                                 alt={review.author}
                                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover shrink-0"
                             />

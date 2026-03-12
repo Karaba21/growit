@@ -71,11 +71,11 @@ export const ReviewsSection: React.FC = () => {
                     {reviews.map((review) => (
                         <div
                             key={review.id}
-                            className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-none snap-start bg-[#F9F9F9] rounded-2xl flex flex-col items-center pb-8 border border-gray-100 shadow-sm"
+                            className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-none snap-start bg-[#F9F9F9] rounded-2xl flex flex-col items-center pb-4 border border-gray-100 shadow-sm"
                         >
 
                             {/* Image Header with Quote Icon */}
-                            <div className="relative w-full h-80 mb-8">
+                            <div className="relative w-full h-96 mb-4">
                                 <img
                                     src={review.image}
                                     alt={review.title || review.quote}
@@ -87,7 +87,7 @@ export const ReviewsSection: React.FC = () => {
                             </div>
 
                             {/* Stars */}
-                            <div className="flex gap-1 text-[#FFD700] mb-3">
+                            <div className="flex gap-1 text-[#FFD700] mb-2">
                                 {[...Array(Math.floor(review.rating))].map((_, i) => (
                                     <Star key={i} size={18} weight="fill" />
                                 ))}
@@ -98,13 +98,13 @@ export const ReviewsSection: React.FC = () => {
 
                             {/* Title */}
                             {review.title && (
-                                <h4 className="font-serif text-lg text-gray-900 mb-3 tracking-wide">
+                                <h4 className="font-serif text-lg text-gray-900 mb-1.5 tracking-wide">
                                     {review.title}
                                 </h4>
                             )}
 
                             {/* Quote */}
-                            <p className="text-gray-700 font-body text-center px-6 mb-8 text-sm leading-relaxed">
+                            <p className="text-gray-700 font-body text-center px-6 mb-3 text-sm leading-relaxed">
                                 {review.quote}
                             </p>
 
@@ -113,7 +113,7 @@ export const ReviewsSection: React.FC = () => {
                                 <img
                                     src={review.avatar}
                                     alt={review.author}
-                                    className="w-8 h-8 rounded-full object-cover shadow-sm"
+                                    className="w-10 h-10 rounded-full object-cover shadow-sm border-2 border-white"
                                 />
                                 <span className="font-bold text-gray-900 text-sm italic">
                                     {review.author}
