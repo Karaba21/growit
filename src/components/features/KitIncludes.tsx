@@ -33,7 +33,7 @@ export const KitIncludes: React.FC = () => {
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <CheckCircle size={24} className="text-[#2F4F4F]" weight="regular" />
-                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Pack anual de insumos</h3>
+                                <h3 className="text-xl md:text-2xl font-display text-[#1a1a1a]">Pack de insumos</h3>
                             </div>
                             <p className="text-[#333333] leading-relaxed font-body text-base lg:text-lg">
                                 Nutrientes A + B + dosificador

@@ -30,13 +30,10 @@ export default async function Home() {
   return (
     <>
       <Hero />
+
       <PaymentCarousel />
 
-      <FeaturesGrid />
-
-      <HowItWorks />
-
-      <WhyChooseGrowit />
+      <Benefits />
 
       <ImageComparison />
 
@@ -51,8 +48,6 @@ export default async function Home() {
       <ReviewsSection />
 
       <StartGrowing />
-
-      <Benefits />
 
       <FaqSection />
 

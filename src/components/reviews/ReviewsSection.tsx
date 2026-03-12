@@ -58,7 +58,7 @@ export const ReviewsSection: React.FC = () => {
 
                 <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-4xl font-display font-bold text-primary mb-2 md:mb-4 uppercase tracking-wide">
-                        +1000 cultivadores
+                        +200 cultivadores
                     </h2>
                 </div>
 

@@ -144,7 +144,7 @@ export function Process() {
                             {step.description}
                         </p>
                         <a
-                            href="/catalogo"
+                            href="/catalogo?category=huertas"
                             className="inline-block py-4 px-8 bg-primary hover:bg-[#012e2c] text-white font-accent font-bold text-sm uppercase tracking-wider rounded-lg transition-colors shadow-sm"
                         >
                             {step.cta}
