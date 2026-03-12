@@ -11,11 +11,11 @@ export interface Review {
 export const reviews: Review[] = [
     {
         id: "1",
-        author: "Rosa",
+        author: "Rossana V.",
         avatar: "/avatars_reviews/rosa.jpeg",
         rating: 5,
-        title: "MI HUERTA!",
-        quote: "Encantada con Growit! Cosechando rúculas, lechuga crespa y achicoria. Mucho sabor 😍",
+        title: "¡Súper fácil y gratificante!",
+        quote: "Pensaba que iba a ser complicado, pero con los videos y toda la ayuda que te dan me resultó súper fácil. En poco tiempo ya estaba viendo crecer las primeras plantas y la verdad que es muy gratificante.",
         image: "/review1.png"
     },
     {
@@ -23,26 +23,26 @@ export const reviews: Review[] = [
         author: "Mirta",
         avatar: "/avatars_reviews/mirta.jpeg",
         rating: 5,
-        title: "Primera Cosecha",
-        quote: "Mi primera experiencia con huerta hidroponica y estoy fascinada con el resultado.",
+        title: "Atención excelente",
+        quote: "Excelente atención, explican muy claro, súper dedicados al bienestar del usuario.",
         image: "/review2.png"
     },
     {
         id: "3",
-        author: "Carlos",
+        author: "Carlos M.",
         avatar: "/avatars_reviews/carlos.jpg",
         rating: 5,
-        title: "Llegó mi hidroponia",
-        quote: "Además de verse hermosa los cultivos son riquísimos!!",
+        title: "Fácil, práctico y sin esfuerzo",
+        quote: "La verdad pensé que iba a ser más complicado, pero es súper fácil de usar y requiere muy poco mantenimiento. En unos minutos a la semana reviso el agua y listo. Ahora tengo verduras frescas en casa sin esfuerzo.",
         image: "/review3.png"
     },
     {
         id: "4",
-        author: "Julieta",
+        author: "Julieta Aguerre",
         avatar: "/avatars_reviews/julieta.jpeg",
         rating: 5,
-        title: "Del balcón a mi plato",
-        quote: "Cultivando rúcula por primera vez!!",
+        title: "Decorativo e increíble",
+        quote: "Además de funcionar increíble, queda espectacular en la cocina. Las plantas creciendo le dan una estética divina al espacio y siempre llama la atención cuando viene gente a casa. Es práctico y decorativo al mismo tiempo.",
         image: "/review4.png"
     }
 ];
