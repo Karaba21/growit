@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
@@ -21,11 +22,20 @@ export const metadata: Metadata = {
     siteName: "Growit",
     locale: "es_UY",
     type: "website",
+    images: [
+      {
+        url: "/ogimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Growit - Cultiva tu propio alimento en casa",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Growit - Cultiva tu propio alimento en casa",
     description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",
+    images: ["/ogimage.png"],
   },
   icons: {
     icon: [
@@ -57,6 +67,31 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-white antialiased font-body">
+        {/* Meta Pixel Code */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1979478512677107');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=1979478512677107&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {/* End Meta Pixel Code */}
         <ScrollToTop />
         <WhatsAppButton />
         <CartProvider>
