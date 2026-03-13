@@ -80,7 +80,7 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
                     </div>
                     <div className="mt-4 mb-1 text-center">
                         <span className="text-[10px] md:text-[12px] font-accent font-bold uppercase tracking-[0.15em] text-[#013D3B]/80">
-                            {type === 'Exterior' && 'IDEAL CON 6 HORAS DE SOL DIARIAS'}
+                            {type === 'Exterior' && 'AL MENOS 3 A 4 HORAS DE SOL DIARIAS'}
                             {type === 'Interior' && 'USO EN INTERIOR O BALCÓN TECHADO'}
                         </span>
                     </div>
