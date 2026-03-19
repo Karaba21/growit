@@ -11,7 +11,7 @@ export function ProductReviews() {
 
     // Generate random review count between 1000 and 3000
     const reviewCount = useMemo(() => {
-        return Math.floor(Math.random() * (3000 - 1000 + 1) + 1000);
+        return Math.floor(Math.random() * (200 - 50 + 1) + 50);
     }, []);
 
     return (

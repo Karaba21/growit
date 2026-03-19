@@ -30,7 +30,7 @@ const CircleProgress = ({ percentage }: { percentage: number }) => {
 
 export const Benefits = () => {
     return (
-        <section className="pt-12 pb-6 bg-white flex flex-col items-center">
+        <section id="benefits" className="pt-12 pb-6 bg-white flex flex-col items-center">
             <div className="w-full max-w-3xl px-4 sm:px-6">
                 <h2 className="text-[1.75rem] md:text-4xl text-center font-display text-primary font-bold mb-8 leading-tight uppercase tracking-wide">
                     Esta huerta es para vos si querés...

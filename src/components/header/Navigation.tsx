@@ -17,7 +17,7 @@ export const navLinks = [
             { href: '/catalogo?category=insumos', label: 'Insumos' }
         ]
     },
-    { href: '/#beneficios', label: 'Beneficios' },
+    { href: '/#benefits', label: 'Beneficios' },
     { href: '/#resenas', label: 'Reseñas' },
     { href: '/#pickup', label: 'Pickup' },
 ];

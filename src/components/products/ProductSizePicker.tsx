@@ -135,12 +135,12 @@ export function ProductSizePicker({ currentHandle }: ProductSizePickerProps) {
 
                     <div className="relative z-10 w-full flex flex-col items-center justify-center">
                         <h4 className="text-[#013D3B] text-[20px] md:text-[22px] font-extrabold font-accent uppercase tracking-wide mb-2 leading-none">
-                            Curso como empezar a cultivar incluido
+                            Curso GRATIS Growit pro
                         </h4>
 
                         <div className="text-gray-900 font-accent flex flex-col items-center w-full">
                             <span className="text-[14px] md:text-[15px] mb-1 opacity-90 text-center w-[80%] mx-auto">
-                                Aprendé a cultivar desde cero, aunque nunca hayas plantado nada. Te guiamos desde el armado hasta la primera cosecha.
+                                Como cultivar hidroponia organica en tu casa de principiante hasta experto. Incluye: materiales pdf, videos pre grabados y atención personalizada
                             </span>
                         </div>
                     </div>
