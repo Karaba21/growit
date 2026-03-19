@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import { formatPrice } from '../../lib/utils';
 import Link from 'next/link';
+import * as fbq from '../../lib/fpixel';
 
 export function CartDrawer() {
     const { items, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, getCheckoutUrl } = useCart();
@@ -34,6 +35,21 @@ export function CartDrawer() {
     const handleCheckout = async () => {
         const checkoutUrl = await getCheckoutUrl();
         if (checkoutUrl) {
+            const subtotal = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            const totalDiscount = items.reduce((acc, item) => {
+                if (item.compareAtPrice && item.compareAtPrice > item.price) {
+                    return acc + ((item.compareAtPrice - item.price) * item.quantity);
+                }
+                return acc;
+            }, 0);
+            
+            fbq.logEvent('InitiateCheckout', {
+                content_ids: items.map(item => item.id),
+                content_type: 'product',
+                value: subtotal - totalDiscount,
+                currency: 'UYU',
+                num_items: items.reduce((acc, item) => acc + item.quantity, 0)
+            });
             window.location.href = checkoutUrl;
         }
     };

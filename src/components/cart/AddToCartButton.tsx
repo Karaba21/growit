@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import { Product } from '../../types/product';
+import * as fbq from '../../lib/fpixel';
 
 interface AddToCartButtonProps {
     product: Product;
@@ -21,6 +22,14 @@ export function AddToCartButton({ product, className = '', showQuantitySelector 
         setIsAdding(true);
         try {
             await addToCart(product, quantity);
+            
+            fbq.logEvent('AddToCart', {
+                content_name: product.title,
+                content_ids: [product.id],
+                content_type: 'product',
+                value: parseFloat(product.priceRange.minVariantPrice) * quantity,
+                currency: 'UYU'
+            });
         } catch (error) {
             console.error('Failed to add to cart:', error);
             alert('Error al agregar al carrito. Por favor intenta de nuevo.');

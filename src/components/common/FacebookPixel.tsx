@@ -3,8 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-
-const FB_PIXEL_ID = "1979478512677107";
+import * as fbq from "../../lib/fpixel";
 
 declare global {
   interface Window {
@@ -16,9 +15,7 @@ export const FacebookPixel = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.fbq) {
-      window.fbq("track", "PageView");
-    }
+    fbq.pageview();
   }, [pathname]);
 
   return (
@@ -36,7 +33,8 @@ export const FacebookPixel = () => {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${FB_PIXEL_ID}');
+            fbq('set', 'autoConfig', false, '${fbq.FB_PIXEL_ID}');
+            fbq('init', '${fbq.FB_PIXEL_ID}');
           `,
         }}
       />
@@ -45,7 +43,7 @@ export const FacebookPixel = () => {
           height="1"
           width="1"
           style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${fbq.FB_PIXEL_ID}&ev=PageView&noscript=1`}
           alt=""
         />
       </noscript>
