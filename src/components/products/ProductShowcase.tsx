@@ -80,7 +80,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                             <button
                                 onClick={handleAddToCart}
                                 disabled={!product || !product.availableForSale || isAdding}
-                                className="w-full py-3 px-6 border border-gray-300 text-gray-800 font-body text-xs font-bold uppercase tracking-wider hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full py-3 px-6 bg-[#84cc16] text-white font-accent text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity rounded-lg shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {isAdding ? 'AGREGANDO...' : (!product || product.availableForSale) ? 'AÑADIR AL CARRITO' : 'AGOTADO'}
                             </button>

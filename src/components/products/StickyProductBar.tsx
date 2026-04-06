@@ -105,7 +105,7 @@ export function StickyProductBar({ product }: StickyProductBarProps) {
                     <button
                         onClick={handleAddToCart}
                         disabled={!product.availableForSale || isAdding}
-                        className="whitespace-nowrap bg-[#2F4F4F] hover:bg-[#254040] text-white px-6 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-accent"
+                        className="whitespace-nowrap bg-[#84cc16] hover:opacity-90 text-white px-6 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wide transition-opacity disabled:opacity-50 disabled:cursor-not-allowed font-accent"
                     >
                         {isAdding ? 'Agregando...' : 'AGREGAR AL CARRITO'}
                     </button>
