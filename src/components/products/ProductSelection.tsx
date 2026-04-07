@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import { Users, House, Buildings, Plant, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
@@ -41,16 +41,15 @@ export function ProductSelection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                     {products.map((product, index) => (
-                        <Link href={product.link} key={index} className="group block">
+                        <Link href={product.link} key={index} className="group block" prefetch={false}>
                             <div className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 transition-transform duration-300 group-hover:-translate-y-1">
                                 {/* Image Container */}
                                 <div className="relative aspect-[3/4] w-full bg-surface">
-                                    <Image
+                                    <img
                                         src={product.image}
                                         alt={product.title}
-                                        fill
-                                        className={`object-cover ${product.imagePosition || "object-center"}`}
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        loading="lazy"
+                                        className={`absolute inset-0 w-full h-full object-cover ${product.imagePosition || "object-center"}`}
                                     />
 
                                     {/* Top Gradient for text legibility */}

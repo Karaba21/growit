@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+
 import type { ProductImage } from '../../types/product';
 
 interface ProductGalleryProps {
@@ -22,13 +22,11 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
         if (featuredImage) {
             return (
                 <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
-                    <Image
+                    <img
                         src={featuredImage.url}
                         alt={featuredImage.altText || title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority
+                        loading="eager"
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
                 </div>
             );
@@ -50,13 +48,11 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
             {/* Desktop View (Hidden on Mobile) */}
             <div className="hidden md:block">
                 <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden mb-4 relative group">
-                    <Image
+                    <img
                         src={selectedImage}
                         alt={title}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority
+                        loading="eager"
+                        className="absolute inset-0 w-full h-full object-contain"
                     />
 
                     {images.length > 1 && (
@@ -103,12 +99,11 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
                             aria-label={`Ver imagen ${index + 1}`}
                         >
                             <div className="relative w-full h-full">
-                                <Image
+                                <img
                                     src={image.url}
                                     alt={image.altText || `Imagen ${index + 1} de ${title}`}
-                                    fill
-                                    className="object-cover"
-                                    sizes="120px"
+                                    loading="lazy"
+                                    className="absolute inset-0 w-full h-full object-cover"
                                 />
                             </div>
                         </button>
@@ -126,12 +121,11 @@ export function ProductGallery({ images, title, featuredImage }: ProductGalleryP
                     >
                         {images.map((image, index) => (
                             <div key={image.id || image.url || index} className="flex-shrink-0 w-full h-full snap-center relative">
-                                <Image
+                                <img
                                     src={image.url}
                                     alt={image.altText || `Imagen ${index + 1} de ${title}`}
-                                    fill
-                                    className="object-contain"
-                                    sizes="100vw"
+                                    loading="lazy"
+                                    className="absolute inset-0 w-full h-full object-contain"
                                 />
                             </div>
                         ))}

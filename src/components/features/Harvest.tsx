@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+
 
 const categories = [
     {
@@ -11,7 +11,7 @@ const categories = [
         description:
             "Para que siempre tengas algo listo: hojas para ensaladas, aromáticas para levantar cualquier comida y alguna variedad que te sorprenda.",
         cta: "VER HUERTA + MIX de Variedades",
-        image: "/harvest/imgi_28_Nueva_TIENDA_WEB.png",
+        image: "/harvest/imgi_28_Nueva_TIENDA_WEB.webp",
         alt: "Mix de variedades",
     },
     {
@@ -21,7 +21,7 @@ const categories = [
         description:
             "Pensado para armar ensaladas, bowls y acompañamientos que te ordenan la semana. Lechugas, rúculas, espinaca, acelga, kale, etc.",
         cta: "VER HUERTA + HORTALIZAS",
-        image: "/harvest/imgi_29_ChatGPT_Image_12_feb_2026_01_43_03_p.m..png",
+        image: "/harvest/imgi_29_ChatGPT_Image_12_feb_2026_01_43_03_p.m..webp",
         alt: "Hortalizas",
     },
     {
@@ -31,7 +31,7 @@ const categories = [
         description:
             'Si pensás cosechar seguido esta categoría te va a encantar. Crecen "abriendose". Calabacín, Sandia, Melon, Zapallito Verde, etc.',
         cta: "VER HUERTA + RASTRERAS",
-        image: "/harvest/imgi_30_ChatGPT_Image_12_feb_2026_01_52_05_p.m..png",
+        image: "/harvest/imgi_30_ChatGPT_Image_12_feb_2026_01_52_05_p.m..webp",
         alt: "Rastreras",
     },
     {
@@ -41,7 +41,7 @@ const categories = [
         description:
             "Esto es lo que hace que tu comida cambie de nivel. Albahaca, Perejil, Oregano, Tomillo, Romero, Cilantro, Menta, etc.",
         cta: "VER HUERTA + AROMÁTICAS",
-        image: "/harvest/imgi_31_ChatGPT_Image_12_feb_2026_01_55_56_p.m..png",
+        image: "/harvest/imgi_31_ChatGPT_Image_12_feb_2026_01_55_56_p.m..webp",
         alt: "Aromáticas",
     },
     {
@@ -51,7 +51,7 @@ const categories = [
         description:
             "Requiere un poco más de paciencia, pero la recompensa es increible. Tomates cherry, morrones, frutilla, berenjena, etc.",
         cta: "VER HUERTA + FRUTOS",
-        image: "/harvest/imgi_32_ChatGPT_Image_12_feb_2026_01_50_34_p.m..png",
+        image: "/harvest/imgi_32_ChatGPT_Image_12_feb_2026_01_50_34_p.m..webp",
         alt: "Frutos",
     },
 ];
@@ -130,14 +130,12 @@ export function Harvest() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                     {/* Image */}
                     <div className="relative w-full aspect-[4/5] md:aspect-square rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-sm">
-                        <Image
+                        <img
                             key={activeCategory.id}
                             src={activeCategory.image}
                             alt={activeCategory.alt}
-                            fill
-                            className="object-cover object-center"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            priority
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                     </div>
 

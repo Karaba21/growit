@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+
 import { MapPin, Phone, Envelope } from '@phosphor-icons/react/dist/ssr';
 
 export const PickupSection = () => {
@@ -71,12 +71,11 @@ export const PickupSection = () => {
                          * However, standard Image component requires width/height if not fill.
                          * The snippet used fill, so I will stick to that.
                          */}
-                        <Image
-                            src="/ubicacion.png"
-                            alt="Ubicación GP Automóviles"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                        <img
+                            src="/ubicacion.webp"
+                            alt="Ubicación Growit"
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                     </div>
                 </div>

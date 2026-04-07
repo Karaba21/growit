@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatPrice } from '../../lib/utils';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { Badge } from '../ui/Badge';
 import { AddToCartButton } from '../cart/AddToCartButton';
 import type { Product } from '../../types/product';
@@ -19,14 +19,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <div className="group block bg-surface rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-transparent hover:border-primary-100 flex flex-col h-full">
             {/* Image */}
-            <Link href={`/producto/${product.handle}`} className="relative block aspect-square bg-white overflow-hidden p-4">
+        <Link href={`/producto/${product.handle}`} className="relative block aspect-square bg-white overflow-hidden p-4" prefetch={false}>
                 {product.featuredImage && (
-                    <Image
+                    <img
                         src={product.featuredImage.url}
                         alt={product.featuredImage.altText || product.title}
-                        fill
-                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     />
                 )}
 
@@ -43,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
             {/* Content */}
             <div className="p-4 flex flex-col flex-grow">
-                <Link href={`/producto/${product.handle}`}>
+                <Link href={`/producto/${product.handle}`} prefetch={false}>
                     <h3 className="text-lg font-display font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                         {product.title}
                     </h3>

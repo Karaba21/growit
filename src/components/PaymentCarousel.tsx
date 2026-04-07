@@ -3,9 +3,9 @@ import React from 'react';
 const PaymentCarousel = () => {
     const images = [
         { src: '/masterr.webp', alt: 'Mastercard' },
-        { src: '/VISA-Logo.png', alt: 'Visa' },
-        { src: '/mercadopagoo.png', alt: 'Mercado Pago' },
-        { src: '/abitab-removebg-preview.png', alt: 'Abitab' },
+        { src: '/VISA-Logo.webp', alt: 'Visa' },
+        { src: '/mercadopagoo.webp', alt: 'Mercado Pago' },
+        { src: '/abitab-removebg-preview.webp', alt: 'Abitab' },
     ];
 
     // Let's make a set of items that is reasonably long.

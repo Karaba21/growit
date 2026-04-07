@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+
 
 export const FeaturesGrid: React.FC = () => {
     return (
@@ -18,7 +18,7 @@ export const FeaturesGrid: React.FC = () => {
                     {/* Feature 1 */}
                     <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                         <div className="h-32 w-full relative flex items-center justify-center mb-8 drop-shadow-sm">
-                            <Image src="/nontoxic.png" alt="Libre de Pesticidas" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
+                            <img src="/nontoxic.webp" alt="Libre de Pesticidas" loading="lazy" className="absolute inset-0 w-full h-full object-contain" />
                         </div>
                         <h3 className="text-xl md:text-2xl font-display font-bold text-primary mb-4">
                             Libre de Pesticidas
@@ -31,7 +31,7 @@ export const FeaturesGrid: React.FC = () => {
                     {/* Feature 2 */}
                     <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                         <div className="h-32 w-full relative flex items-center justify-center mb-8 drop-shadow-sm">
-                            <Image src="/espacio.png" alt="Espacio reducido" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
+                            <img src="/espacio.webp" alt="Espacio reducido" loading="lazy" className="absolute inset-0 w-full h-full object-contain" />
                         </div>
                         <h3 className="text-xl md:text-2xl font-display font-bold text-primary mb-4">
                             Espacio reducido
@@ -44,7 +44,7 @@ export const FeaturesGrid: React.FC = () => {
                     {/* Feature 3 */}
                     <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                         <div className="h-32 w-full relative flex items-center justify-center mb-8 drop-shadow-sm">
-                            <Image src="/canasta.png" alt="Cosechas frescas" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
+                            <img src="/canasta.webp" alt="Cosechas frescas" loading="lazy" className="absolute inset-0 w-full h-full object-contain" />
                         </div>
                         <h3 className="text-xl md:text-2xl font-display font-bold text-primary mb-4">
                             Cosechas frescas
@@ -57,7 +57,7 @@ export const FeaturesGrid: React.FC = () => {
                     {/* Feature 4 */}
                     <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-3xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                         <div className="h-32 w-full relative flex items-center justify-center mb-8 drop-shadow-sm">
-                            <Image src="/rueda.png" alt="Automático" fill className="object-contain" sizes="(max-width: 768px) 100vw, 25vw" />
+                            <img src="/rueda.webp" alt="Automático" loading="lazy" className="absolute inset-0 w-full h-full object-contain" />
                         </div>
                         <h3 className="text-xl md:text-2xl font-display font-bold text-primary mb-4">
                             Automático

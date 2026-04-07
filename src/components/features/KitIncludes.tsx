@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
+
 import { CheckCircle } from '@phosphor-icons/react/dist/ssr';
 
 export const KitIncludes: React.FC = () => {
@@ -54,13 +54,11 @@ export const KitIncludes: React.FC = () => {
                     {/* Center Image */}
                     <div className="w-full lg:w-[35%] xl:w-[33%] relative flex justify-center order-2 lg:order-2 shrink-0">
                         {/* We use unoptimized to ensure the image loads exactly as it is without optimization issues, and mix-blend-multiply to remove white backgrounds if any */}
-                        <Image
-                            src="/kit.jpg"
+                        <img
+                            src="/kit.webp"
                             alt="Kit Completo Growit"
-                            width={600}
-                            height={800}
+                            loading="eager"
                             className="object-contain max-h-[450px] md:max-h-[550px] lg:max-h-[650px] w-auto mix-blend-multiply"
-                            priority
                         />
                     </div>
 

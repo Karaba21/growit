@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+
 
 export function ImageComparison() {
     const [sliderPosition, setSliderPosition] = useState(50);
@@ -81,13 +81,11 @@ export function ImageComparison() {
                         >
                             {/* Base Image (Con plantas - Right Side) */}
                             <div className="absolute inset-0 pointer-events-none">
-                                <Image
-                                    src="/split2.png"
+                                <img
+                                    src="/split2.webp"
                                     alt="Growit con plantas"
-                                    fill
-                                    className="object-cover object-center"
-                                    priority
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="eager"
+                                    className="absolute inset-0 w-full h-full object-cover object-center"
                                 />
                             </div>
 
@@ -96,13 +94,11 @@ export function ImageComparison() {
                                 className="absolute inset-0 pointer-events-none"
                                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                             >
-                                <Image
-                                    src="/split1.png"
+                                <img
+                                    src="/split1.webp"
                                     alt="Growit sin plantas"
-                                    fill
-                                    className="object-cover object-center"
-                                    priority
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="eager"
+                                    className="absolute inset-0 w-full h-full object-cover object-center"
                                 />
                             </div>
 

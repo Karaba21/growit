@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
     {
         id: 1,
-        image: "/images/hero-bg.png",
+        image: "/images/hero-bg.webp",
         title: (
             <>
                 Tu huerta automática en casa, sin tierra y sin esfuerzo. <br />
@@ -18,7 +18,7 @@ const slides = [
     },
     {
         id: 2,
-        image: "/images/hero_slide_2.png",
+        image: "/images/hero_slide_2.webp",
         title: (
             <>
                 Verduras frescas cultivadas por vos, de forma simple y automática.
@@ -27,7 +27,7 @@ const slides = [
     },
     {
         id: 3,
-        image: "/images/hero_slide_3.png",
+        image: "/images/hero_slide_3.webp",
         title: (
             <>
                 Cultivar en casa nunca fue tan fácil.
@@ -57,13 +57,11 @@ export const Hero = () => {
                     transition={{ duration: 1 }}
                     className="absolute inset-0 z-0"
                 >
-                    <Image
+                    <img
                         src={slides[currentSlide].image}
                         alt="Hero Background"
-                        fill
-                        priority
-                        className="object-cover opacity-80"
-                        sizes="100vw"
+                        loading="eager"
+                        className="absolute inset-0 w-full h-full object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-black/40" />
                 </motion.div>

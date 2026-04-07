@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+
 
 const steps = [
     {
@@ -15,7 +15,7 @@ const steps = [
             </>
         ),
         cta: "Armá tu huerta",
-        image: "/process/dia1.png",
+        image: "/process/dia1.webp",
         alt: "Armando la huerta Growit",
     },
     {
@@ -24,7 +24,7 @@ const steps = [
         title: "Germiná los plantines",
         description: "Y una vez listos hace el trasplante a la huerta.",
         cta: "Germiná en tu huerta!",
-        image: "/process/semana1-2.png",
+        image: "/process/semana1-2.webp",
         alt: "Germinando plantines",
     },
     {
@@ -34,7 +34,7 @@ const steps = [
         description:
             "Las plantas van a ir creciendo y vas a ir consumiendo las hojas más grandes.",
         cta: "Cosechá en tu huerta!",
-        image: "/process/semana3-5.png",
+        image: "/process/semana3-5.webp",
         alt: "Primeras cosechas de la huerta",
     },
     {
@@ -43,7 +43,7 @@ const steps = [
         title: "Explorá nuevas variedades",
         description: "Cosechá y trasplanta nuevamente, es un ciclo que no para nunca.",
         cta: "Probá distintas variedades",
-        image: "/process/semana6.png",
+        image: "/process/semana6.webp",
         alt: "Explorando nuevas variedades",
     },
 ];
@@ -124,14 +124,12 @@ export function Process() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                     {/* Image */}
                     <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
-                        <Image
+                    <img
                             key={step.id}
                             src={step.image}
                             alt={step.alt}
-                            fill
-                            className="object-cover object-center"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            priority
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                     </div>
 

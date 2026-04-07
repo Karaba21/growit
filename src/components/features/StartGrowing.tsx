@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
 
 export const StartGrowing = () => {
@@ -12,14 +12,13 @@ export const StartGrowing = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                     {/* Card 1 */}
-                    <Link href="/catalogo" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]">
+                    <Link href="/catalogo" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]" prefetch={false}>
                         <div className="relative w-full aspect-[4/3] mb-12 flex items-center justify-center">
-                            <Image
-                                src="/todopara1.jpeg"
+                            <img
+                                src="/todopara1.webp"
                                 alt="Modelos de huertas"
-                                fill
-                                className="object-contain scale-110"
-                                sizes="(max-width: 768px) 100vw, 50vw"
+                                loading="lazy"
+                                className="absolute inset-0 w-full h-full object-contain scale-110"
                             />
                         </div>
                         <div className="flex items-center gap-3 text-primary font-display text-lg md:text-xl transition-colors">
@@ -28,14 +27,13 @@ export const StartGrowing = () => {
                     </Link>
 
                     {/* Card 2 */}
-                    <Link href="/catalogo?category=insumos" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]">
+                    <Link href="/catalogo?category=insumos" className="group block bg-white rounded-3xl p-8 pt-12 pb-10 shadow-[0_4px_40px_rgba(0,0,0,0.04)] border-2 border-primary flex flex-col items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(0,0,0,0.08)]" prefetch={false}>
                         <div className="relative w-full aspect-[4/3] mb-12 flex items-center justify-center">
-                            <Image
-                                src="/todopara2.jpeg"
+                            <img
+                                src="/todopara2.webp"
                                 alt="Insumos para Hidroponia"
-                                fill
-                                className="object-contain scale-125"
-                                sizes="(max-width: 768px) 100vw, 50vw"
+                                loading="lazy"
+                                className="absolute inset-0 w-full h-full object-contain scale-125"
                             />
                         </div>
                         <div className="flex items-center gap-3 text-primary font-display text-lg md:text-xl transition-colors">

@@ -259,9 +259,9 @@ export function CartDrawer() {
                     {/* Payment Icons */}
                     <div className="flex justify-center items-center gap-4">
                         <img src="/masterr.webp" alt="Mastercard" className="h-6 w-auto object-contain" />
-                        <img src="/VISA-Logo.png" alt="Visa" className="h-6 w-auto object-contain" />
-                        <img src="/mercadopagoo.png" alt="Mercado Pago" className="h-6 w-auto object-contain" />
-                        <img src="/abitab-removebg-preview.png" alt="Abitab" className="h-6 w-auto object-contain" />
+                        <img src="/VISA-Logo.webp" alt="Visa" className="h-6 w-auto object-contain" />
+                        <img src="/mercadopagoo.webp" alt="Mercado Pago" className="h-6 w-auto object-contain" />
+                        <img src="/abitab-removebg-preview.webp" alt="Abitab" className="h-6 w-auto object-contain" />
                     </div>
                 </div>
             </div>

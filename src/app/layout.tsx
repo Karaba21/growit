@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/ogimage.png",
+        url: "/ogimage.webp",
         width: 1200,
         height: 630,
         alt: "Growit - Cultiva tu propio alimento en casa",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Growit - Cultiva tu propio alimento en casa",
     description: "Sistema inteligente de cultivo para tu hogar. Fácil, automático y orgánico.",
-    images: ["/ogimage.png"],
+    images: ["/ogimage.webp"],
   },
   icons: {
     icon: [

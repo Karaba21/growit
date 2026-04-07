@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Product } from '../../types/product';
 import { useCart } from '../../contexts/CartContext';
 import { formatPrice } from '../../lib/utils';

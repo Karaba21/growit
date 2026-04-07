@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { useCart } from '../../contexts/CartContext';
 import { Product } from '../../types/product';
 
@@ -103,12 +103,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     {/* Image Side */}
                     <div className="w-full lg:w-1/2 max-w-lg mx-auto">
                         <div className="aspect-square relative flex items-center justify-center bg-[#EAE5D6] p-8">
-                            <Image
+                            <img
                                 src={image}
                                 alt={imageAlt}
-                                fill
-                                className="object-contain mix-blend-multiply p-8"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                loading="lazy"
+                                className="absolute inset-0 w-full h-full object-contain mix-blend-multiply p-8"
                             />
                         </div>
                     </div>
