@@ -94,7 +94,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         </div>
 
                         <div className="mt-6">
-                            <Link href="/catalogo" className="text-xs font-bold text-gray-800 uppercase tracking-widest hover:text-primary transition-colors">
+                            <Link href="/catalogo" prefetch={false} className="text-xs font-bold text-gray-800 uppercase tracking-widest hover:text-primary transition-colors">
                                 VER MÁS &gt;
                             </Link>
                         </div>
@@ -107,6 +107,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                                 src={image}
                                 alt={imageAlt}
                                 loading="lazy"
+                                decoding="async"
                                 className="absolute inset-0 w-full h-full object-contain mix-blend-multiply p-8"
                             />
                         </div>

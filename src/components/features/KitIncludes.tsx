@@ -57,7 +57,8 @@ export const KitIncludes: React.FC = () => {
                         <img
                             src="/kit.webp"
                             alt="Kit Completo Growit"
-                            loading="eager"
+                            loading="lazy"
+                            decoding="async"
                             className="object-contain max-h-[450px] md:max-h-[550px] lg:max-h-[650px] w-auto mix-blend-multiply"
                         />
                     </div>

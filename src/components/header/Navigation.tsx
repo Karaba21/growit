@@ -64,6 +64,7 @@ export const Navigation: React.FC = () => {
                     <div key={link.href} className="relative group h-full flex items-center">
                         <Link
                             href={link.href}
+                            prefetch={false}
                             onClick={(e) => handleScroll(e, link.href)}
                             className="text-base font-medium transition-colors duration-200 py-2 text-white/90 hover:text-white"
                         >
@@ -82,6 +83,7 @@ export const Navigation: React.FC = () => {
                                         <Link
                                             key={subLink.href}
                                             href={subLink.href}
+                                            prefetch={false}
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-accent font-medium transition-colors"
                                         >
                                             {subLink.label}

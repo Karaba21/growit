@@ -60,7 +60,7 @@ export const Hero = () => {
                     <img
                         src={slides[currentSlide].image}
                         alt="Hero Background"
-                        loading="eager"
+                        loading={currentSlide === 0 ? "eager" : "lazy"}
                         className="absolute inset-0 w-full h-full object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-black/40" />
@@ -89,6 +89,7 @@ export const Hero = () => {
                 >
                     <Link
                         href="/catalogo?category=huertas"
+                        prefetch={false}
                         className="inline-block py-3 px-8 bg-primary text-white font-accent font-bold text-sm md:text-base uppercase tracking-wider hover:bg-[#254040] transition-colors rounded-lg shadow-sm"
                     >
                         Ver Huertas

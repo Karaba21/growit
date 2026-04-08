@@ -159,9 +159,10 @@ export function CartDrawer() {
                                 <div key={item.id} className="flex gap-4">
                                     {/* Product Image */}
                                     <div className="w-24 h-24 flex-shrink-0 bg-gray-50 rounded-md overflow-hidden relative">
-                                        <img
-                                            src={item.images[0]?.url}
+                                        <img src={item.images[0]?.url}
                                             alt={item.images[0]?.altText || item.title}
+                                            loading="lazy"
+                                            decoding="async"
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
@@ -258,10 +259,10 @@ export function CartDrawer() {
 
                     {/* Payment Icons */}
                     <div className="flex justify-center items-center gap-4">
-                        <img src="/masterr.webp" alt="Mastercard" className="h-6 w-auto object-contain" />
-                        <img src="/VISA-Logo.webp" alt="Visa" className="h-6 w-auto object-contain" />
-                        <img src="/mercadopagoo.webp" alt="Mercado Pago" className="h-6 w-auto object-contain" />
-                        <img src="/abitab-removebg-preview.webp" alt="Abitab" className="h-6 w-auto object-contain" />
+                        <img src="/masterr.webp" alt="Mastercard" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
+                        <img src="/VISA-Logo.webp" alt="Visa" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
+                        <img src="/mercadopagoo.webp" alt="Mercado Pago" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
+                        <img src="/abitab-removebg-preview.webp" alt="Abitab" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
                     </div>
                 </div>
             </div>

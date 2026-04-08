@@ -123,6 +123,7 @@ export const Header: React.FC = () => {
                                     >
                                         <Link
                                             href={link.href}
+                                            prefetch={false}
                                             onClick={(e) => {
                                                 if (link.subLinks) {
                                                     e.preventDefault();
@@ -166,6 +167,7 @@ export const Header: React.FC = () => {
                                                         >
                                                             <Link
                                                                 href={subLink.href}
+                                                                prefetch={false}
                                                                 onClick={() => setIsMenuOpen(false)}
                                                                 className={`text-xl font-body text-white/70 hover:text-white transition-colors block w-full`}
                                                             >
